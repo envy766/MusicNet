@@ -11,6 +11,7 @@
     --card:#071028aa; --muted:#9aa3bf;
     --glass: rgba(255,255,255,0.04);
   }
+  
   *{box-sizing:border-box}
 html,body{
   height:100%;
@@ -23,6 +24,27 @@ html,body{
   display:flex;
   align-items:center;
   justify-content:center;
+}
+
+.fallback .main-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #6ef0ff, #8a4fff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.fallback .sub-title {
+  font-size: 0.3rem;
+  color: #9aa3bf;
+  text-align: center;
+  margin-top: 3px;
+  font-style: italic;
 }
 
 .wrap{
@@ -148,7 +170,8 @@ html,body{
       <!-- if cover.jpg exists it will be loaded here by JS -->
       <div class="fallback">
         <div class="logo">MN</div>
-        <div style="color:var(--muted); font-size:0.9rem">MUSIC NET</div>
+        <div class="main-title">MUSIC NET</div>
+<div class="sub-title">Created By Afrizal In Oktober 2025</div>
       </div>
     </div>
 
@@ -196,7 +219,7 @@ html,body{
       </div>
 
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <div class="small"> °° <strong> AFRIZAL </strong> °° </div>
+        <div class="small"> 📸 <strong>Ig : zyderr__</strong></div>
        <div><button class="btn" id="toggleList">Hide/Show</button></div>
       </div>
     </div>
