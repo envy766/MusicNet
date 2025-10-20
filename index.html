@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>MusicNet — Futuristic Player</title>
+<title>MusicNet — Music Player</title>
 <style>
   :root{
     --bg1:#05060a; --bg2:#071033;
@@ -92,7 +92,7 @@
     padding:10px; border-radius:8px; display:flex; align-items:center; gap:10px; cursor:pointer;
   }
   .song:hover { background: rgba(110,240,255,0.03); }
-  .song.active { background: linear-gradient(90deg, rgba(110,240,255,0.05), rgba(138,79,255,0.03)); }
+  .song.active { background: linear-gradient(90deg, rgba(110,240,255,0.3), rgba(138,79,255,0.3)); }
   .song .smeta { font-size:0.95rem; font-weight:600; }
   .song .ssub { font-size:0.82rem; color:var(--muted); }
 
@@ -123,7 +123,7 @@
       <!-- if cover.jpg exists it will be loaded here by JS -->
       <div class="fallback">
         <div class="logo">MN</div>
-        <div style="color:var(--muted); font-size:0.9rem">MusicNet</div>
+        <div style="color:var(--muted); font-size:0.9rem">Music Net</div>
       </div>
     </div>
 
@@ -187,7 +187,7 @@
    ========================= */
 const singleTrack = {
   file: "Mylist/Christina Perri - A Thousand Years (Remake) [slow].mp3",
-  title: "Christina Perri — A Thousand Years (Remake) [slow]",
+  title: "Christina Perri — A Thousand Years (Remake)",
   artist: ""
 };
 // If playlist.json exists in same folder, it should be an array of objects:
