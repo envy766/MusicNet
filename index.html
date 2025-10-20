@@ -12,21 +12,42 @@
     --glass: rgba(255,255,255,0.04);
   }
   *{box-sizing:border-box}
-  html,body{height:100%;margin:0;font-family:Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue";background:
+html,body{
+  height:100%;
+  margin:0;
+  font-family:Inter, "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue";
+  background:
     radial-gradient(800px 600px at 10% 10%, rgba(106,57,255,0.08), transparent),
-    linear-gradient(180deg,var(--bg1),var(--bg2)); color:#e6eef8;}
-  .wrap{
-    min-height:100vh; display:flex; align-items:center; justify-content:center;
-    padding:28px;
-  }
+    linear-gradient(180deg,var(--bg1),var(--bg2));
+  color:#e6eef8;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
 
-  .player {
-    width:100%; max-width:980px; border-radius:18px; padding:20px;
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    box-shadow: 0 10px 40px rgba(7,10,30,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
-    display:grid; grid-template-columns: 300px 1fr 320px; gap:18px; align-items:center;
-    backdrop-filter: blur(8px);
-  }
+.wrap{
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+}
+
+.player{
+  margin-top: 70px;
+  width:100%;
+  max-width:980px;
+  border-radius:18px;
+  padding:20px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 10px 40px rgba(7,10,30,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  display:grid;
+  grid-template-columns: 300px 1fr 300px;
+  gap:18px;
+  align-items:center;
+  backdrop-filter: blur(8px);
+}
 
   /* left: cover */
   .cover {
@@ -90,9 +111,11 @@
   }
   .song {
     padding:10px; border-radius:8px; display:flex; align-items:center; gap:10px; cursor:pointer;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
   }
-  .song:hover { background: rgba(110,240,255,0.03); }
-  .song.active { background: linear-gradient(90deg, rgba(110,240,255,0.3), rgba(138,79,255,0.3)); }
+  .song:hover { background: rgba(110,240,255,0.2); }
+  .song.active { background: linear-gradient(90deg, rgba(110,240,255,0.3), rgba(138,79,255,0.3)); box-shadow: 0 0 17px rgba(110,240,255,0.4);
+  }
   .song .smeta { font-size:0.95rem; font-weight:600; }
   .song .ssub { font-size:0.82rem; color:var(--muted); }
 
@@ -124,11 +147,6 @@
       <div class="fallback">
         <div class="logo">MN</div>
         <div style="color:var(--muted); font-size:0.9rem">MUSIC NET</div>
-</div>
-<footer style="margin-top:10px;font-size:4px;text-align:center;color:var(--muted);">
-Created By Afrizal In Oktober 2025
-</footer>
-</div>
       </div>
     </div>
 
@@ -176,7 +194,12 @@ Created By Afrizal In Oktober 2025
       </div>
 
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <div class="small"> ~~~ <strong> AFRIZAL </strong> ~~~ </div>
+        <div class="small"> ° <strong> ° </strong> ° </div>
+        </div>
+<footer style="margin-top:9px;font-size:5px;text-align:center;color:var(--muted);">
+Created By Afrizal In Oktober 2025
+</footer>
+</div>
         <div><button class="btn" id="toggleList">Hide/Show</button></div>
       </div>
     </div>
