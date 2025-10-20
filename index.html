@@ -35,9 +35,9 @@ html,body{
 }
 
 .player{
-  margin-top: 70px;
+  margin-top: 90px;
   width:100%;
-  max-width:980px;
+  max-width:1120px;
   border-radius:18px;
   padding:20px;
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
@@ -194,13 +194,8 @@ html,body{
       </div>
 
       <div style="display:flex; justify-content:space-between; align-items:center;">
-        <div class="small"> ° <strong> ° </strong> ° </div>
-        </div>
-<footer style="margin-top:9px;font-size:5px;text-align:center;color:var(--muted);">
-Created By Afrizal In Oktober 2025
-</footer>
-</div>
-        <div><button class="btn" id="toggleList">Hide/Show</button></div>
+        <div class="small"> °° <strong> AFRIZAL </strong> °° </div>
+       <div><button class="btn" id="toggleList">Hide/Show</button></div>
       </div>
     </div>
   </div>
@@ -337,6 +332,23 @@ playBtn.addEventListener('click', ()=> {
   if (audio.paused) {
     audio.play().catch(()=> status.textContent = "Tap play to start audio");
   } else audio.pause();
+});
+playBtn.addEventListener('click', ()=> {
+  if (audio.paused) {
+    audio.play().catch(()=> status.textContent = "Tap play to start audio");
+  } else {
+    audio.pause();
+  }
+});
+// Ganti ikon saat status berubah
+audio.addEventListener('play', ()=> {
+  playBtn.textContent = '⏸️'; // tampilkan ikon pause
+});
+audio.addEventListener('pause', ()=> {
+  playBtn.textContent = '▶️'; // tampilkan ikon play
+});
+audio.addEventListener('ended', ()=> {
+  playBtn.textContent = '▶️'; // kembali ke play saat lagu selesai
 });
 prevBtn.addEventListener('click', ()=> {
   if (audio.currentTime > 3) { audio.currentTime = 0; }
