@@ -26,193 +26,293 @@ body {
   overflow:hidden;
   position:relative;
 }
-canvas#bg {
+canvas#bg { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
+
+body::after {
+  content:"Created By Afrizal In October 2025";
   position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  z-index:-1;
-}
-.player {
-  width:320px;
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.05);
-  border-radius:16px;
-  box-shadow:0 0 20px rgba(110,240,255,0.15);
-  padding:18px;
-  text-align:center;
-  position:relative;
-  z-index:1;
+  bottom:4px;
+  left:4px;
+  font-size:7px;
+  color:rgba(255,255,255,0.3);
+  pointer-events:none;
+  z-index:0;
 }
 
-/* toolbar: search + genre + favorites toggle */
-.toolbar {
-  display:flex;
-  gap:8px;
-  align-items:center;
-  margin-bottom:8px;
-}
-.search{
-  flex:1;
-  padding:6px 8px;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,0.06);
-  background:rgba(255,255,255,0.02);
-  color:#fff;
-  font-size:0.85rem;
-}
-.select, .fav-toggle {
-  padding:6px 8px;
-  border-radius:8px;
-  border:1px solid rgba(255,255,255,0.06);
-  background:transparent;
-  color:var(--neon1);
-  font-size:0.85rem;
-  cursor:pointer;
-}
-
-/* logo + visualizer */
-#logo {
-  width:90px;
-  height:90px;
-  border-radius:50%;
-  background:radial-gradient(circle,var(--accent),transparent);
-  margin:auto;
-  box-shadow:0 0 25px var(--accent);
-  animation:rotate 6s linear infinite paused;
-  transition:transform .12s linear, box-shadow .12s linear;
-}
-@keyframes rotate {
-  from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
-}
-#visualizer {
-  width:100%;
-  height:30px;
-  display:flex;
-  justify-content:center;
-  align-items:end;
-  gap:3px;
-  margin-top:12px;
-}
-#visualizer span {
-  width:5px;
-  height:6px;
-  background:var(--accent);
-  border-radius:3px;
-  box-shadow:0 0 6px var(--accent);
-  transition:height 0.08s linear, opacity 0.12s linear;
-}
-
-/* info & controls */
+.player { width:320px; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.05); border-radius:16px; box-shadow:0 0 20px rgba(110,240,255,0.15); padding:18px; text-align:center; position:relative; z-index:1; }
+.toolbar { display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+.search{ flex:1; padding:6px 8px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:rgba(255,255,255,0.02); color:#fff; font-size:0.85rem; }
+.select, .fav-toggle { padding:6px 8px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--neon1); font-size:0.85rem; cursor:pointer; }
+#logo { width:90px; height:90px; border-radius:50%; background:radial-gradient(circle,var(--accent),transparent); margin:auto; box-shadow:0 0 25px var(--accent); animation:rotate 6s linear infinite paused; transition:transform .12s linear, box-shadow .12s linear; }
+@keyframes rotate { from {transform:rotate(0deg);} to {transform:rotate(360deg);} }
+#visualizer { width:100%; height:30px; display:flex; justify-content:center; align-items:end; gap:3px; margin-top:12px; }
+#visualizer span { width:5px; height:6px; background:var(--accent); border-radius:3px; box-shadow:0 0 6px var(--accent); transition:height 0.08s linear, opacity 0.12s linear; }
 .title { margin-top:14px; font-weight:bold; font-size:1.05rem; word-break:break-word; }
 .artist { opacity:0.7; font-size:0.85rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
-.controls {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:16px;
-  position:relative;
-}
-.big {
-  width:65px; height:65px; border-radius:50%;
-  background:radial-gradient(circle at top,var(--accent),rgba(255,255,255,0.05));
-  display:grid; place-items:center; font-size:26px; cursor:pointer; border:none; color:white;
-  transition:all 0.2s ease; box-shadow:0 0 18px rgba(110,240,255,0.25);
-}
+.controls { display:flex; align-items:center; justify-content:space-between; margin-top:16px; position:relative; }
+.big { width:65px; height:65px; border-radius:50%; background:radial-gradient(circle at top,var(--accent),rgba(255,255,255,0.05)); display:grid; place-items:center; font-size:26px; cursor:pointer; border:none; color:white; transition:all 0.2s ease; box-shadow:0 0 18px rgba(110,240,255,0.25); }
 .big:hover { transform:scale(1.07); box-shadow:0 0 25px var(--accent); }
-.btn {
-  padding:6px 8px; border-radius:8px; cursor:pointer; background:transparent;
-  border:1px solid rgba(255,255,255,0.06); color:var(--neon1); font-size:0.85rem;
-}
+.btn { padding:6px 8px; border-radius:8px; cursor:pointer; background:transparent; border:1px solid rgba(255,255,255,0.06); color:var(--neon1); font-size:0.85rem; }
 .btn.active { color:#fff; text-shadow:0 0 10px var(--accent); }
-
-/* volume & progress */
 .volume-container { display:flex; align-items:center; gap:8px; margin-top:10px; justify-content:center;}
 #volume { width:70%; accent-color:var(--accent); }
 .progress { width:100%; height:6px; background:rgba(255,255,255,0.07); border-radius:4px; margin-top:12px; overflow:hidden;}
 .progress .bar { width:0%; height:100%; background:var(--accent); transition:width 0.15s linear; }
-
-/* playlist */
 .playlist { margin-top:12px; text-align:left; max-height:120px; overflow-y:auto; font-size:0.85rem; padding-right:6px;}
-.item {
-  padding:6px 8px; border-bottom:1px solid rgba(255,255,255,0.05);
-  display:flex; align-items:center; justify-content:space-between; gap:8px; cursor:pointer;
-}
+.item { padding:6px 8px; border-bottom:1px solid rgba(255,255,255,0.05); display:flex; align-items:center; justify-content:space-between; gap:8px; cursor:pointer; }
 .item .meta { flex:1; overflow:hidden; }
 .item .meta .t { font-weight:600; font-size:0.95rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .item .meta .a { font-size:0.80rem; color:rgba(255,255,255,0.75); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .item.active { color:var(--accent); text-shadow:0 0 8px var(--accent);}
 .fav { color:rgba(255,255,255,0.35); cursor:pointer; font-size:1.05rem; user-select:none; }
 .fav.active { color:var(--accent3); text-shadow:0 0 6px var(--accent3); }
-
-/* background credit text */
-.footer-credit {
-  position:fixed;
-  bottom:6px;
-  right:10px;
-  font-size:7px;
-  color:rgba(255,255,255,0.25);
-  letter-spacing:0.5px;
-  user-select:none;
-  font-weight:300;
-  text-shadow:0 0 4px rgba(255,255,255,0.15);
-  z-index:0;
-}
-
-/* responsive small fix */
-@media (max-width:420px) {
-  .player{ width:92%; max-width:360px; }
-}
+@media (max-width:420px) { .player{ width:92%; max-width:360px; } }
 </style>
 </head>
 <body>
 <canvas id="bg"></canvas>
-
-<!-- credit background text -->
-<div class="footer-credit">Created By Afrizal In Oktober 2025</div>
-
 <div class="player" aria-live="polite">
-  <!-- toolbar: search + genre + favorites-only toggle -->
   <div class="toolbar" style="margin-bottom:10px;">
     <input id="search" class="search" placeholder="Cari lagu atau artis..." />
     <select id="genreSelect" class="select" title="Filter genre">
       <option value="all">All</option>
+      <option value="pop">Pop</option>
+      <option value="poprock">Poprock</option>
+      <option value="slow">Slow</option>
+      <option value="breakbeat">Breakbeat</option>
+      <option value="cover">Cover</option>
     </select>
-    <button id="favOnly" class="fav-toggle btn" title="Tampilkan favorit">☆ Fav</button>
+    <button id="favOnly" class="fav-toggle btn" title="Tampilkan favorit">★ Fav</button>
   </div>
-
   <div id="logo" aria-hidden="true"></div>
   <div id="visualizer" aria-hidden="true">
     <span></span><span></span><span></span><span></span><span></span>
     <span></span><span></span><span></span><span></span><span></span>
   </div>
-
   <div class="title" id="title">Memuat...</div>
   <div class="artist" id="artist"></div>
-
   <div class="controls" role="group" aria-label="Kontrol audio">
     <button id="shuffle" class="btn" title="Shuffle">🔀</button>
-    <button id="prev" class="btn" title="Previous">⏮</button>
+    <button id="prev" class="btn" title="Previous">⏮️</button>
     <button id="play" class="big" title="Play">▶️</button>
-    <button id="next" class="btn" title="Next">⏭</button>
+    <button id="next" class="btn" title="Next">⏭️</button>
     <button id="repeat" class="btn" title="Repeat">🔁</button>
   </div>
-
   <div class="volume-container">
     <input type="range" id="volume" min="0" max="1" step="0.01" />
-    <button id="mute" class="btn">🔈</button>
+    <button id="mute" class="btn">🔊</button>
   </div>
-
   <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
     <div class="bar" id="progress-bar"></div>
   </div>
-
   <audio id="audio" crossorigin="anonymous"></audio>
   <div class="playlist" id="playlist" role="list"></div>
 </div>
 
 <script>
-/* seluruh bagian JS tetap sama — tidak diubah sedikit pun */
+// --- Audio visualizer & background ---
+const canvas = document.getElementById('bg'), ctx = canvas.getContext('2d'); let w,h;
+function resizeCanvas(){ w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+window.addEventListener('resize', resizeCanvas); resizeCanvas();
+const particles = []; for(let i=0;i<80;i++) particles.push({ x: Math.random()*w, y: Math.random()*h, r: Math.random()*2+0.6, dx:(Math.random()-0.5)*0.4, dy:(Math.random()-0.5)*0.4 });
+
+let audioCtx, analyser, dataArray; let beatLevel=0; window.__music_overall=0;
+function setupAudioAnalyzer(audioEl){
+  if(audioCtx) return;
+  audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+  const src = audioCtx.createMediaElementSource(audioEl);
+  analyser = audioCtx.createAnalyser();
+  analyser.fftSize = 256;
+  dataArray = new Uint8Array(analyser.frequencyBinCount);
+  src.connect(analyser); analyser.connect(audioCtx.destination);
+}
+function drawBg(){
+  requestAnimationFrame(drawBg);
+  ctx.clearRect(0,0,w,h);
+  if(analyser){ analyser.getByteFrequencyData(dataArray);
+    const lowCount=Math.max(4,Math.floor(dataArray.length*0.08));
+    let sum=0; for(let i=0;i<lowCount;i++) sum+=dataArray[i];
+    const avg=sum/lowCount/255;
+    let total=0; for(let i=0;i<dataArray.length;i++) total+=dataArray[i];
+    const overall=total/dataArray.length/255;
+    beatLevel=Math.max(beatLevel*0.85, avg);
+    window.__music_overall = overall;
+  } else { beatLevel*=0.92; window.__music_overall = Math.max(0, window.__music_overall*0.98); }
+  const time = Date.now()*0.001;
+  for(let i=0;i<w;i+=6){
+    const amp=20+60*beatLevel;
+    const y=h/2+Math.sin(i*0.012+time)*amp+Math.sin(i*0.006+time*2)*(amp*0.6);
+    ctx.fillStyle = `rgba(110,240,255,${0.18+beatLevel*0.6})`;
+    ctx.fillRect(i,y,2,2);
+  }
+  const overall = window.__music_overall||0;
+  particles.forEach(p=>{
+    p.x+=p.dx*(1+overall*2); p.y+=p.dy*(1+overall*2);
+    if(p.x<-10)p.x=w+10; if(p.x>w+10)p.x=-10;
+    if(p.y<-10)p.y=h+10; if(p.y>h+10)p.y=-10;
+    ctx.beginPath(); ctx.arc(p.x,p.y,p.r*(1+overall*1.5),0,Math.PI*2);
+    ctx.fillStyle=`rgba(138,79,255,${0.18+overall*0.5})`; ctx.fill();
+  });
+}
+drawBg();
+
+// --- Player logic ---
+const playlistURL="playlist.json"; const audio=document.getElementById('audio'); const playBtn=document.getElementById('play'); const prevBtn=document.getElementById('prev'); const nextBtn=document.getElementById('next'); const shuffleBtn=document.getElementById('shuffle'); const repeatBtn=document.getElementById('repeat'); const titleEl=document.getElementById('title'); const artistEl=document.getElementById('artist'); const progressBar=document.getElementById('progress-bar'); const playlistEl=document.getElementById('playlist'); const searchInput=document.getElementById('search'); const genreSelect=document.getElementById('genreSelect'); const favOnlyBtn=document.getElementById('favOnly'); const logoEl=document.getElementById('logo'); const visualBars=document.querySelectorAll('#visualizer span'); const volumeSlider=document.getElementById('volume'); const muteBtn=document.getElementById('mute');
+
+let playlist=[], filteredIndexes=[], favorites=JSON.parse(localStorage.getItem('musicnet_favorites')||'[]'); let currentIndex=0, isPlaying=false, isShuffle=false, isRepeat=false, showFavOnly=false, visInterval=null;
+
+function parseGenre(title){ if(!title) return 'unknown'; const m=title.match(/([^]+)\]/); return m?m[1].toLowerCase():'unknown'; }
+
+async function loadPlaylist(){
+  try{
+    const res = await fetch(playlistURL,{cache:'no-store'});
+    if(!res.ok) throw new Error('playlist.json not found');
+    playlist = await res.json();
+    applyFilters();
+    const saved = JSON.parse(localStorage.getItem('musicnet_last')||'{}');
+    if(saved && typeof saved.index==='number' && playlist[saved.index]){ currentIndex=saved.index; loadTrack(currentIndex); if(saved.time) audio.currentTime=saved.time; } 
+    else { if(playlist.length) loadTrack(0); }
+  }catch(err){ console.error(err); titleEl.textContent='Gagal memuat playlist.json'; }
+}
+
+function applyFilters(){
+  const q=(searchInput.value||'').trim().toLowerCase();
+  const genre=genreSelect.value||'all';
+  playlistEl.innerHTML=''; filteredIndexes=[];
+  playlist.forEach((t,i)=>{
+    if(showFavOnly && !favorites.includes(t.file)) return;
+    if(genre!=='all' && parseGenre(t.title)!==genre) return;
+    const searchable=((t.title||'')+' '+(t.artist||'')).toLowerCase();
+    if(q && !searchable.includes(q)) return;
+    filteredIndexes.push(i);
+  });
+  filteredIndexes.forEach(i=>addPlaylistItem(i));
+}
+
+function addPlaylistItem(i){
+  const t=playlist[i];
+  const div=document.createElement('div'); div.className='item';
+  if(i===currentIndex) div.classList.add('active'); div.setAttribute('data-i',i);
+  const meta=document.createElement('div'); meta.className='meta';
+  const tt=document.createElement('div'); tt.className='t'; tt.textContent=t.title||'Tanpa Judul';
+  const aa=document.createElement('div'); aa.className='a'; aa.textContent=t.artist||''; meta.appendChild(tt); meta.appendChild(aa);
+  const fav=document.createElement('div'); fav.className='fav'; fav.textContent=favorites.includes(t.file)?'★':'☆'; if(favorites.includes(t.file)) fav.classList.add('active');
+
+  div.onclick=(e)=>{
+    if(e.target===fav || e.target.classList.contains('fav')){ toggleFavorite(t.file,fav); e.stopPropagation(); return; }
+    currentIndex=i; loadTrack(currentIndex); playAudio();
+  };
+  div.appendChild(meta); div.appendChild(fav); playlistEl.appendChild(div);
+}
+
+function toggleFavorite(file, domEl){
+  if(favorites.includes(file)){ favorites=favorites.filter(f=>f!==file); domEl.textContent='☆'; domEl.classList.remove('active'); }
+  else{ favorites.push(file); domEl.textContent='★'; domEl.classList.add('active'); }
+  localStorage.setItem('musicnet_favorites',JSON.stringify(favorites));
+}
+
+function loadTrack(i){
+  if(!playlist[i]) return;
+  currentIndex=i;
+  const t=playlist[i];
+  audio.src=t.file; titleEl.textContent=t.title||'Tanpa Judul'; artistEl.textContent=t.artist||'';
+  document.querySelectorAll('.item').forEach(el=>{ el.classList.toggle('active',Number(el.getAttribute('data-i'))===i); });
+  saveLast();
+}
+
+function playAudio(){ try{ if(!audioCtx) setupAudioAnalyzer(audio); }catch(e){ console.warn(e); } audio.play().catch(()=>{}); isPlaying=true; playBtn.textContent='⏸️'; logoEl.style.animationPlayState='running'; startVisualizer(); }
+function pauseAudio(){ audio.pause(); isPlaying=false; playBtn.textContent='▶️'; logoEl.style.animationPlayState='paused'; stopVisualizer(); }
+playBtn.onclick=()=>isPlaying?pauseAudio():playAudio();
+
+prevBtn.onclick=()=>{ if(audio.currentTime>3){ audio.currentTime=0; return; } currentIndex=(currentIndex-1+playlist.length)%playlist.length; loadTrack(currentIndex); playAudio(); };
+nextBtn.onclick=()=>nextTrack();
+function nextTrack(){ if(isRepeat){ audio.currentTime=0; playAudio(); return; } currentIndex=isShuffle?Math.floor(Math.random()*playlist.length):(currentIndex+1)%playlist.length; loadTrack(currentIndex); playAudio(); }
+
+shuffleBtn.onclick=()=>{ isShuffle=!isShuffle; shuffleBtn.classList.toggle('active',isShuffle); };
+repeatBtn.onclick=()=>{ isRepeat=!isRepeat; repeatBtn.classList.toggle('active',isRepeat); };
+
+audio.ontimeupdate=()=>{
+  if(audio.duration && !isNaN(audio.duration)){ const pct=(audio.currentTime/audio.duration)*100; progressBar.style.width=pct+'%'; if(Math.floor(audio.currentTime)%2===0) saveLast(); }
+  const glow=6+(beatLevel||0)*40; const scale=1+(beatLevel||0)*0.18;
+  logoEl.style.boxShadow=`0 0 ${Math.max(8,glow)}px rgba(110,240,255,${0.2+(beatLevel||0)*0.6})`;
+  logoEl.style.transform=`scale(${scale})`;
+};
+
+progressBar.parentElement.onclick=(e)=>{
+  const rect=progressBar.parentElement.getBoundingClientRect();
+  const x=e.clientX-rect.left;
+  const pct=Math.max(0,Math.min(1,x/rect.width));
+  if(audio.duration) audio.currentTime=pct*audio.duration;
+};
+
+volumeSlider.value = localStorage.getItem('musicnet_volume') || 0.6;
+audio.volume = volumeSlider.value;
+volumeSlider.oninput = () => {
+  audio.volume = volumeSlider.value;
+  localStorage.setItem('musicnet_volume', audio.volume);
+};
+
+muteBtn.onclick = () => {
+  if(audio.volume > 0){
+    audio.dataset.prevVol = audio.volume;
+    audio.volume = 0;
+    volumeSlider.value = 0;
+  } else {
+    audio.volume = audio.dataset.prevVol || 0.6;
+    volumeSlider.value = audio.volume;
+  }
+};
+
+function startVisualizer(){
+  if(visInterval) clearInterval(visInterval);
+  visInterval = setInterval(()=>{
+    if(!analyser) return;
+    analyser.getByteFrequencyData(dataArray);
+    visualBars.forEach((bar,i)=>{
+      const val = dataArray[i] || 0;
+      bar.style.height = (val/255*20+6)+'px';
+      bar.style.opacity = 0.3 + (val/255)*0.7;
+    });
+  },80);
+}
+
+function stopVisualizer(){
+  if(visInterval) clearInterval(visInterval);
+  visInterval=null;
+  visualBars.forEach(bar=>{
+    bar.style.height='6px';
+    bar.style.opacity=0.3;
+  });
+}
+
+searchInput.oninput = applyFilters;
+genreSelect.onchange = applyFilters;
+favOnlyBtn.onclick = () => {
+  showFavOnly = !showFavOnly;
+  favOnlyBtn.classList.toggle('active', showFavOnly);
+  applyFilters();
+};
+
+audio.onended = () => { nextTrack(); };
+
+function saveLast(){
+  localStorage.setItem('musicnet_last', JSON.stringify({index:currentIndex, time:audio.currentTime}));
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', e=>{
+  if(e.code==='Space'){ e.preventDefault(); isPlaying?pauseAudio():playAudio(); }
+  if(e.code==='ArrowRight') nextTrack();
+  if(e.code==='ArrowLeft'){
+    if(audio.currentTime>3){ audio.currentTime=0; }
+    else { currentIndex=(currentIndex-1+playlist.length)%playlist.length; loadTrack(currentIndex); playAudio(); }
+  }
+  if(e.code==='KeyM') muteBtn.click();
+});
+
+// Initial load
+loadPlaylist();
 </script>
 </body>
 </html>
+  
