@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-import os, json, shutil
+import os, json, shutil, re
 
 # Folder internal storage Android
 internal_mylist = '/storage/emulated/0/MusicNet/Mylist'
@@ -20,11 +20,18 @@ for fn in sorted(os.listdir(internal_mylist)):
         dst = os.path.join(local_mylist, fn)
         # Copy file ke folder lokal Termux
         shutil.copy2(src, dst)
-        title = os.path.splitext(fn)[0]
+
+        # Ambil genre dari nama file [pop][slow][cover] dst
+        tags = [m.lower() for m in re.findall(r'\[([^\]]+)\]', fn)]
+
+        # Bersihkan title dari tag
+        title_clean = re.sub(r'\[[^\]]+\]', '', os.path.splitext(fn)[0]).strip()
+
         tracks.append({
             "file": f"Mylist/{fn}",
-            "title": title,
-            "artist": ""
+            "title": title_clean,
+            "artist": "",
+            "tags": tags
         })
 
 # Buat playlist.json di folder lokal Termux

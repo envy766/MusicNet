@@ -26,11 +26,11 @@ canvas#bg{
   inset:0;
   width:100%;
   height:100%;
-  z-index:0;                /* changed: base layer (was -2) */
-  pointer-events:none;      /* allow clicks through canvas */
+  z-index:0;
+  pointer-events:none;
 }
 
-/* page footer (background center bottom) */
+/* page footer */
 .page-footer{
   position:fixed;
   left:50%;
@@ -39,31 +39,31 @@ canvas#bg{
   font-size:11px;
   color:rgba(255,255,255,0.06);
   pointer-events:none;
-  z-index:1;                /* above canvas but below player */
+  z-index:1;
   letter-spacing:0.4px;
 }
 
-/* player */
-.player{
-  width:380px;
-  max-width:95vw;
-  max-height:86vh;
-  /* make background semi-transparent so canvas shows through */
-  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-  border:1px solid rgba(255,255,255,0.04);
-  border-radius:14px;
-  box-shadow:0 20px 60px rgba(2,6,23,0.6);
-  padding:14px;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-  position:relative;
-  overflow:hidden;
-  z-index:2;                 /* top layer */
-  backdrop-filter: blur(6px);/* blur background to blend with canvas */
+.player {
+  width: 380px;
+  max-width: 95vw;
+  max-height: 86vh;
+
+  background: rgba(255, 255, 255, 0); /* full transparan */
+  border: 1px solid rgba(255, 255, 255, 0.06); /* tipis, tetap ada bingkai */
+  border-radius: 14px;
+
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15); /* opsional, agar container tetap terlihat */
+  z-index: 2;
 }
 
-/* toolbar (search, genre, hide/show, fav-only) */
+/* toolbar */
 .toolbar{display:flex;gap:8px;align-items:center;}
 .search{
   flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);
@@ -79,7 +79,7 @@ canvas#bg{
   background:transparent;color:var(--neon);cursor:pointer;
 }
 
-/* genre panel (custom multi-select) */
+/* genre panel */
 .genre-panel{
   position:absolute;
   top:56px;
@@ -102,7 +102,7 @@ canvas#bg{
 }
 .genre-chip input{accent-color:var(--accent);}
 
-/* header area: logo + visualizer */
+/* header: logo + visualizer */
 .top {
   display:flex;flex-direction:column;align-items:center;gap:8px;
 }
@@ -120,25 +120,44 @@ canvas#bg{
 .title{font-weight:700;font-size:1.05rem;text-align:center;line-height:1.1}
 .artist{font-size:0.85rem;color:rgba(255,255,255,0.75);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 
-/* controls row */
+/* controls */
 .controls{display:flex;align-items:center;justify-content:space-between;gap:8px}
 .btn{padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--neon);cursor:pointer}
 .btn.active{color:#fff;text-shadow:0 0 10px var(--accent)}
 .big{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.06);font-size:26px;cursor:pointer}
 
-/* volume/progress row */
+/* volume/progress */
 .row{display:flex;align-items:center;gap:8px}
 .volume-container{display:flex;align-items:center;gap:8px;flex:1}
 #volume{width:100%;accent-color:var(--accent)}
 .time{font-size:0.82rem;color:rgba(255,255,255,0.72);min-width:46px;text-align:center}
 
-/* progress bar */
-.progress{width:100%;height:8px;background:rgba(255,255,255,0.03);border-radius:999px;position:relative;cursor:pointer}
-.progress .bar{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--accent),var(--accent2));box-shadow:0 6px 20px rgba(110,240,255,0.08);transition:width .1s linear}
+/* progress bar - jalur putih tipis */
+.progress {
+  width: 100%;
+  height: 8px;
+  background-color: rgba(255, 255, 255, 0.15); /* ini jalur dasar */
+  border-radius: 999px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
 
-/* playlist area expanded - responsive height */
+/* bar progres di atas jalur */
+.progress .bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+  box-shadow: 0 6px 20px rgba(110,240,255,0.08);
+  transition: width 0.1s linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* playlist */
 .playlist-wrap{flex:1;overflow:hidden;display:flex;flex-direction:column;gap:6px}
-/* adjust max height relative to viewport so more items visible */
 .playlist{overflow:auto;padding-right:6px;border-radius:8px;max-height:calc(100vh - 340px)}
 .item{
   padding:8px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:8px;
@@ -150,15 +169,15 @@ canvas#bg{
 .item .a{font-size:0.78rem;color:rgba(255,255,255,0.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .item.active{background:linear-gradient(90deg, rgba(110,240,255,0.06), rgba(138,79,255,0.06));box-shadow:0 0 12px rgba(110,240,255,0.08)}
 
-/* favorite star */
+/* favorite */
 .fav{font-size:1.1rem;color:rgba(255,255,255,0.45);user-select:none;padding-left:8px}
 .fav.active{color:var(--accent3);text-shadow:0 0 8px var(--accent3)}
 
-/* playback rate display */
+/* playback rate */
 #rateDisplay{font-size:0.8rem;color:rgba(255,255,255,0.7);min-width:42px;text-align:center}
 
 /* hide playlist */
-.playlist.hidden{display:none}
+.playlist-wrap.hidden { display: none; }
 
 /* responsive */
 @media(max-width:420px){
@@ -173,11 +192,9 @@ canvas#bg{
 <div class="player" aria-live="polite">
   <div class="toolbar" style="position:relative;">
     <input id="search" class="search" placeholder="Cari lagu atau artis..." aria-label="Cari lagu" />
-    <button id="genreBtn" class="select-btn" aria-haspopup="true" aria-expanded="false">Genre ▾</button>
-    <div id="genrePanel" class="genre-panel" style="display:none;">
-      <!-- chips inserted by JS -->
-    </div>
-    <button id="toggleList" class="icon-btn" title="Hide/show playlist">▤</button>
+    <button id="genreBtn" class="select-btn" aria-haspopup="true" aria-expanded="false">Genre ▼</button>
+    <div id="genrePanel" class="genre-panel" style="display:none;"></div>
+    <button id="toggleList" class="icon-btn" title="Hide/show playlist">▼</button>
     <button id="favOnly" class="icon-btn" title="Tampilkan favorit">★</button>
   </div>
 
@@ -229,8 +246,8 @@ canvas#bg{
 
 <script>
 /* ------------------------
-   Background canvas (reactive)
-   ------------------------ */
+   Background canvas & audio visualizer
+------------------------ */
 const canvas = document.getElementById('bg');
 const ctx = canvas.getContext('2d');
 let W = canvas.width = innerWidth;
@@ -294,12 +311,30 @@ function draw(){
     ctx.fillStyle = `rgba(138,79,255,${0.06 + overall*0.45})`;
     ctx.fill();
   });
+
+  const logo = document.getElementById('logo');
+  if(logo){
+    const scale = 1 + beatLevel*0.25;
+    const shadow = 20 + beatLevel*40;
+    logo.style.transform = `scale(${scale})`;
+    logo.style.boxShadow = `0 0 ${shadow}px rgba(110,240,255,0.35), 0 0 ${shadow/2}px rgba(138,79,255,0.25)`;
+  }
+
+  const bars = document.querySelectorAll('#visualizer span');
+  if(analyser && bars.length){
+    for(let i=0;i<bars.length;i++){
+      const v = dataArray[i*2]/255;
+      bars[i].style.height = `${8 + v*28}px`;
+      bars[i].style.opacity = `${0.4 + v*0.6}`;
+    }
+  }
 }
 draw();
 
+
 /* ------------------------
    Player logic
-   ------------------------ */
+------------------------ */
 const playlistURL = 'playlist.json';
 const audio = document.getElementById('audio');
 const playBtn = document.getElementById('play');
@@ -337,9 +372,9 @@ let showFavOnly = false;
 let visInterval = null;
 
 const ALLOWED_GENRES = ['pop','poprock','slow','breakbeat','cover'];
-let selectedGenres = []; // multi-select
+let selectedGenres = [];
 
-/* parse genre from track tags (we assume playlist uses t.tags array) */
+/* parse genre from track tags */
 function tagsToLower(arr){
   return (arr||[]).map(x=>String(x).toLowerCase().trim());
 }
@@ -350,7 +385,6 @@ async function loadPlaylist(){
     const res = await fetch(playlistURL, {cache:'no-store'});
     if(!res.ok) throw new Error('playlist.json not found');
     playlist = await res.json();
-    // normalize: ensure each track has .file and .tags array
     playlist = playlist.map(p=>{
       return {
         file: p.url || p.file || p.src || '',
@@ -372,20 +406,20 @@ async function loadPlaylist(){
   }
 }
 
-/* build genre panel as chips with checkboxes (transparent theme) */
+/* build genre panel with checkboxes */
 function buildGenrePanel(){
   genrePanel.innerHTML = '';
   ALLOWED_GENRES.forEach(g=>{
-    const chip = document.createElement('label');
-    chip.className = 'genre-chip';
-    chip.innerHTML = `<input type="checkbox" value="${g}" ${selectedGenres.includes(g)?'checked':''}/> ${g}`;
-    chip.addEventListener('click', (ev)=>{
-      const cb = chip.querySelector('input');
-      cb.checked = !cb.checked;
-      toggleGenre(g, cb.checked);
-      ev.stopPropagation();
-    });
-    genrePanel.appendChild(chip);
+    const label = document.createElement('label');
+    label.className = 'genre-chip';
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.value = g;
+    cb.checked = selectedGenres.includes(g);
+    cb.addEventListener('change', ()=> toggleGenre(g, cb.checked));
+    label.appendChild(cb);
+    label.appendChild(document.createTextNode(' ' + g));
+    genrePanel.appendChild(label);
   });
 }
 
@@ -399,26 +433,26 @@ function toggleGenre(g, checked){
   applyFilters();
 }
 
-/* apply filters: search, selectedGenres (multi), favorites */
+/* apply filters: search, genre, favorites */
 function applyFilters(){
   const q = (searchInput.value||'').trim().toLowerCase();
   playlistEl.innerHTML = '';
   filteredIndexes = [];
   playlist.forEach((t,i)=>{
     if(showFavOnly && !favorites.includes(t.file)) return;
-    if(selectedGenres.length){
-      // include track if any of its tags intersects selectedGenres
-      const ok = t.tags.some(tag => selectedGenres.includes(tag));
-      if(!ok) return;
-    }
+
+    const cleanTags = (t.tags||[]).map(tag => tag.replace(/\[|\]/g,'').toLowerCase());
+    if(selectedGenres.length && !cleanTags.some(tag => selectedGenres.includes(tag))) return;
+
     const searchable = ((t.title||'') + ' ' + (t.artist||'')).toLowerCase();
     if(q && !searchable.includes(q)) return;
+
     filteredIndexes.push(i);
   });
   filteredIndexes.forEach(i => createListItem(i));
 }
 
-/* create list DOM item */
+/* create list item */
 function createListItem(i){
   const t = playlist[i];
   const row = document.createElement('div');
@@ -437,7 +471,6 @@ function createListItem(i){
   row.appendChild(meta);
   row.appendChild(fav);
 
-  // click handlers
   row.addEventListener('click', (ev) => {
     if(ev.target === fav || ev.target.classList.contains('fav')){
       toggleFavorite(t.file, fav);
@@ -478,10 +511,12 @@ function loadTrack(i){
   saveLast();
 }
 
-/* play/pause */
+/* ------------------------
+   Play / Pause
+------------------------ */
 function playAudio(){
   try{ if(!audioCtx) setupAudioAnalyzer(audio); }catch(e){ console.warn(e) }
-  audio.play().catch(()=>{ /* may be blocked until gesture */ });
+  audio.play().catch(()=>{});
   isPlaying = true;
   playBtn.textContent = '⏸️';
   logoEl.style.animationPlayState = 'running';
@@ -496,7 +531,42 @@ function pauseAudio(){
 }
 playBtn.addEventListener('click', ()=> isPlaying ? pauseAudio() : playAudio());
 
-/* prev/next */
+
+/* ------------------------
+   Volume / Mute
+------------------------ */
+let lastVolume = 1;
+audio.volume = volumeSlider.value || 1;
+
+// slider volume
+volumeSlider.addEventListener('input', (e)=>{
+  audio.volume = e.target.value;
+  if(audio.volume === 0){
+    muteBtn.textContent = '🔇';
+  } else {
+    muteBtn.textContent = '🔊';
+    lastVolume = audio.volume;
+  }
+});
+
+// tombol mute
+muteBtn.addEventListener('click', ()=>{
+  if(audio.volume > 0){
+    lastVolume = audio.volume;
+    audio.volume = 0;
+    volumeSlider.value = 0;
+    muteBtn.textContent = '🔇';
+  } else {
+    audio.volume = lastVolume || 0.8;
+    volumeSlider.value = audio.volume;
+    muteBtn.textContent = '🔊';
+  }
+});
+
+
+/* ------------------------
+   Prev / Next
+------------------------ */
 prevBtn.addEventListener('click', ()=>{
   if(audio.currentTime > 3){ audio.currentTime = 0; return; }
   currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
@@ -517,109 +587,24 @@ function nextTrack(){
   playAudio();
 }
 
-/* shuffle/repeat toggles */
+/* ------------------------
+   Shuffle / Repeat toggles
+------------------------ */
 shuffleBtn.addEventListener('click', ()=> { isShuffle = !isShuffle; shuffleBtn.classList.toggle('active', isShuffle); });
 repeatBtn.addEventListener('click', ()=> { isRepeat = !isRepeat; repeatBtn.classList.toggle('active', isRepeat); });
 
-/* time formatting with 1 decimal second */
-function fmtTimeDecimal(s){
-  if(!isFinite(s)) return '0:00.0';
-  const m = Math.floor(s/60);
-  const sec = Math.floor(s%60).toString().padStart(2,'0');
-  const dec = Math.floor((s - Math.floor(s)) * 10);
-  return `${m}:${sec}.${dec}`;
-}
-audio.addEventListener('timeupdate', ()=>{
-  const cur = audio.currentTime || 0;
-  const dur = audio.duration || 0;
-  curTimeEl.textContent = fmtTimeDecimal(cur);
-  durTimeEl.textContent = dur ? fmtTimeDecimal(dur) : '0:00.0';
-  if(dur) bar.style.width = (cur / dur * 100) + '%';
-  if(Math.floor(cur) % 2 === 0) saveLast();
-  // dynamic logo glow
-  const glow = 6 + (beatLevel || 0) * 40;
-  const scale = 1 + (beatLevel || 0) * 0.18;
-  logoEl.style.boxShadow = `0 0 ${Math.max(8,glow)}px rgba(110,240,255,${0.18 + (beatLevel||0)*0.6})`;
-  logoEl.style.transform = `scale(${scale})`;
-  // update rate display (in case changed by drag)
-  rateDisplay.textContent = audio.playbackRate.toFixed(1) + '×';
-});
-
-/* pointer seeking + playbackRate vertical drag */
-let seeking = false;
-let adjustingRate = false;
-let startY = 0;
-let startRate = 1;
-progress.addEventListener('pointerdown', (e)=>{
-  progress.setPointerCapture(e.pointerId);
-  seeking = true;
-  startY = e.clientY;
-  startRate = audio.playbackRate || 1;
-  // default: allow horizontal seek; but if user moves vertically > 8px, we treat as rate adjust
-  window.addEventListener('pointermove', onPointerMove);
-  window.addEventListener('pointerup', onPointerUp);
-  seek(e);
-});
-function onPointerMove(e){
-  const dy = (startY - e.clientY);
-  if(Math.abs(dy) > 8){
-    // start adjusting rate
-    adjustingRate = true;
-    const delta = dy / 200; // drag 200px => +1.0
-    let newRate = Math.min(3, Math.max(0.5, startRate + delta));
-    audio.playbackRate = newRate;
-    rateDisplay.textContent = newRate.toFixed(1) + '×';
-  } else if(seeking && !adjustingRate){
-    seek(e);
-  }
-}
-function onPointerUp(e){
-  try{ progress.releasePointerCapture(e.pointerId); }catch(_){}
-  if(seeking){
-    if(!adjustingRate && audio.duration){
-      // final seek
-      seek(e);
-    }
-  }
-  seeking = false;
-  adjustingRate = false;
-  window.removeEventListener('pointermove', onPointerMove);
-  window.removeEventListener('pointerup', onPointerUp);
-}
-function seek(e){
-  const rect = progress.getBoundingClientRect();
-  let x = (e.clientX || (e.touches && e.touches[0].clientX)) - rect.left;
-  x = Math.max(0, Math.min(rect.width, x));
-  const pct = x / rect.width;
-  if(audio.duration && !adjustingRate) audio.currentTime = pct * audio.duration;
-  if(!adjustingRate) bar.style.width = (pct*100) + '%';
-}
-
-/* volume & mute */
-volumeSlider.value = localStorage.getItem('musicnet_volume') || 0.7;
-audio.volume = Number(volumeSlider.value);
-volumeSlider.addEventListener('input', ()=>{
-  audio.volume = Number(volumeSlider.value);
-  localStorage.setItem('musicnet_volume', String(audio.volume));
-});
-muteBtn.addEventListener('click', ()=>{
-  if(audio.muted){
-    audio.muted = false;
-    muteBtn.textContent = '🔊';
-  } else {
-    audio.muted = true;
-    muteBtn.textContent = '🔇';
-  }
-});
-
-/* save last track/time */
+/* ------------------------
+   Save last track/time
+------------------------ */
 function saveLast(){
   try{
     localStorage.setItem('musicnet_last', JSON.stringify({ index: currentIndex, time: audio.currentTime || 0 }));
   }catch(e){}
 }
 
-/* toolbar interactions */
+/* ------------------------
+   Toolbar interactions
+------------------------ */
 searchInput.addEventListener('input', applyFilters);
 favOnlyBtn.addEventListener('click', ()=>{
   showFavOnly = !showFavOnly;
@@ -627,14 +612,20 @@ favOnlyBtn.addEventListener('click', ()=>{
   applyFilters();
 });
 
-/* hide/show playlist (efficient) */
+/* ------------------------
+   Hide / Show playlist
+------------------------ */
 toggleListBtn.addEventListener('click', ()=>{
   const wrap = document.querySelector('.playlist-wrap');
-  wrap.classList.toggle('hidden');
-  toggleListBtn.textContent = wrap.classList.contains('hidden') ? '▥' : '▤';
+  if(wrap){
+    const isHidden = wrap.classList.toggle('hidden');
+    toggleListBtn.textContent = isHidden ? '▼' : '▲';
+  }
 });
 
-/* genre panel open/close */
+/* ------------------------
+   Genre panel open/close
+------------------------ */
 genreBtn.addEventListener('click', (ev)=>{
   const open = genrePanel.style.display !== 'none';
   genrePanel.style.display = open ? 'none' : 'flex';
@@ -647,36 +638,58 @@ document.addEventListener('click', (ev)=>{
   }
 });
 
-/* visualizer: use analyser to update bars; fallback random */
-function startVisualizer(){
-  stopVisualizer();
-  visInterval = setInterval(()=>{
-    if(analyser && dataArray){
-      analyser.getByteFrequencyData(dataArray);
-      const N = visualBars.length;
-      for(let i=0;i<N;i++){
-        const idx = Math.floor((i / N) * dataArray.length);
-        const val = dataArray[idx] || 0;
-        const h = Math.max(6, (val / 255) * 28);
-        visualBars[i].style.height = h + 'px';
-        visualBars[i].style.opacity = (0.3 + (val/255)*0.7).toFixed(2);
-      }
-      const lowCount = Math.max(4, Math.floor(dataArray.length * 0.08));
-      let s=0; for(let i=0;i<lowCount;i++) s+=dataArray[i];
-      const avg = s / lowCount / 255;
-      beatLevel = Math.max(beatLevel*0.8, avg);
-    } else {
-      visualBars.forEach(b => { const h = Math.random()*20 + 6; b.style.height = h + 'px'; b.style.opacity = (Math.random()*0.5+0.5).toFixed(2); });
-      beatLevel *= 0.95;
-    }
-  }, 80);
+/* ------------------------
+   Progress bar update
+------------------------ */
+function formatTime(sec){
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${m}:${s<10?'0'+s:s}`;
 }
-function stopVisualizer(){ if(visInterval) clearInterval(visInterval); visInterval = null; visualBars.forEach(b=>{ b.style.height = '6px'; b.style.opacity = '0.9'; }); }
 
-/* audio ended -> next */
+function updateProgress(){
+  if(!audio || !bar || !curTimeEl || !durTimeEl) return;
+  if(audio.duration){
+    const pct = (audio.currentTime / audio.duration) * 100;
+    bar.style.width = pct + '%';
+    curTimeEl.textContent = formatTime(audio.currentTime);
+    durTimeEl.textContent = formatTime(audio.duration);
+  }
+}
+
+audio.addEventListener('timeupdate', updateProgress);
+
+// klik di progress untuk lompat
+progress.addEventListener('click', (e)=>{
+  if(!audio.duration) return;
+  const rect = progress.getBoundingClientRect();
+  const clickX = e.clientX - rect.left;
+  const newTime = (clickX / rect.width) * audio.duration;
+  audio.currentTime = newTime;
+  updateProgress();
+});
+
+// drag untuk lebih smooth
+let isDragging = false;
+progress.addEventListener('mousedown', ()=> isDragging = true);
+progress.addEventListener('mouseup', ()=> isDragging = false);
+progress.addEventListener('mousemove', (e)=>{
+  if(!isDragging || !audio.duration) return;
+  const rect = progress.getBoundingClientRect();
+  const moveX = e.clientX - rect.left;
+  const newTime = Math.max(0, Math.min(1, moveX / rect.width)) * audio.duration;
+  audio.currentTime = newTime;
+  updateProgress();
+});
+
+/* ------------------------
+   Audio ended -> next
+------------------------ */
 audio.addEventListener('ended', ()=> nextTrack());
 
-/* initial load */
+/* ------------------------
+   Initial load
+------------------------ */
 loadPlaylist();
 </script>
 </body>

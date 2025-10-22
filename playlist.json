@@ -1,127 +1,236 @@
 [
   {
     "file": "Mylist/Armada - Apa Kabar Sayang [pop].mp3",
-    "title": "Armada - Apa Kabar Sayang [pop]",
-    "artist": ""
+    "title": "Armada - Apa Kabar Sayang",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
   },
   {
     "file": "Mylist/Avenged Sevenfold - Dear God [pop][poprock].mp3",
-    "title": "Avenged Sevenfold - Dear God [pop][poprock]",
-    "artist": ""
+    "title": "Avenged Sevenfold - Dear God",
+    "artist": "",
+    "tags": [
+      "pop",
+      "poprock"
+    ]
   },
   {
     "file": "Mylist/Bruno Mars - Marry You [pop].mp3",
-    "title": "Bruno Mars - Marry You [pop]",
-    "artist": ""
+    "title": "Bruno Mars - Marry You",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
   },
   {
     "file": "Mylist/Bruno Mars - The Lazy Song [pop].mp3",
-    "title": "Bruno Mars - The Lazy Song [pop]",
-    "artist": ""
+    "title": "Bruno Mars - The Lazy Song",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
   },
   {
     "file": "Mylist/Christina Perri - A Thousand Years (Remake) [slow].mp3",
-    "title": "Christina Perri - A Thousand Years (Remake) [slow]",
-    "artist": ""
+    "title": "Christina Perri - A Thousand Years (Remake)",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
   },
   {
     "file": "Mylist/Christina Perri - A Thousand Years [slow].mp3",
-    "title": "Christina Perri - A Thousand Years [slow]",
-    "artist": ""
+    "title": "Christina Perri - A Thousand Years",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
   },
   {
     "file": "Mylist/Evanescence - Bring Me To Life [poprock].mp3",
-    "title": "Evanescence - Bring Me To Life [poprock]",
-    "artist": ""
+    "title": "Evanescence - Bring Me To Life",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
   },
   {
     "file": "Mylist/Jason Mraz - Im Yours [pop].mp3",
-    "title": "Jason Mraz - Im Yours [pop]",
-    "artist": ""
+    "title": "Jason Mraz - Im Yours",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
   },
   {
     "file": "Mylist/Keisya Levronka - Tak Ingin Usai [slow].mp3",
-    "title": "Keisya Levronka - Tak Ingin Usai [slow]",
-    "artist": ""
+    "title": "Keisya Levronka - Tak Ingin Usai",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
   },
   {
     "file": "Mylist/Maroon 5 - Animals [pop].mp3",
-    "title": "Maroon 5 - Animals [pop]",
-    "artist": ""
+    "title": "Maroon 5 - Animals",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
   },
   {
     "file": "Mylist/Maroon 5 - Payphone [pop].mp3",
-    "title": "Maroon 5 - Payphone [pop]",
-    "artist": ""
+    "title": "Maroon 5 - Payphone",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
   },
   {
     "file": "Mylist/Olivia Rodrigo - Happier [slow].mp3",
-    "title": "Olivia Rodrigo - Happier [slow]",
-    "artist": ""
+    "title": "Olivia Rodrigo - Happier",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
   },
   {
     "file": "Mylist/One Direction - What Makes You Beautiful [pop].mp3",
-    "title": "One Direction - What Makes You Beautiful [pop]",
-    "artist": ""
+    "title": "One Direction - What Makes You Beautiful",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
   },
   {
     "file": "Mylist/Unknown - DJ Yali x Rab Ne Bana De Jodi [breakbeat].mp3",
-    "title": "Unknown - DJ Yali x Rab Ne Bana De Jodi [breakbeat]",
-    "artist": ""
+    "title": "Unknown - DJ Yali x Rab Ne Bana De Jodi",
+    "artist": "",
+    "tags": [
+      "breakbeat"
+    ]
   },
   {
     "file": "Mylist/Unknown - Dj Bloodline JJ Reverb [breakbeat].mp3",
-    "title": "Unknown - Dj Bloodline JJ Reverb [breakbeat]",
-    "artist": ""
+    "title": "Unknown - Dj Bloodline JJ Reverb",
+    "artist": "",
+    "tags": [
+      "breakbeat"
+    ]
   },
   {
     "file": "Mylist/Unknown - Dj Ya Odna X The Drum [breakbeat].mp3",
-    "title": "Unknown - Dj Ya Odna X The Drum [breakbeat]",
-    "artist": ""
+    "title": "Unknown - Dj Ya Odna X The Drum",
+    "artist": "",
+    "tags": [
+      "breakbeat"
+    ]
   },
   {
     "file": "Mylist/Unknown - Rewrite The Stars [pop].mp3",
-    "title": "Unknown - Rewrite The Stars [pop]",
-    "artist": ""
+    "title": "Unknown - Rewrite The Stars",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Wali - Baik-Baik Sayang [slow].mp3",
+    "title": "Wali - Baik-Baik Sayang",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Wali - Doaku Untukmu Sayang [slow].mp3",
+    "title": "Wali - Doaku Untukmu Sayang",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Wali - Sayang Lahir Batin [slow].mp3",
+    "title": "Wali - Sayang Lahir Batin",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Wali - Setia Jujur Dan Taqwa [pop].mp3",
+    "title": "Wali - Setia Jujur Dan Taqwa",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
   },
   {
     "file": "Mylist/Wali - Takkan Pisah [slow][pop].mp3",
-    "title": "Wali - Takkan Pisah [slow][pop]",
-    "artist": ""
+    "title": "Wali - Takkan Pisah",
+    "artist": "",
+    "tags": [
+      "slow",
+      "pop"
+    ]
   },
   {
     "file": "Mylist/Wiz Khalifa Charlie - See You Again [pop].mp3",
-    "title": "Wiz Khalifa Charlie - See You Again [pop]",
-    "artist": ""
+    "title": "Wiz Khalifa Charlie - See You Again",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
   },
   {
     "file": "Mylist/Ziell Ferdian - Bawalah Cintamu (Reverb)[slow].mp3",
-    "title": "Ziell Ferdian - Bawalah Cintamu (Reverb)[slow]",
-    "artist": ""
+    "title": "Ziell Ferdian - Bawalah Cintamu (Reverb)",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
   },
   {
     "file": "Mylist/Ziell Ferdian - Bawalah Cintamu [slow].mp3",
-    "title": "Ziell Ferdian - Bawalah Cintamu [slow]",
-    "artist": ""
+    "title": "Ziell Ferdian - Bawalah Cintamu",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
   },
   {
     "file": "Mylist/Ziell Ferdian - Kenangan (Speed Up Reverb) [slow].mp3",
-    "title": "Ziell Ferdian - Kenangan (Speed Up Reverb) [slow]",
-    "artist": ""
+    "title": "Ziell Ferdian - Kenangan (Speed Up Reverb)",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
   },
   {
     "file": "Mylist/Ziell Ferdian - Kenangan [slow].mp3",
-    "title": "Ziell Ferdian - Kenangan [slow]",
-    "artist": ""
+    "title": "Ziell Ferdian - Kenangan",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
   },
   {
     "file": "Mylist/Ziell Ferdian - Merawat Luka (Speed Up Reverb) [slow].mp3",
-    "title": "Ziell Ferdian - Merawat Luka (Speed Up Reverb) [slow]",
-    "artist": ""
+    "title": "Ziell Ferdian - Merawat Luka (Speed Up Reverb)",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
   },
   {
     "file": "Mylist/Ziell Ferdian - Merawat Luka [slow].mp3",
-    "title": "Ziell Ferdian - Merawat Luka [slow]",
-    "artist": ""
+    "title": "Ziell Ferdian - Merawat Luka",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
   }
 ]
