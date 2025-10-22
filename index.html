@@ -117,8 +117,19 @@ canvas#bg{
 #visualizer span{width:6px;height:8px;border-radius:3px;background:var(--accent);box-shadow:0 0 8px rgba(110,240,255,0.12);transition:height .08s linear,opacity .12s linear;}
 
 /* track info */
-.title{font-weight:700;font-size:1.05rem;text-align:center;line-height:1.1}
-.artist{font-size:0.85rem;color:rgba(255,255,255,0.75);text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-align: center;
+  line-height: 1.1;
+  color: #fff;
+  text-shadow:
+    0 0 6px var(--accent),
+    0 0 12px var(--accent),
+    0 0 22px var(--accent2),
+    0 0 35px var(--accent2);
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
 
 /* controls */
 .controls{display:flex;align-items:center;justify-content:space-between;gap:8px}
@@ -167,7 +178,18 @@ canvas#bg{
 .item .meta{flex:1;min-width:0}
 .item .t{font-weight:600;font-size:0.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .item .a{font-size:0.78rem;color:rgba(255,255,255,0.7);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.item.active{background:linear-gradient(90deg, rgba(110,240,255,0.06), rgba(138,79,255,0.06));box-shadow:0 0 12px rgba(110,240,255,0.08)}
+.item.active {
+  background: linear-gradient(90deg, rgba(110,240,255,0.25), rgba(138,79,255,0.22));
+  box-shadow:
+    0 0 12px rgba(110,240,255,0.6),
+    0 0 24px rgba(138,79,255,0.4);
+  border: 1px solid rgba(110,240,255,0.35);
+  color: #fff;
+  text-shadow:
+    0 0 8px rgba(110,240,255,0.8),
+    0 0 16px rgba(138,79,255,0.6);
+  transition: all 0.25s ease-in-out;
+}
 
 /* favorite */
 .fav{font-size:1.1rem;color:rgba(255,255,255,0.45);user-select:none;padding-left:8px}
@@ -308,7 +330,9 @@ function draw(){
     if(p.y > H + 10) p.y = -10;
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.r * (1 + overall*1.5), 0, Math.PI*2);
-    ctx.fillStyle = `rgba(138,79,255,${0.06 + overall*0.45})`;
+    ctx.fillStyle = `rgba(138,79,255,${0.25 + overall*0.75})`;
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = 'rgba(138,79,255,0.9)';
     ctx.fill();
   });
 
