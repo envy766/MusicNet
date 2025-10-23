@@ -16,12 +16,21 @@
     ]
   },
   {
-    "file": "Mylist/Angga Ramadhan - Jiwa Yang Bersedih [pop][poprock].mp3",
+    "file": "Mylist/Alfa - Perlahan Kau Pergi [slow][cover].mp3",
+    "title": "Alfa - Perlahan Kau Pergi",
+    "artist": "",
+    "tags": [
+      "slow",
+      "cover"
+    ]
+  },
+  {
+    "file": "Mylist/Angga Ramadhan - Jiwa Yang Bersedih [pop][cover].mp3",
     "title": "Angga Ramadhan - Jiwa Yang Bersedih",
     "artist": "",
     "tags": [
       "pop",
-      "poprock"
+      "cover"
     ]
   },
   {
@@ -40,6 +49,15 @@
     "artist": "",
     "tags": [
       "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Ardila Akbar - Cinta Terlarang [slow][cover].mp3",
+    "title": "Ardila Akbar - Cinta Terlarang",
+    "artist": "",
+    "tags": [
+      "slow",
+      "cover"
     ]
   },
   {
@@ -214,11 +232,28 @@
     ]
   },
   {
+    "file": "Mylist/Regita Echa - Dear God (ASF) [slow][cover].mp3",
+    "title": "Regita Echa - Dear God (ASF)",
+    "artist": "",
+    "tags": [
+      "slow",
+      "cover"
+    ]
+  },
+  {
     "file": "Mylist/ST12 - Kebesaranmu [pop].mp3",
     "title": "ST12 - Kebesaranmu",
     "artist": "",
     "tags": [
       "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Samsons - Kenangan Terindah [slow].mp3",
+    "title": "Samsons - Kenangan Terindah",
+    "artist": "",
+    "tags": [
+      "slow"
     ]
   },
   {
@@ -284,6 +319,14 @@
     "artist": "",
     "tags": [
       "breakbeat"
+    ]
+  },
+  {
+    "file": "Mylist/Unknown - Nenekku Pahlawanku [cover].mp3",
+    "title": "Unknown - Nenekku Pahlawanku",
+    "artist": "",
+    "tags": [
+      "cover"
     ]
   },
   {
@@ -358,6 +401,15 @@
     "artist": "",
     "tags": [
       "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Zidan Ft Valdy - Selalu Tersimpan [pop][slow].mp3",
+    "title": "Zidan Ft Valdy - Selalu Tersimpan",
+    "artist": "",
+    "tags": [
+      "pop",
+      "slow"
     ]
   },
   {
