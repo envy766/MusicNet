@@ -1,5 +1,21 @@
 [
   {
+    "file": "Mylist/Alan Walker - Alone [pop].mp3",
+    "title": "Alan Walker - Alone",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Alan Walker - Faded [pop].mp3",
+    "title": "Alan Walker - Faded",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
     "file": "Mylist/Angga Ramadhan - Jiwa Yang Bersedih [pop][poprock].mp3",
     "title": "Angga Ramadhan - Jiwa Yang Bersedih",
     "artist": "",
@@ -92,6 +108,14 @@
     ]
   },
   {
+    "file": "Mylist/Cut Rani - Salahmu Sendiri [slow].mp3",
+    "title": "Cut Rani - Salahmu Sendiri",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
     "file": "Mylist/Evanescence - Bring Me To Life [poprock].mp3",
     "title": "Evanescence - Bring Me To Life",
     "artist": "",
@@ -114,6 +138,15 @@
     "tags": [
       "pop",
       "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Indah Yastami - Harga Diriku [Cover][pop].mp3",
+    "title": "Indah Yastami - Harga Diriku",
+    "artist": "",
+    "tags": [
+      "cover",
+      "pop"
     ]
   },
   {
@@ -308,6 +341,15 @@
     "tags": [
       "slow",
       "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Wali Band - Harga Diriku [pop][slow].mp3",
+    "title": "Wali Band - Harga Diriku",
+    "artist": "",
+    "tags": [
+      "pop",
+      "slow"
     ]
   },
   {
