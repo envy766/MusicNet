@@ -1,5 +1,14 @@
 [
   {
+    "file": "Mylist/Angga Ramadhan - Jiwa Yang Bersedih [pop][poprock].mp3",
+    "title": "Angga Ramadhan - Jiwa Yang Bersedih",
+    "artist": "",
+    "tags": [
+      "pop",
+      "poprock"
+    ]
+  },
+  {
     "file": "Mylist/Anggi Marito - Tak Segampang Itu [Cover][poprock][pop].mp3",
     "title": "Anggi Marito - Tak Segampang Itu",
     "artist": "",
@@ -80,6 +89,23 @@
     "artist": "",
     "tags": [
       "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Ilir 7 Band - Jangan Nakal Sayang [slow].mp3",
+    "title": "Ilir 7 Band - Jangan Nakal Sayang",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Ilir 7 Band - Salah Apa Aku [pop][slow].mp3",
+    "title": "Ilir 7 Band - Salah Apa Aku",
+    "artist": "",
+    "tags": [
+      "pop",
+      "slow"
     ]
   },
   {
@@ -198,6 +224,14 @@
   {
     "file": "Mylist/Unknown - Rewrite The Stars [pop].mp3",
     "title": "Unknown - Rewrite The Stars",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Virgoun - Surat Cinta Untuk Starla [pop].mp3",
+    "title": "Virgoun - Surat Cinta Untuk Starla",
     "artist": "",
     "tags": [
       "pop"

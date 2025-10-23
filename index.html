@@ -168,12 +168,19 @@ canvas#bg{
 }
 
 /* playlist */
-.playlist-wrap{flex:1;overflow:hidden;display:flex;flex-direction:column;gap:6px}
-.playlist{overflow:auto;padding-right:6px;border-radius:8px;max-height:calc(100vh - 340px)}
+.playlist-wrap {flex: 1 1 auto;display: flex;flex-direction: column;gap: 6px;min-height: 0;}
+.playlist {flex: 1 1 auto;overflow-y: auto;padding-right: 6px;border-radius: 8px;min-height: 0;}
+/* WebKit (Chrome, Edge, Safari) */
+.playlist::-webkit-scrollbar {width: 6px;}
+.playlist::-webkit-scrollbar-thumb {background: rgba(110,240,255,0.4);border-radius: 3px;}
+.playlist::-webkit-scrollbar-track {background: transparent;}
+/* Firefox */
+.playlist {scrollbar-width: thin;scrollbar-color: rgba(110,240,255,0.4) transparent;}
+/* Mobile / iOS momentum scroll */
+.playlist {-webkit-overflow-scrolling: touch;}
 .item{
   padding:8px;border-radius:8px;display:flex;align-items:center;justify-content:space-between;gap:8px;
-  cursor:pointer;transition:background .12s ease;
-}
+  cursor:pointer;transition:background .12s ease;}
 .item:hover{background:rgba(110,240,255,0.04)}
 .item .meta{flex:1;min-width:0}
 .item .t{font-weight:600;font-size:0.95rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
