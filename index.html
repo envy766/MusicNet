@@ -37,7 +37,7 @@ canvas#bg{
   bottom:18px;
   transform:translateX(-50%);
   font-size:11px;
-  color:rgba(255,255,255,0.06);
+  color:rgba(255,255,255,0.1);
   pointer-events:none;
   z-index:1;
   letter-spacing:0.4px;
@@ -69,14 +69,14 @@ canvas#bg{
   flex:1;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);
   background:rgba(255,255,255,0.02);color:#fff;font-size:0.88rem;
 }
-.select-btn{
-  padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);
-  background:transparent;color:var(--neon);font-size:0.88rem;cursor:pointer;
-  backdrop-filter: blur(4px);
-}
 .icon-btn{
   padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);
   background:transparent;color:var(--neon);cursor:pointer;
+}
+.select-btn{
+  padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);
+  background:transparent;color:var(--neon);font-size:0.88rem;cursor:pointer;
+  backdrop-filter: blur(4px);
 }
 
 /* genre panel */
@@ -214,10 +214,10 @@ canvas#bg{
 <div class="player" aria-live="polite">
   <div class="toolbar" style="position:relative;">
     <input id="search" class="search" placeholder="Cari lagu atau artis..." aria-label="Cari lagu" />
-    <button id="genreBtn" class="select-btn" aria-haspopup="true" aria-expanded="false">Genre ▼</button>
-    <div id="genrePanel" class="genre-panel" style="display:none;"></div>
     <button id="toggleList" class="icon-btn" title="Hide/show playlist">▼</button>
     <button id="favOnly" class="icon-btn" title="Tampilkan favorit">★</button>
+    <button id="genreBtn" class="select-btn" aria-haspopup="true" aria-expanded="false">Genre ▼</button>
+    <div id="genrePanel" class="genre-panel" style="display:none;"></div>
   </div>
 
   <div class="top">
@@ -246,7 +246,7 @@ canvas#bg{
       <button id="mute" class="btn" title="Mute">🔊</button>
       <input id="volume" type="range" min="0" max="1" step="0.01" />
     </div>
-    <div id="rateDisplay">1.0×</div>
+    <div id="rateDisplay">1.0</div>
   </div>
 
   <div class="row" style="align-items:center;">
