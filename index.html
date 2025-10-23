@@ -41,6 +41,32 @@ canvas#bg{
   pointer-events:none;
   z-index:1;
   letter-spacing:0.4px;
+  text-align: center;
+  line-height: 1.4;
+}
+.page-footer .version {
+  font-size: 9px;                /* lebih kecil */
+  opacity: 0.8;                  /* sedikit lebih jelas */
+  color: rgba(255, 255, 255, 0.15); /* beda tone */
+  letter-spacing: 0.6px;
+}
+
+/* background watermark */
+.bg-text {
+  position: fixed;
+  top: 10%;                 /* posisi vertikal (bisa ubah ke 50% jika ingin di tengah) */
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 60px;          /* ukuran besar */
+  font-weight:1000;         /* sangat tebal */
+  letter-spacing: 4px;      /* jarak antar huruf */
+  color: rgba(110, 240, 255, 0.07); /* warna sinkron dengan tema biru neon tapi samar */
+  text-transform: uppercase;
+  pointer-events: none;     /* tidak bisa diklik */
+  user-select: none;        /* tidak bisa di-select */
+  z-index: 0;               /* di bawah semua elemen */
+  white-space: nowrap;
+  text-align: center;
 }
 
 .player {
@@ -270,7 +296,11 @@ canvas#bg{
   </div>
 </div>
 
-<div class="page-footer">Created By Afrizal In October 2025</div>
+<div class="bg-text">MUSIC NET</div>
+<div class="page-footer">Created By Afrizal In October 2025 <br> 
+<span class="version">Copyright &copy; 2025 Music Net Player</span>
+</div>
+
 
 <audio id="audio" crossorigin="anonymous"></audio>
 
