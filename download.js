@@ -56,76 +56,84 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!q) return alert("Masukkan nama lagu atau artis!");
       resultsDiv.innerHTML = `<p style="color:#ccc;">Mencari "${q}"...</p>`;
 
-      try {
-        // === Fetch dari playlist.json (lokal)
-        const localRes = await fetch("playlist.json");
-        const localData = await localRes.json();
-        const localMatches = localData.filter(song =>
-          song.title.toLowerCase().includes(q.toLowerCase())
-        );
+ try {
+  // === Fetch dari playlist.json (lokal)
+  const localRes = await fetch("playlist.json");
+  const localData = await localRes.json();
+  const localMatches = localData.filter(song =>
+    song.title.toLowerCase().includes(q.toLowerCase())
+  );
 
-        // === Fetch dari YouTube API ===
-        const ytRes = await fetch(`https://corsproxy.io/?https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&q=${encodeURIComponent(q)}&key=${YT_API_KEY}`);
-        const ytData = await ytRes.json();
+  // === Fetch dari YouTube API via proxy aman ===
+  const proxy = "https://api.allorigins.win/get?url=";
+  const ytURL = encodeURIComponent(
+    `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&q=${encodeURIComponent(q)}&key=${YT_API_KEY}`
+  );
 
-        const ytMatches = (ytData.items || []).map(item => ({
-          title: item.snippet.title,
-          channel: item.snippet.channelTitle,
-          thumbnail: item.snippet.thumbnails.medium.url,
-          videoId: item.id.videoId,
-        }));
+  const ytRes = await fetch(proxy + ytURL);
+  const ytRaw = await ytRes.json();
+  const ytData = JSON.parse(ytRaw.contents);
 
-        // === Gabungkan hasil ===
-        let combined = [];
+  console.log("YouTube response:", ytData); // debug, lihat di Console browser
 
-        if (localMatches.length > 0) {
-          combined.push(`<h4 style="color:#0ff;">🎵 Local Results</h4>`);
-          combined = combined.concat(localMatches.map(song => `
-            <div style="margin-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
-              <strong>${song.title}</strong><br>
-              <button onclick="playLocal('${song.file}')" style="
-                background:#00f6ff;color:#000;font-weight:bold;border:none;padding:6px 12px;
-                border-radius:8px;cursor:pointer;margin-top:5px;">▶️ Play
-              </button>
-              <a href="${song.file}" download style="
-                display:inline-block; margin-top:5px; padding:6px 12px;
-                background:#007bff; color:#fff; border-radius:8px; text-decoration:none;
-                box-shadow:0 0 10px #00bfff;">⬇️ Download</a>
-            </div>
-          `));
-        }
+  const ytMatches = (ytData.items || []).map(item => ({
+    title: item.snippet.title,
+    channel: item.snippet.channelTitle,
+    thumbnail: item.snippet.thumbnails.medium.url,
+    videoId: item.id.videoId,
+  }));
 
-        if (ytMatches.length > 0) {
-          combined.push(`<h4 style="color:#ff00ff;">📺 YouTube Results</h4>`);
-          combined = combined.concat(ytMatches.map(item => `
-            <div style="margin-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
-              <strong>${item.title}</strong><br>
-              <small>${item.channel}</small><br>
-              <img src="${item.thumbnail}" style="width:100%; max-width:250px; margin:5px 0; border-radius:10px;"><br>
-              <button onclick="openMiniPlayer('${item.videoId}', '${item.title.replace(/'/g, "\\'")}')" style="
-                background:#ff00ff;color:#000;font-weight:bold;border:none;padding:6px 12px;
-                border-radius:8px;cursor:pointer;margin-top:5px;">▶️ Play Mini
-              </button>
-              <a href="https://www.youtube.com/watch?v=${item.videoId}" target="_blank" style="
-                display:inline-block; margin-top:5px; padding:6px 12px;
-                background:#00bfff; color:#fff; border-radius:8px; text-decoration:none;
-                box-shadow:0 0 10px #00bfff;">🌐 Buka YouTube</a>
-            </div>
-          `));
-        }
+  // === Gabungkan hasil ===
+  let combined = [];
 
-        if (combined.length === 0) {
-          resultsDiv.innerHTML = `<p>Tidak ada hasil ditemukan.</p>`;
-        } else {
-          resultsDiv.innerHTML = combined.join("");
-        }
+  if (localMatches.length > 0) {
+    combined.push(`<h4 style="color:#0ff;">🎵 Local Results</h4>`);
+    combined = combined.concat(localMatches.map(song => `
+      <div style="margin-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
+        <strong>${song.title}</strong><br>
+        <button onclick="playLocal('${song.file}')" style="
+          background:#00f6ff;color:#000;font-weight:bold;border:none;padding:6px 12px;
+          border-radius:8px;cursor:pointer;margin-top:5px;">▶️ Play
+        </button>
+        <a href="${song.file}" download style="
+          display:inline-block; margin-top:5px; padding:6px 12px;
+          background:#007bff; color:#fff; border-radius:8px; text-decoration:none;
+          box-shadow:0 0 10px #00bfff;">⬇️ Download</a>
+      </div>
+    `));
+  }
 
-      } catch (err) {
-        console.error(err);
-        resultsDiv.innerHTML = `<p>Terjadi kesalahan saat mencari lagu.</p>`;
-      }
-    });
-  });
+  if (ytMatches.length > 0) {
+    combined.push(`<h4 style="color:#ff00ff;">📺 YouTube Results</h4>`);
+    combined = combined.concat(ytMatches.map(item => `
+      <div style="margin-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">
+        <strong>${item.title}</strong><br>
+        <small>${item.channel}</small><br>
+        <img src="${item.thumbnail}" style="width:100%; max-width:250px; margin:5px 0; border-radius:10px;"><br>
+        <button onclick="openMiniPlayer('${item.videoId}', '${item.title.replace(/'/g, "\\'")}')" style="
+          background:#ff00ff;color:#000;font-weight:bold;border:none;padding:6px 12px;
+          border-radius:8px;cursor:pointer;margin-top:5px;">▶️ Play Mini
+        </button>
+        <a href="https://www.youtube.com/watch?v=${item.videoId}" target="_blank" style="
+          display:inline-block; margin-top:5px; padding:6px 12px;
+          background:#007bff; color:#fff; border-radius:8px; text-decoration:none;
+          box-shadow:0 0 10px #00bfff;">🌐 Buka YouTube</a>
+      </div>
+    `));
+  }
+
+  if (combined.length === 0) {
+    resultsDiv.innerHTML = `<p>Tidak ada hasil ditemukan.</p>`;
+  } else {
+    resultsDiv.innerHTML = combined.join("");
+  }
+
+} catch (err) {
+  console.error("YouTube fetch error:", err);
+  resultsDiv.innerHTML = `<p>Terjadi kesalahan saat mencari lagu.</p>`;
+}
+});
+});
 
   menuMyDownload.addEventListener("click", () => {
     sidebarSub.innerHTML = `
