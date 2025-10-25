@@ -32,7 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuMyDownload = document.getElementById("menuMyDownload");
   const sidebarSub = document.getElementById("sidebarSubContent");
 
-  const YT_API_KEY = "AIzaSyDRA_lMU97iqDLaJBi7up6qBtCsuwbZCwY"; // ← ganti dengan API key kamu
+  // 🔑 Ganti dengan API key milikmu
+  const YT_API_KEY = "AIzaSyDRA_lMU97iqDLaJBi7up6qBtCsuwbZCwY";
 
   menuSearch.addEventListener("click", () => {
     sidebarSub.innerHTML = `
@@ -109,7 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
               </button>
               <a href="https://www.youtube.com/watch?v=${item.videoId}" target="_blank" style="
                 display:inline-block; margin-top:5px; padding:6px 12px;
-                background:#007bff; color:#fff; border-radius:8px; text-decoration:none;
+                background:#00bfff; color:#fff; border-radius:8px; text-decoration:none;
                 box-shadow:0 0 10px #00bfff;">🌐 Buka YouTube</a>
             </div>
           `));
@@ -163,6 +164,7 @@ document.body.insertAdjacentHTML(
 window.openMiniPlayer = function (videoId, title) {
   const miniPlayer = document.getElementById("miniPlayer");
   const frame = document.getElementById("ytPlayerFrame");
+
   frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
   miniPlayer.style.display = "block";
 };
@@ -180,4 +182,5 @@ document.addEventListener("click", (e) => {
 window.playLocal = function (file) {
   const audio = new Audio(file);
   audio.play();
+  alert("🎵 Memutar: " + file.split("/").pop());
 };
