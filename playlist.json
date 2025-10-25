@@ -150,8 +150,24 @@
     ]
   },
   {
+    "file": "Mylist/Dash Uciha - Merindukanmu [pop].mp3",
+    "title": "Dash Uciha - Merindukanmu",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
     "file": "Mylist/Evanescence - Bring Me To Life [poprock].mp3",
     "title": "Evanescence - Bring Me To Life",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Evanescence - Haunted [poprock].mp3",
+    "title": "Evanescence - Haunted",
     "artist": "",
     "tags": [
       "poprock"
@@ -205,6 +221,15 @@
     "artist": "",
     "tags": [
       "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Lavina - Pilihan Hatiku [slow][pop].mp3",
+    "title": "Lavina - Pilihan Hatiku",
+    "artist": "",
+    "tags": [
+      "slow",
+      "pop"
     ]
   },
   {
@@ -367,6 +392,14 @@
     "artist": "",
     "tags": [
       "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Unknown - Tujh Mein Rab Dikhta Hai [slow].mp3",
+    "title": "Unknown - Tujh Mein Rab Dikhta Hai",
+    "artist": "",
+    "tags": [
+      "slow"
     ]
   },
   {
