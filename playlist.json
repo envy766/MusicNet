@@ -94,6 +94,14 @@
     ]
   },
   {
+    "file": "Mylist/Bian gindas - Ku Bisa Merindu [slow].mp3",
+    "title": "Bian gindas - Ku Bisa Merindu",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
     "file": "Mylist/Bondan Prakoso & Fade2Black - RIP (Rhyme_In_Peace) [pop].mp3",
     "title": "Bondan Prakoso & Fade2Black - RIP (Rhyme_In_Peace)",
     "artist": "",
@@ -314,6 +322,30 @@
     ]
   },
   {
+    "file": "Mylist/Skillet - Awake & Alive [poprock].mp3",
+    "title": "Skillet - Awake & Alive",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Skillet - Comatose [poprock].mp3",
+    "title": "Skillet - Comatose",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Skillet - Falling Inside The Black [poprock].mp3",
+    "title": "Skillet - Falling Inside The Black",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
     "file": "Mylist/Skillet - Hero [poprock].mp3",
     "title": "Skillet - Hero",
     "artist": "",
@@ -322,8 +354,24 @@
     ]
   },
   {
+    "file": "Mylist/Skillet - I Want To Live [poprock].mp3",
+    "title": "Skillet - I Want To Live",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
     "file": "Mylist/Skillet - Monster [poprock].mp3",
     "title": "Skillet - Monster",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Skillet - Never Surrender [poprock].mp3",
+    "title": "Skillet - Never Surrender",
     "artist": "",
     "tags": [
       "poprock"
@@ -427,6 +475,15 @@
     ]
   },
   {
+    "file": "Mylist/Wali - Harga Diriku [pop][slow].mp3",
+    "title": "Wali - Harga Diriku",
+    "artist": "",
+    "tags": [
+      "pop",
+      "slow"
+    ]
+  },
+  {
     "file": "Mylist/Wali - Sayang Lahir Batin [slow].mp3",
     "title": "Wali - Sayang Lahir Batin",
     "artist": "",
@@ -449,15 +506,6 @@
     "tags": [
       "slow",
       "pop"
-    ]
-  },
-  {
-    "file": "Mylist/Wali Band - Harga Diriku [pop][slow].mp3",
-    "title": "Wali Band - Harga Diriku",
-    "artist": "",
-    "tags": [
-      "pop",
-      "slow"
     ]
   },
   {
