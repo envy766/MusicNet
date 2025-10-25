@@ -56,27 +56,39 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!q) return alert("Masukkan nama lagu atau artis!");
       resultsDiv.innerHTML = `<p style="color:#ccc;">Mencari "${q}"...</p>`;
 
- try {
-  // === Fetch dari playlist.json (lokal)
-  const localRes = await fetch("playlist.json");
-  const localData = await localRes.json();
+try {
+  // === Fetch dari playlist.json (lokal di repo kamu) ===
+  const localPath = window.location.origin + window.location.pathname.replace(/\/$/, '') + '/playlist.json';
+  const localRes = await fetch(localPath);
+  let localData = [];
+  if (localRes.ok) {
+    localData = await localRes.json();
+  } else {
+    console.warn("Gagal load playlist.json, status:", localRes.status);
+  }
+
   const localMatches = localData.filter(song =>
     song.title.toLowerCase().includes(q.toLowerCase())
   );
 
-  // === Fetch dari YouTube API via proxy aman ===
-  const proxy = "https://api.allorigins.win/get?url=";
-  const ytURL = encodeURIComponent(
-    `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&q=${encodeURIComponent(q)}&key=${YT_API_KEY}`
-  );
+  // === Fetch dari YouTube API via proxy aman (allorigins fallback ke corsproxy) ===
+  const ytURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&q=${encodeURIComponent(q)}&key=${YT_API_KEY}`;
+  let ytData = null;
 
-  const ytRes = await fetch(proxy + ytURL);
-  const ytRaw = await ytRes.json();
-  const ytData = JSON.parse(ytRaw.contents);
+  try {
+    // 🟢 Gunakan proxy pertama (allorigins)
+    const res = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(ytURL)}`);
+    const raw = await res.json();
+    ytData = JSON.parse(raw.contents);
+  } catch (err1) {
+    console.warn("Proxy allorigins gagal, mencoba corsproxy.io...");
+    const res2 = await fetch(`https://corsproxy.io/?${ytURL}`);
+    ytData = await res2.json();
+  }
 
-  console.log("YouTube response:", ytData); // debug, lihat di Console browser
+  console.log("YouTube response:", ytData);
 
-  const ytMatches = (ytData.items || []).map(item => ({
+  const ytMatches = (ytData && ytData.items ? ytData.items : []).map(item => ({
     title: item.snippet.title,
     channel: item.snippet.channelTitle,
     thumbnail: item.snippet.thumbnails.medium.url,
@@ -129,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 } catch (err) {
-  console.error("YouTube fetch error:", err);
+  console.error("❌ Search error:", err);
   resultsDiv.innerHTML = `<p>Terjadi kesalahan saat mencari lagu.</p>`;
 }
 });
