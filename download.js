@@ -65,9 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         );
 
         // === Fetch dari YouTube API ===
-        const ytRes = await fetch(
-          `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&q=${encodeURIComponent(q)}&key=${YT_API_KEY}`
-        );
+        const ytRes = await fetch(`https://corsproxy.io/?https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&q=${encodeURIComponent(q)}&key=${YT_API_KEY}`);
         const ytData = await ytRes.json();
 
         const ytMatches = (ytData.items || []).map(item => ({
