@@ -87,7 +87,7 @@ canvas#bg{
   overflow-x: hidden;
 
   box-shadow: 0 8px 30px rgba(0,0,0,0.15); /* opsional, agar container tetap terlihat */
-  z-index: 2;
+  z-index: 3;
 }
 
 /* toolbar */
@@ -120,7 +120,7 @@ canvas#bg{
   flex-wrap:wrap;
   min-width:180px;
   box-shadow:0 8px 30px rgba(2,6,23,0.6);
-  z-index:3;
+  z-index:4;
 }
 .genre-chip{
   display:flex;align-items:center;gap:6px;padding:6px 8px;border-radius:999px;
@@ -243,6 +243,29 @@ canvas#bg{
 </style>
 </head>
 <body>
+
+<div id="menuToggle" title="Menu">☰</div>
+
+<!-- Sidebar Download -->
+<div id="sidebarMenu" class="hidden">
+  <div class="sidebar-header">
+    <h2>Hello, Welcome ...</h2>
+    <span id="closeMenu">×</span>
+  </div>
+
+  <div class="sidebar-content">
+    <button id="menuRequest">📨 Request Lagu</button>
+    <button id="menuShare">🔗 Share MusicNet</button>
+    <button id="menuSearch">🔍 Search & Download</button>
+    <button id="menuMyDownload">📂 My Download</button>
+</div>
+
+  <div id="sidebarSubContent"></div>
+</div>
+
+<!-- Panggil script download -->
+<script src="download.js"></script>
+
 <canvas id="bg" aria-hidden="true"></canvas>
 
 <div class="player" aria-live="polite">
@@ -753,6 +776,124 @@ audio.addEventListener('ended', ()=> nextTrack());
    Initial load
 ------------------------ */
 loadPlaylist();
+</script>
+
+<style>
+/* ===== Tombol dan Sidebar - Tema Biru Neon ===== */
+#menuToggle {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  font-size: 28px;
+  color: #00eaff; /* biru neon utama */
+  cursor: pointer;
+  z-index: 2;
+  text-shadow: 0 0 10px #00bfff, 0 0 20px #00ffff, 0 0 30px #00ccff;
+  transition: 0.3s;
+}
+#menuToggle:hover {
+  color: #fff;
+  text-shadow: 0 0 20px #00ffff, 0 0 40px #00ccff, 0 0 60px #33ffff;
+}
+#sidebarMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 270px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(110,240,255,0.25), rgba(138,79,255,0.22));
+  border-left: 2px solid #00ffff;
+  box-shadow: 0 0 25px #00aaff;
+  backdrop-filter: blur(12px);
+  color: #e0f7ff;
+  transform: translateX(-100%);
+  transition: transform 0.4s ease;
+  z-index: 20; /* di atas player */
+  display: flex;
+  flex-direction: column;
+}
+#sidebarMenu.active {
+  transform: translateX(0);
+}
+#sidebarMenu.hidden {
+  transform: translateX(-100%);
+}
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px;
+  font-size: 25px;
+  background: linear-gradient(180deg, #001f3f 0%, #003366 100%);
+  border-bottom: 1px solid #9d4edd;
+}
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 10px;
+}
+.sidebar-content button {
+  background: #008cff;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  padding: 8px 15px;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 0 15px #00ffff;
+  transition: 0.3s;
+}
+.sidebar-content button:hover {
+  background: #00aaff;
+  box-shadow: 0 0 25px #00ffff, 0 0 45px #00ccff;
+}
+/* Link download atau item menu lainnya */
+#sidebarMenu a {
+  color: #00eaff;
+  text-decoration: none;
+  #sidebarMenu a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #00ffff, 0 0 25px #00ccff;
+#closeMenu {
+  cursor: pointer;
+  font-size: 22px;
+  text-shadow: 0 0 10px #e0aaff;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {                                 
+  const menuToggle = document.getElementById("menuToggle");
+  const sidebarMenu = document.getElementById("sidebarMenu");
+  const closeMenu = document.getElementById("closeMenu");
+
+  // sembunyikan awal
+  sidebarMenu.classList.add("hidden");
+
+  // klik tombol garis 3
+  menuToggle.addEventListener("click", () => {
+    sidebarMenu.classList.remove("hidden");
+    sidebarMenu.classList.add("active");
+  });
+
+  // klik tombol tutup ×                                                              
+    closeMenu.addEventListener("click", () => {
+    sidebarMenu.classList.remove("active");
+    sidebarMenu.classList.add("hidden");
+  });
+
+  // contoh tombol menu
+  document.getElementById("menuRequest").addEventListener("click", () => {
+    window.open("https://t.me/RequestMusicNet", "_blank");
+  });
+  document.getElementById("menuShare").addEventListener("click", () => {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      alert("Link MusicNet disalin!");
+    });
+  });
+});
 </script>
 </body>
 </html>
