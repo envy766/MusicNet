@@ -15,9 +15,11 @@ Player ini bisa berjalan secara **lokal** maupun **online via GitHub Pages**.
 - Visualizer futuristik
 - Volume control dan mute
 - Responsive design untuk desktop & mobile
-
+- Request lagu
+- Download Mp3
+- Player Video Mini
+  
 ## Cara Pakai
-
 ### Lokal
 1. Tambahkan lagu ke folder `Mylist/`.
 2. Buka `index.html` di browser.
