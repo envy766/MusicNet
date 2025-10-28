@@ -208,10 +208,27 @@
     ]
   },
   {
+    "file": "Mylist/Evanescence - Call Me When You're Sober [poprock].mp3",
+    "title": "Evanescence - Call Me When You're Sober",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
     "file": "Mylist/Evanescence - Haunted [poprock].mp3",
     "title": "Evanescence - Haunted",
     "artist": "",
     "tags": [
+      "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Evanescence - My Immortal [slow][poprock].mp3",
+    "title": "Evanescence - My Immortal",
+    "artist": "",
+    "tags": [
+      "slow",
       "poprock"
     ]
   },
