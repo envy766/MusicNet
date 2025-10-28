@@ -88,13 +88,13 @@ document.body.insertAdjacentHTML(
   `
 <div id="miniPlayer" style="
   display:none; position:fixed; bottom:20px; right:20px;
-  width:320px; height:190px; background:rgba(0,0,0,0.9);
+  width:330px; height:220px; background:rgba(0,0,0,0.9);
   border:1px solid #00f6ff; border-radius:12px; padding:0;
   box-shadow:0 0 20px #00f6ff; z-index:9999; overflow:hidden;">
   <div id="miniPlayerHeader" style="
     cursor:move; display:flex;
     align-items:left; padding:4px; background:rgba(0,0,0,0.6); z-index:2;">
-    <span style="color:#00f6ff;font-weight:bold;">🎧 Now Playing...</span>
+    <span style="color:#00f6ff;font-weight:bold;">🎧 Now Playing</span>
   </div>
   <iframe id="ytPlayerFrame" width="100%" height="100%"
     src="" frameborder="0"
@@ -124,7 +124,6 @@ document.body.insertAdjacentHTML(
 window.openMiniPlayer = function(videoId) {
   const miniPlayer = document.getElementById("miniPlayer");
   const frame = document.getElementById("ytPlayerFrame");
-
   frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
   miniPlayer.style.display = "block";
   makeDraggable(miniPlayer, document.getElementById("miniPlayerHeader"));
