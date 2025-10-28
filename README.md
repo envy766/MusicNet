@@ -18,7 +18,12 @@ Player ini bisa berjalan secara **lokal** maupun **online via GitHub Pages**.
 - Request lagu
 - Download Mp3
 - Player video mini
+<<<<<<< HEAD
 
+=======
+  
+## Cara Pakai
+>>>>>>> 07474cf99092305d896c3b173128137f419dbfa8
 ### Lokal
 1. Tambahkan lagu ke folder `Mylist/`.
 2. Buka `index.html` di browser.
