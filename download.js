@@ -249,33 +249,62 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ========= 📤 SHARE =========
-  if(menuShare){
-    menuShare.addEventListener('click', () => {
-      const musicNetUrl = window.location.href || 'https://envy766.github.io/MusicNet/';
-      const modal = document.createElement('div');
-      modal.className = 'share-modal';
-      modal.innerHTML = `
-        <div class="share-content">
-          <h3 style="color:#00f6ff">Bagikan MusicNet</h3>
-          <p style="color:#cfefff">Pilih platform:</p>
-          <div class="share-icons" style="display:flex; justify-content:center; align-items:center;">
-            <a href="https://wa.me/?text=${encodeURIComponent('Dengarkan musik favoritmu di MusicNet! ' + musicNetUrl)}" target="_blank" style="margin:0 8px;">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="wa">
-            </a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(musicNetUrl)}" target="_blank" style="margin:0 8px;">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="fb">
-            </a>
-            <a href="https://www.instagram.com/" target="_blank" style="margin:0 8px;">
-              <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="ig">
-            </a>
-          </div>
-          <button id="close-share" style="margin-top:12px; background:#00bfff; color:#001; border:none; padding:8px 12px; border-radius:8px; cursor:pointer;">Close</button>
+if (menuShare) {
+  menuShare.addEventListener('click', () => {
+    const musicNetUrl = window.location.href || 'https://envy766.github.io/MusicNet/';
+
+    // 🎵 Template pesan share
+    const shareMessage = `
+🎧✨ *MusicNet — Tempat Musik Favoritmu!*
+
+Nikmati lagu-lagu 🎶 dengan tampilan modern dan player elegan !
+🎵 Fitur unggulan MusicNet:
+• 🔎 Cari lagu favoritmu dengan cepat  
+• 🎚️ Filter berdasarkan genre: Pop, Rock, Slow, Breakbeat, Cover  
+• 💾 Simpan lagu ke daftar “My Download”  
+• 📱 Putar musik dengan Mini Player tanpa ganggu aktivitasmu!  
+• 🌐 Tanpa login, langsung dengarkan 🎶  
+
+Klik dan mulai dengarkan sekarang 👇  
+👉 ${musicNetUrl}
+#MusicNet #FreeMusic #EnjoyTheBeat
+`;
+
+    //  Buat modal share
+    const modal = document.createElement('div');
+    modal.className = 'share-modal';
+    modal.innerHTML = `
+      <div class="share-content">
+        <h3 style="color:#00f6ff; text-shadow:0 0 10px #00f6ff;">Bagikan MusicNet</h3>
+        <p style="color:#cfefff">Pilih platform favoritmu:</p>
+        <div class="share-icons" style="display:flex; justify-content:center; align-items:center; gap:16px; margin-top:10px;">
+
+          <a href="https://wa.me/?text=${encodeURIComponent(shareMessage)}" target="_blank" title="Share ke WhatsApp">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" width="32" height="32" alt="wa">
+          </a>
+          
+          <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(musicNetUrl)}" target="_blank" title="Share ke Facebook">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" width="32" height="32" alt="fb">
+          </a>
+          
+          <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareMessage)}" target="_blank" title="Share ke Twitter/X">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/x.svg" width="32" height="32" alt="x">
+          </a>
+          
+          <a href="https://www.instagram.com/" target="_blank" title="Buka Instagram">
+            <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" width="32" height="32" alt="ig">
+          </a>
+
         </div>
-      `;
-      document.body.appendChild(modal);
-      modal.querySelector('#close-share').addEventListener('click', () => modal.remove());
-    });
-  }
+        <button id="close-share" style="margin-top:18px; background:#00bfff; color:#001; border:none; padding:8px 14px; border-radius:8px; cursor:pointer; font-weight:bold;">Tutup</button>
+      </div>
+    `;
+
+    document.body.appendChild(modal);
+    modal.querySelector('#close-share').addEventListener('click', () => modal.remove());
+  });
+}
+
 
 /* ========== SEARCH (Local + YouTube via Vercel Proxy) ========== */
 document.addEventListener("DOMContentLoaded", () => {

@@ -136,6 +136,14 @@
     ]
   },
   {
+    "file": "Mylist/Bruno Mars - Grenade [pop].mp3",
+    "title": "Bruno Mars - Grenade",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
     "file": "Mylist/Bruno Mars - Marry You [pop].mp3",
     "title": "Bruno Mars - Marry You",
     "artist": "",
@@ -223,6 +231,14 @@
     "tags": [
       "cover",
       "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Ipank - Harok Di Rantau Urang [slow].mp3",
+    "title": "Ipank - Harok Di Rantau Urang",
+    "artist": "",
+    "tags": [
+      "slow"
     ]
   },
   {
@@ -494,24 +510,24 @@
     ]
   },
   {
-    "file": "Mylist/Wali - Baik-Baik Sayang [slow].mp3",
-    "title": "Wali - Baik-Baik Sayang",
+    "file": "Mylist/Wali Band - Baik-Baik Sayang [slow].mp3",
+    "title": "Wali Band - Baik-Baik Sayang",
     "artist": "",
     "tags": [
       "slow"
     ]
   },
   {
-    "file": "Mylist/Wali - Doaku Untukmu Sayang [slow].mp3",
-    "title": "Wali - Doaku Untukmu Sayang",
+    "file": "Mylist/Wali Band - Doaku Untukmu Sayang [slow].mp3",
+    "title": "Wali Band - Doaku Untukmu Sayang",
     "artist": "",
     "tags": [
       "slow"
     ]
   },
   {
-    "file": "Mylist/Wali - Harga Diriku [pop][slow].mp3",
-    "title": "Wali - Harga Diriku",
+    "file": "Mylist/Wali Band - Harga Diriku [pop][slow].mp3",
+    "title": "Wali Band - Harga Diriku",
     "artist": "",
     "tags": [
       "pop",
@@ -519,24 +535,24 @@
     ]
   },
   {
-    "file": "Mylist/Wali - Sayang Lahir Batin [slow].mp3",
-    "title": "Wali - Sayang Lahir Batin",
+    "file": "Mylist/Wali Band - Sayang Lahir Batin [slow].mp3",
+    "title": "Wali Band - Sayang Lahir Batin",
     "artist": "",
     "tags": [
       "slow"
     ]
   },
   {
-    "file": "Mylist/Wali - Setia Jujur Dan Taqwa [pop].mp3",
-    "title": "Wali - Setia Jujur Dan Taqwa",
+    "file": "Mylist/Wali Band - Setia Jujur Dan Taqwa [pop].mp3",
+    "title": "Wali Band - Setia Jujur Dan Taqwa",
     "artist": "",
     "tags": [
       "pop"
     ]
   },
   {
-    "file": "Mylist/Wali - Takkan Pisah [slow][pop].mp3",
-    "title": "Wali - Takkan Pisah",
+    "file": "Mylist/Wali Band - Takkan Pisah [slow][pop].mp3",
+    "title": "Wali Band - Takkan Pisah",
     "artist": "",
     "tags": [
       "slow",
