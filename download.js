@@ -88,7 +88,7 @@ document.body.insertAdjacentHTML(
   `
 <div id="miniPlayer" style="
   display:none; position:fixed; bottom:20px; right:20px;
-  width:330px; height:220px; background:rgba(0,0,0,0.9);
+  width:330px; height:230px; background:rgba(0,0,0,0.9);
   border:1px solid #00f6ff; border-radius:12px; padding:0;
   box-shadow:0 0 20px #00f6ff; z-index:9999; overflow:hidden;">
   <div id="miniPlayerHeader" style="
@@ -265,8 +265,8 @@ Nikmati lagu-lagu 🎶 dengan tampilan modern dan player elegan !
 • 📱 Putar musik dengan Mini Player tanpa ganggu aktivitasmu!  
 • 🌐 Tanpa login, langsung dengarkan 🎶  
 
-Klik dan mulai dengarkan sekarang 👇  
-👉 ${musicNetUrl}
+Klik dan mulai dengarkan sekarang :
+'https://envy766.github.io/MusicNet/'
 #MusicNet #FreeMusic #EnjoyTheBeat
 `;
 

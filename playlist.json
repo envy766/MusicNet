@@ -275,6 +275,14 @@
     ]
   },
   {
+    "file": "Mylist/LinkinPark - What I've Done [poprock].mp3",
+    "title": "LinkinPark - What I've Done",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
     "file": "Mylist/Lovarian - Perpisahan Termanis [slow].mp3",
     "title": "Lovarian - Perpisahan Termanis",
     "artist": "",
@@ -318,6 +326,14 @@
   {
     "file": "Mylist/One Direction - Drag Me Down [pop].mp3",
     "title": "One Direction - Drag Me Down",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/One Direction - Live While We're Young [pop].mp3",
+    "title": "One Direction - Live While We're Young",
     "artist": "",
     "tags": [
       "pop"
