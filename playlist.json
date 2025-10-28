@@ -160,6 +160,14 @@
     ]
   },
   {
+    "file": "Mylist/Celine Dion - My Heart Will Go On [slow].mp3",
+    "title": "Celine Dion - My Heart Will Go On",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
     "file": "Mylist/Christina Perri - A Thousand Years (Remake) [slow].mp3",
     "title": "Christina Perri - A Thousand Years (Remake)",
     "artist": "",
@@ -463,6 +471,22 @@
   {
     "file": "Mylist/Skillet - Never Surrender [poprock].mp3",
     "title": "Skillet - Never Surrender",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Skillet - Salvation [poprock].mp3",
+    "title": "Skillet - Salvation",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Skillet - The Resistance [poprock].mp3",
+    "title": "Skillet - The Resistance",
     "artist": "",
     "tags": [
       "poprock"

@@ -94,7 +94,7 @@ document.body.insertAdjacentHTML(
   <div id="miniPlayerHeader" style="
     cursor:move; display:inline-block;
     font-weight: bold; line-height: 1;
-    align-items:left; padding:2px 6px ;
+    top:5px; left:7px; padding:2px;
     background:rgba(0,0,0,0.8); z-index:2;">
     <span style="color:#00f6ff;font-weight:bold;">🎧 Now Playing</span>
   </div>
