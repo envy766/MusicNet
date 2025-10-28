@@ -17,7 +17,7 @@ Player ini bisa berjalan secara **lokal** maupun **online via GitHub Pages**.
 - Responsive design untuk desktop & mobile
 - Request lagu
 - Download Mp3
-- Player Video Mini
+- Player video mini
   
 ## Cara Pakai
 ### Lokal
