@@ -93,7 +93,7 @@ document.body.insertAdjacentHTML(
   box-shadow:0 0 20px #00f6ff; z-index:9999; overflow:hidden;">
   <div id="miniPlayerHeader" style="
     cursor:move; display:flex;
-    align-items:left; padding:4px; background:rgba(0,0,0,0.6); z-index:2;">
+    align-items:left; padding:1px; background:rgba(0,0,0,0.6); z-index:2;">
     <span style="color:#00f6ff;font-weight:bold;">🎧 Now Playing</span>
   </div>
   <iframe id="ytPlayerFrame" width="100%" height="100%"
@@ -296,7 +296,7 @@ Klik dan mulai dengarkan sekarang :
           </a>
 
         </div>
-        <button id="close-share" style="margin-top:18px; background:#00bfff; color:#001; border:none; padding:8px 14px; border-radius:8px; cursor:pointer; font-weight:bold;">Tutup</button>
+        <button id="close-share" style="margin-top:18px; background:#00bfff; color:#001; border:none; padding:8px 14px; border-radius:8px; cursor:pointer; font-weight:bold;">Close</button>
       </div>
     `;
 

@@ -453,6 +453,14 @@
     ]
   },
   {
+    "file": "Mylist/Ungu - Demi Waktu [pop].mp3",
+    "title": "Ungu - Demi Waktu",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
     "file": "Mylist/Ungu - Sejauh Mungkin [pop].mp3",
     "title": "Ungu - Sejauh Mungkin",
     "artist": "",
@@ -638,6 +646,14 @@
     "artist": "",
     "tags": [
       "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Zivilia - Aishiteru [pop].mp3",
+    "title": "Zivilia - Aishiteru",
+    "artist": "",
+    "tags": [
+      "pop"
     ]
   }
 ]
