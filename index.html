@@ -247,14 +247,14 @@ canvas#bg{
 <div id="menuToggle" title="Menu">☰</div>
 
 <!-- Sidebar Download -->
-<div id="sidebarMenu" class="hidden">
+<div id="sidebarMenu"class="hidden">
   <div class="sidebar-header">
     <h2>WIDER NETWORK</h2>
-    <span id="closeMenu">×</span>
+<span id="closeMenu">Close</span>
   </div>
 
   <div class="sidebar-content">
-    <button id="menuRequest">📨 Request Lagu</button>
+    <button id="menuRequest">📨 Request Song</button>
     <button id="menuShare">🔗 Share MusicNet</button>
     <button id="menuSearch">🔍 Search & Download</button>
     <button id="menuMyDownload">📂 My Download</button>
@@ -599,6 +599,17 @@ function loadTrack(i){
 /* ------------------------
    Play / Pause
 ------------------------ */
+function startVisualizer() {
+  // ini contoh placeholder
+  console.log("Visualizer started ");
+  // kalau mau, bisa implementasi canvas/analyzer di sini
+}
+
+function stopVisualizer() {
+  console.log("Visualizer stopped ");
+  // hentikan visualizer / bersihkan canvas jika ada
+}
+
 function playAudio(){
   try{ if(!audioCtx) setupAudioAnalyzer(audio); }catch(e){ console.warn(e) }
   audio.play().catch(()=>{});
@@ -778,6 +789,8 @@ audio.addEventListener('ended', ()=> nextTrack());
 loadPlaylist();
 </script>
 
+<!-- ================= STYLES (GANTI BLOK STYLE LAMA) ================= -->
+
 <style>
 /* ===== Tombol dan Sidebar - Tema Biru Neon ===== */
 #menuToggle {
@@ -785,115 +798,74 @@ loadPlaylist();
   top: 16px;
   left: 16px;
   font-size: 28px;
-  color: #00eaff; /* biru neon utama */
+  color: #00eaff;
   cursor: pointer;
-  z-index: 2;
+  z-index: 10;
   text-shadow: 0 0 10px #00bfff, 0 0 20px #00ffff, 0 0 30px #00ccff;
-  transition: 0.3s;
+  transition: 0.18s;
 }
-#menuToggle:hover {
-  color: #fff;
-  text-shadow: 0 0 20px #00ffff, 0 0 40px #00ccff, 0 0 60px #33ffff;
-}
+#menuToggle:hover { color:#fff; text-shadow:0 0 20px #00ffff,0 0 40px #00ccff; }
+
 #sidebarMenu {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 270px;
+  width: 280px;
   height: 100%;
-  background: linear-gradient(90deg, rgba(110,240,255,0.25), rgba(138,79,255,0.22));
-  border-left: 2px solid #00ffff;
-  box-shadow: 0 0 25px #00aaff;
-  backdrop-filter: blur(12px);
-  color: #e0f7ff;
-  transform: translateX(-100%);
-  transition: transform 0.4s ease;
-  z-index: 20; /* di atas player */
+  background: linear-gradient(90deg, rgba(12,45,60,0.85), rgba(6,21,40,0.95));
+  border-right: 1px solid rgba(0,191,255,0.1);
+  transform: translateX(-110%);
+  transition: transform .36s ease;
+  z-index: 55;
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px;
 }
+
+/* Tambahkan ini */
+#sidebarMenu.hidden {
+  transform: translateX(-110%) !important;
+}
+
+#closeMenu {
+  cursor: pointer;
+  font-size:13px;
+  text-shadow: 0 0 10px #e0aaff;
+  position:absolute;
+  top:8px; right:10px;
+  background:#00bfff;
+  border:none;
+  color:white;
+  font-weight:bold;
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+/* Ketika toggle ditekan */
 #sidebarMenu.active {
   transform: translateX(0);
 }
-#sidebarMenu.hidden {
-  transform: translateX(-100%);
+
+#sidebarMenu.show {
+  left: 0;
 }
-.sidebar-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 9px;
-  font-size: 19px;
-  background: linear-gradient(180deg, #001f3f 0%, #003366 100%);
-  border-bottom: 1px solid #9d4edd;
-}
-.sidebar-content {
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  gap: 10px;
-}
-.sidebar-content button {
-  background: #008cff;
-  color: #fff;
-  border: none;
-  padding: 12px;
-  border-radius: 8px;
-  padding: 8px 15px;
-  cursor: pointer;
-  text-align: left;
-  box-shadow: 0 0 15px #00ffff;
-  transition: 0.3s;
-}
-.sidebar-content button:hover {
-  background: #00aaff;
-  box-shadow: 0 0 25px #00ffff, 0 0 45px #00ccff;
-}
-/* Link download atau item menu lainnya */
-#sidebarMenu a {
-  color: #00eaff;
-  text-decoration: none;
-  #sidebarMenu a:hover {
-  color: #fff;
-  text-shadow: 0 0 10px #00ffff, 0 0 25px #00ccff;
-#closeMenu {
-  cursor: pointer;
-  font-size: 22px;
-  text-shadow: 0 0 10px #e0aaff;
-}
+
+#sidebarMenu.active { transform: translateX(0); }
+.sidebar-header { display:flex; justify-content:space-between; top:25px; padding:15px; font-size:16px; background:linear-gradient(90deg,rgba(12,45,60,2),rgba(6,21,40,3)); border-bottom: 1px solid #9d4edd; }
+.sidebar-content { padding:12px; display:flex; flex-direction:column; gap:10px; }
+.sidebar-content button { background: linear-gradient(90deg,#00bfff,#0077cc); color:#001; border:none; padding:10px 12px; border-radius:8px; cursor:pointer; box-shadow:0 6px 18px rgba(0,191,255,0.08); }
+
+/* share modal (injected also by JS but define base here) */
+.share-modal { position: fixed; inset:0; display:flex; align-items:center; justify-content:center; background: rgba(0,0,0,0.6); z-index:99999; }
+.share-content { background:#0b1220; padding:22px; border-radius:12px; box-shadow: 0 12px 40px rgba(0,191,255,0.06); color:#e6fbff; text-align:center; }
+.share-icons img { width:40px; height:40px; object-fit:contain; filter: invert(1); margin: 0 10px; cursor:pointer; transition: transform .14s ease; }
+.share-icons img:hover { transform: scale(1.14); }
+
+/* make sure mini player sits above everything (if present) */
+#miniPlayer { z-index:99998; }
 </style>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {                                 
-  const menuToggle = document.getElementById("menuToggle");
-  const sidebarMenu = document.getElementById("sidebarMenu");
-  const closeMenu = document.getElementById("closeMenu");
-
-  // sembunyikan awal
-  sidebarMenu.classList.add("hidden");
-
-  // klik tombol garis 3
-  menuToggle.addEventListener("click", () => {
-    sidebarMenu.classList.remove("hidden");
-    sidebarMenu.classList.add("active");
-  });
-
-  // klik tombol tutup ×                                                              
-    closeMenu.addEventListener("click", () => {
-    sidebarMenu.classList.remove("active");
-    sidebarMenu.classList.add("hidden");
-  });
-
-  // contoh tombol menu
-  document.getElementById("menuRequest").addEventListener("click", () => {
-    window.open("https://t.me/RequestMusicNet", "_blank");
-  });
-  document.getElementById("menuShare").addEventListener("click", () => {
-    navigator.clipboard.writeText(window.location.href).then(() => {
-      alert("Link MusicNet disalin!");
-    });
-  });
-});
-</script>
 </body>
 </html>
