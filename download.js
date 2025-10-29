@@ -94,7 +94,8 @@ document.body.insertAdjacentHTML(
   <div id="miniPlayerHeader" style="
     cursor:move; display:flex; align-items:left; padding:2px;
     background:rgba(0,0,0,0.8); z-index:2;">
-    <span style="color:#00f6ff;font-weight:bold;">🎧 Now Playing</span>
+    <span style="color:#00f6ff;font-weight:bold;"
+    >🎧 Now Playing...</span>
   </div>
   <iframe id="ytPlayerFrame" width="100%" height="100%"
     src="" frameborder="0"
