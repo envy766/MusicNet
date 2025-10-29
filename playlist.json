@@ -316,6 +316,14 @@
     ]
   },
   {
+    "file": "Mylist/LinkinPark - My December [poprock].mp3",
+    "title": "LinkinPark - My December",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
     "file": "Mylist/LinkinPark - Point Of Authority [poprock].mp3",
     "title": "LinkinPark - Point Of Authority",
     "artist": "",
@@ -375,6 +383,14 @@
   {
     "file": "Mylist/One Direction - Drag Me Down [pop].mp3",
     "title": "One Direction - Drag Me Down",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/One Direction - Kiss You [pop].mp3",
+    "title": "One Direction - Kiss You",
     "artist": "",
     "tags": [
       "pop"
