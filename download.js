@@ -363,7 +363,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let ytMatches = [];
         try {
-          const res = await fetch(`${YT_PROXY}${encodeURIComponent(q)}&key=${YT_API_KEY}`);
+          const res = await fetch(`${YT_PROXY}${encodeURIComponent(q)}&maxResults=20&key=${YT_API_KEY}`);
           const data = await res.json();
           ytMatches = (data.items || []).map(item => ({
             title: item.snippet.title,
