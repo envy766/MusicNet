@@ -1,5 +1,13 @@
 [
   {
+    "file": "Mylist/Adista - mencoba untuk setia [slow].mp3",
+    "title": "Adista - mencoba untuk setia",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
     "file": "Mylist/Alan Walker - Alone [pop].mp3",
     "title": "Alan Walker - Alone",
     "artist": "",
@@ -224,11 +232,27 @@
     ]
   },
   {
+    "file": "Mylist/Evanescence - Lithium [poprock].mp3",
+    "title": "Evanescence - Lithium",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
     "file": "Mylist/Evanescence - My Immortal [slow][poprock].mp3",
     "title": "Evanescence - My Immortal",
     "artist": "",
     "tags": [
       "slow",
+      "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Evanescence - Talquing Over Me [poprock].mp3",
+    "title": "Evanescence - Talquing Over Me",
+    "artist": "",
+    "tags": [
       "poprock"
     ]
   },
