@@ -192,6 +192,15 @@
     ]
   },
   {
+    "file": "Mylist/Eminem feat Halsey NF - Hold On [pop][poprock].mp3",
+    "title": "Eminem feat Halsey NF - Hold On",
+    "artist": "",
+    "tags": [
+      "pop",
+      "poprock"
+    ]
+  },
+  {
     "file": "Mylist/Evanescence - Bring Me To Life [poprock].mp3",
     "title": "Evanescence - Bring Me To Life",
     "artist": "",
@@ -218,6 +227,14 @@
   {
     "file": "Mylist/Evanescence - Lithium [poprock].mp3",
     "title": "Evanescence - Lithium",
+    "artist": "",
+    "tags": [
+      "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Evanescence - Talquing Over Me [poprock].mp3",
+    "title": "Evanescence - Talquing Over Me",
     "artist": "",
     "tags": [
       "poprock"
@@ -546,6 +563,14 @@
     "artist": "",
     "tags": [
       "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Unknown - DJ Sayang Cintaku Istimewa [breakbeat].mp3",
+    "title": "Unknown - DJ Sayang Cintaku Istimewa",
+    "artist": "",
+    "tags": [
+      "breakbeat"
     ]
   },
   {
