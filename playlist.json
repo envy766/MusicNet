@@ -460,6 +460,38 @@
     ]
   },
   {
+    "file": "Mylist/Maroon 5 - Daylight [pop].mp3",
+    "title": "Maroon 5 - Daylight",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Maroon 5 - Maps [pop].mp3",
+    "title": "Maroon 5 - Maps",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Maroon 5 - Memories [pop].mp3",
+    "title": "Maroon 5 - Memories",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Maroon 5 - One More Night [pop].mp3",
+    "title": "Maroon 5 - One More Night",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
     "file": "Mylist/Maroon 5 - Payphone [pop].mp3",
     "title": "Maroon 5 - Payphone",
     "artist": "",
@@ -795,6 +827,14 @@
     "artist": "",
     "tags": [
       "slow",
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Westlife - My Love [pop].mp3",
+    "title": "Westlife - My Love",
+    "artist": "",
+    "tags": [
       "pop"
     ]
   },
