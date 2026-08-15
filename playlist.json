@@ -613,6 +613,14 @@
     ]
   },
   {
+    "file": "Mylist/Peterpan - Bintang Di Surga [pop].mp3",
+    "title": "Peterpan - Bintang Di Surga",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
     "file": "Mylist/Peterpan - Cobalah Mengerti [pop].mp3",
     "title": "Peterpan - Cobalah Mengerti",
     "artist": "",
@@ -623,6 +631,30 @@
   {
     "file": "Mylist/Peterpan - Ku Katakan Dengan Indah [pop].mp3",
     "title": "Peterpan - Ku Katakan Dengan Indah",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Peterpan - Menghapus Jejakmu [pop].mp3",
+    "title": "Peterpan - Menghapus Jejakmu",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Peterpan - Mimpi Yang Sempurna [pop].mp3",
+    "title": "Peterpan - Mimpi Yang Sempurna",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Peterpan - Semua Tentang Kita [pop].mp3",
+    "title": "Peterpan - Semua Tentang Kita",
     "artist": "",
     "tags": [
       "pop"
@@ -906,6 +938,24 @@
     "title": "Wali Band - Doaku Untukmu Sayang",
     "artist": "",
     "tags": [
+      "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Wali Band - Harga Diriku [pop][slow].mp3",
+    "title": "Wali Band - Harga Diriku",
+    "artist": "",
+    "tags": [
+      "pop",
+      "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Wali Band - Sayang Lahir Batin [pop][slow].mp3",
+    "title": "Wali Band - Sayang Lahir Batin",
+    "artist": "",
+    "tags": [
+      "pop",
       "slow"
     ]
   },
