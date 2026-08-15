@@ -61,8 +61,16 @@
     ]
   },
   {
-    "file": "Mylist/Arief - Satu Rasa Cinta [slow] .mp3",
-    "title": "Arief - Satu Rasa Cinta",
+    "file": "Mylist/Arief Putra - Rembulan Malam [slow].mp3",
+    "title": "Arief Putra - Rembulan Malam",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Arief Putra - Satu Rasa Cinta [slow] .mp3",
+    "title": "Arief Putra - Satu Rasa Cinta",
     "artist": "",
     "tags": [
       "slow"
@@ -189,6 +197,14 @@
     "artist": "",
     "tags": [
       "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Charlie Puth Feat Wiz Khalifa - See You Again [pop].mp3",
+    "title": "Charlie Puth Feat Wiz Khalifa - See You Again",
+    "artist": "",
+    "tags": [
+      "pop"
     ]
   },
   {
@@ -509,6 +525,14 @@
     ]
   },
   {
+    "file": "Mylist/Nidji - Rahasia Hati [slow].mp3",
+    "title": "Nidji - Rahasia Hati",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
     "file": "Mylist/Olivia Rodrigo - Happier [slow].mp3",
     "title": "Olivia Rodrigo - Happier",
     "artist": "",
@@ -816,6 +840,14 @@
   {
     "file": "Mylist/Unknown - DJ Yali x Rab Ne Bana De Jodi [breakbeat].mp3",
     "title": "Unknown - DJ Yali x Rab Ne Bana De Jodi",
+    "artist": "",
+    "tags": [
+      "breakbeat"
+    ]
+  },
+  {
+    "file": "Mylist/Unknown - DJ You Don't Even Know Me [breakbeat].mp3",
+    "title": "Unknown - DJ You Don't Even Know Me",
     "artist": "",
     "tags": [
       "breakbeat"
