@@ -184,14 +184,6 @@
     ]
   },
   {
-    "file": "Mylist/Bondan Prakoso & Fade2Black - Ya Sudahlah [pop].mp3",
-    "title": "Bondan Prakoso & Fade2Black - Ya Sudahlah",
-    "artist": "",
-    "tags": [
-      "pop"
-    ]
-  },
-  {
     "file": "Mylist/Bruno Mars - Grenade [pop].mp3",
     "title": "Bruno Mars - Grenade",
     "artist": "",
@@ -400,6 +392,15 @@
     "artist": "",
     "tags": [
       "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Kangen Band - Takkan Terganti (Cover AI) [cover][slow].mp3",
+    "title": "Kangen Band - Takkan Terganti (Cover AI)",
+    "artist": "",
+    "tags": [
+      "cover",
+      "slow"
     ]
   },
   {
