@@ -1,13 +1,5 @@
 [
   {
-    "file": "Mylist/Adista - mencoba untuk setia [slow].mp3",
-    "title": "Adista - mencoba untuk setia",
-    "artist": "",
-    "tags": [
-      "slow"
-    ]
-  },
-  {
     "file": "Mylist/Alan Walker - Alone [pop].mp3",
     "title": "Alan Walker - Alone",
     "artist": "",
@@ -224,8 +216,8 @@
     ]
   },
   {
-    "file": "Mylist/Eminem feat Halsey NF - Hold On [pop][poprock].mp3",
-    "title": "Eminem feat Halsey NF - Hold On",
+    "file": "Mylist/Eminem Feat Halsey & NF - Hold On [pop][poprock].mp3",
+    "title": "Eminem Feat Halsey & NF - Hold On",
     "artist": "",
     "tags": [
       "pop",
@@ -452,6 +444,14 @@
     ]
   },
   {
+    "file": "Mylist/Lyodra - Pesan Terakhir [slow].mp3",
+    "title": "Lyodra - Pesan Terakhir",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
     "file": "Mylist/Maroon 5 - Animals [pop].mp3",
     "title": "Maroon 5 - Animals",
     "artist": "",
@@ -581,12 +581,28 @@
     ]
   },
   {
-    "file": "Mylist/Regita Echa - Dear God (ASF) [slow][cover].mp3",
-    "title": "Regita Echa - Dear God (ASF)",
+    "file": "Mylist/Piche Kota - Bahagia Lagi [slow].mp3",
+    "title": "Piche Kota - Bahagia Lagi",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Regita Echa - Dear God [slow][cover].mp3",
+    "title": "Regita Echa - Dear God",
     "artist": "",
     "tags": [
       "slow",
       "cover"
+    ]
+  },
+  {
+    "file": "Mylist/Rizky Febian Feat Adrian Khalif - Alamak [pop].mp3",
+    "title": "Rizky Febian Feat Adrian Khalif - Alamak",
+    "artist": "",
+    "tags": [
+      "pop"
     ]
   },
   {
@@ -723,6 +739,14 @@
     "artist": "",
     "tags": [
       "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Tiara Andini - Janji Setia [slow].mp3",
+    "title": "Tiara Andini - Janji Setia",
+    "artist": "",
+    "tags": [
+      "slow"
     ]
   },
   {
