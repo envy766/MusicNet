@@ -16,6 +16,14 @@
     ]
   },
   {
+    "file": "Mylist/Alan Walker - On My Way [pop].mp3",
+    "title": "Alan Walker - On My Way",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
     "file": "Mylist/Alfa - Perlahan Kau Pergi [slow][cover].mp3",
     "title": "Alfa - Perlahan Kau Pergi",
     "artist": "",
@@ -302,6 +310,15 @@
     "artist": "",
     "tags": [
       "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/Eńau Feat Ari Lesmana - Sesi Potret [slow][pop].mp3",
+    "title": "Eńau Feat Ari Lesmana - Sesi Potret",
+    "artist": "",
+    "tags": [
+      "slow",
+      "pop"
     ]
   },
   {
@@ -919,14 +936,6 @@
     ]
   },
   {
-    "file": "Mylist/Unknown - DJ Yali x Rab Ne Bana De Jodi [breakbeat].mp3",
-    "title": "Unknown - DJ Yali x Rab Ne Bana De Jodi",
-    "artist": "",
-    "tags": [
-      "breakbeat"
-    ]
-  },
-  {
     "file": "Mylist/Unknown - DJ You Don't Even Know Me [breakbeat].mp3",
     "title": "Unknown - DJ You Don't Even Know Me",
     "artist": "",
@@ -994,8 +1003,8 @@
     ]
   },
   {
-    "file": "Mylist/Ziell Ferdian - Bawalah Cintamu (Reverb)[slow].mp3",
-    "title": "Ziell Ferdian - Bawalah Cintamu (Reverb)",
+    "file": "Mylist/Ziell Ferdian - Bawalah Cintamu (Speed Up Reverb) [slow].mp3",
+    "title": "Ziell Ferdian - Bawalah Cintamu (Speed Up Reverb)",
     "artist": "",
     "tags": [
       "slow"
