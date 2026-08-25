@@ -313,12 +313,12 @@
     ]
   },
   {
-    "file": "Mylist/Eńau Feat Ari Lesmana - Sesi Potret [slow][pop].mp3",
+    "file": "Mylist/Eńau Feat Ari Lesmana - Sesi Potret [pop][slow].mp3",
     "title": "Eńau Feat Ari Lesmana - Sesi Potret",
     "artist": "",
     "tags": [
-      "slow",
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
@@ -991,14 +991,6 @@
     "artist": "",
     "tags": [
       "slow",
-      "pop"
-    ]
-  },
-  {
-    "file": "Mylist/Westlife - My Love [pop].mp3",
-    "title": "Westlife - My Love",
-    "artist": "",
-    "tags": [
       "pop"
     ]
   },
