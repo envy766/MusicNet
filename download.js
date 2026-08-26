@@ -256,19 +256,20 @@ if (menuShare) {
 
     // 🎵 Template pesan share
     const shareMessage = `
-🎧✨ *MusicNet — Tempat Musik Favoritmu!*
+🎧MusicNet — Tempat Musik Favoritmu !
 
 Nikmati lagu-lagu 🎶 dengan tampilan modern dan player elegan !
 🎵 Fitur unggulan MusicNet:
-• 🔎 Cari lagu favoritmu dengan cepat  
-• 🎚️ Filter berdasarkan genre: Pop, Rock, Slow, Breakbeat, Cover  
-• 💾 Simpan lagu ke daftar “My Download”  
-• 📱 Putar musik dengan Mini Player tanpa ganggu aktivitasmu!  
-• 🌐 Tanpa login, langsung dengarkan 🎶  
+• Cari lagu favoritmu dengan cepat  
+• Filter berdasarkan genre: Pop, Rock, Slow, Breakbeat, Cover  
+• Simpan lagu ke daftar “My Download”  
+• Putar musik dengan Mini Player tanpa ganggu aktivitasmu!  
+• Tanpa login, langsung dengarkan 🎶  
 
 Klik dan mulai dengarkan sekarang :
 'https://envy766.github.io/MusicNet/'
-#MusicNet #FreeMusic #EnjoyTheBeat
+
+#MusicNet #FreeMusic #Enjoyyourday
 `;
 
     //  Buat modal share
