@@ -1,3 +1,5 @@
+
+
 #!/usr/bin/env python3
 import os, json, shutil, re
 
@@ -12,30 +14,79 @@ out = os.path.join(home, 'playlist.json')
 # Pastikan folder lokal ada
 os.makedirs(local_mylist, exist_ok=True)
 
-# Ambil semua file audio dari internal storage
+# =========================================
+# LOAD PLAYLIST LAMA
+# =========================================
+
 tracks = []
+
+if os.path.exists(out):
+    try:
+        with open(out, 'r', encoding='utf-8') as f:
+            tracks = json.load(f)
+
+        if not isinstance(tracks, list):
+            tracks = []
+
+    except (json.JSONDecodeError, OSError):
+        tracks = []
+
+# File yang sudah ada di playlist
+existing_files = {track.get("file") for track in tracks}
+
+# =========================================
+# TAMBAHKAN LAGU BARU
+# =========================================
+
+new_tracks = 0
+
 for fn in sorted(os.listdir(internal_mylist)):
-    if fn.lower().endswith(('.mp3','.m4a','.ogg','.wav')):
-        src = os.path.join(internal_mylist, fn)
-        dst = os.path.join(local_mylist, fn)
-        # Copy file ke folder lokal Termux
-        shutil.copy2(src, dst)
+    if not fn.lower().endswith(('.mp3', '.m4a', '.ogg', '.wav')):
+        continue
 
-        # Ambil genre dari nama file [pop][slow][cover] dst
-        tags = [m.lower() for m in re.findall(r'\[([^\]]+)\]', fn)]
+    src = os.path.join(internal_mylist, fn)
+    dst = os.path.join(local_mylist, fn)
 
-        # Bersihkan title dari tag
-        title_clean = re.sub(r'\[[^\]]+\]', '', os.path.splitext(fn)[0]).strip()
+    playlist_file = f"Mylist/{fn}"
 
-        tracks.append({
-            "file": f"Mylist/{fn}",
-            "title": title_clean,
-            "artist": "",
-            "tags": tags
-        })
+    # Jika lagu sudah ada di playlist, jangan tambahkan lagi
+    if playlist_file in existing_files:
+        continue
 
-# Buat playlist.json di folder lokal Termux
+    # Copy file baru ke folder lokal Termux
+    shutil.copy2(src, dst)
+
+    # Ambil genre dari nama file [pop][slow][cover] dst
+    tags = [m.lower() for m in re.findall(r'\[([^\]]+)\]', fn)]
+
+    # Bersihkan title dari tag
+    title_clean = re.sub(
+        r'\[[^\]]+\]',
+        '',
+        os.path.splitext(fn)[0]
+    ).strip()
+
+    tracks.append({
+        "file": playlist_file,
+        "title": title_clean,
+        "artist": "",
+        "tags": tags
+    })
+
+    existing_files.add(playlist_file)
+    new_tracks += 1
+
+# =========================================
+# SIMPAN PLAYLIST
+# =========================================
+
 with open(out, 'w', encoding='utf-8') as f:
-    json.dump(tracks, f, indent=2, ensure_ascii=False)
+    json.dump(
+        tracks,
+        f,
+        indent=2,
+        ensure_ascii=False
+    )
 
-print(f"playlist.json dibuat: {len(tracks)} lagu")
+print(f"playlist.json diperbarui: {len(tracks)} lagu")
+print(f"Lagu baru ditambahkan: {new_tracks}")
