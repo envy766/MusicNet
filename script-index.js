@@ -84,7 +84,19 @@ function draw(now){
     }
     overallLevel = total/dataArray.length/255;
 
-const smooth = 1-Math.exp(-12*dt);
+const attack =
+  1-Math.exp(-32*dt);
+
+const release =
+  1-Math.exp(-14*dt);
+
+const smooth =
+  targetBeat > beatLevel
+    ? attack
+    : release;
+
+beatLevel +=
+  (targetBeat-beatLevel)*smooth;
 beatLevel +=
   (targetBeat-beatLevel)*smooth;
     window.__music_overall = overallLevel;
