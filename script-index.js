@@ -194,6 +194,10 @@ const logo = document.getElementById('logo');
       '--logo-opacity',
       opacity.toFixed(3)
     );
+logo.style.boxShadow =
+  `0 0 ${glow}px rgba(110,240,255,${opacity}),
+   0 0 ${glow*0.65}px rgba(138,79,255,${opacity*0.9}),
+   0 0 ${glow*0.3}px rgba(255,255,255,${beat*0.5})`;
   }
 
   /* ------------------------
@@ -227,6 +231,9 @@ for(let i=0;i<bars.length;i++){
         `${8+v*32+beat*8}px`;
     bars[i].style.opacity =
         `${0.4+v*0.6}`;
+bars[i].style.boxShadow =
+  `0 0 ${4+v*12+beat*10}px
+   rgba(110,240,255,${0.35+v*0.6})`;
     }
   }
 }
