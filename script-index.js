@@ -96,12 +96,12 @@ const beat = Math.min(1,beatLevel);
 
   document.documentElement.style.setProperty(
     '--music-beat',
-    beat.toFixed(3)
+    beat
   );
 
   document.documentElement.style.setProperty(
     '--music-overall',
-    overall.toFixed(3)
+    overall
   );
 
   /* ------------------------
