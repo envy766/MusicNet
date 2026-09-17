@@ -230,6 +230,7 @@ for(let i=0;i<visualizerBars.length;i++){
     }
   }
 }
+draw();
 
 /* ------------------------
    Player logic
@@ -1080,4 +1081,3 @@ audio.addEventListener('ended',()=>{
    INIT
 ------------------------ */
 loadPlaylist();
-draw();
