@@ -6,6 +6,8 @@
 ------------------------ */
 const canvas = document.getElementById('bg');
 const ctx = canvas.getContext('2d');
+const logo = document.getElementById('logo');
+const visualizerBars = document.querySelectorAll('#visualizer span');
 let W = canvas.width = innerWidth;
 let H = canvas.height = innerHeight;
 
@@ -150,14 +152,13 @@ const beat = Math.min(1,beatLevel);
     ctx.fillStyle =
       `hsla(${hue},100%,78%,${Math.min(1,alpha)})`;
 
-    /* Lebih terang mengikuti musik */
     ctx.shadowBlur =
-      10+
-      overall*16+
-      beat*24;
+  6+
+  overall*8+
+  beat*12;
 
-    ctx.shadowColor =
-      `hsla(${hue},100%,72%,1)`;
+ctx.shadowColor =
+  'rgba(110,240,255,.65)';
 
     ctx.fill();
   });
@@ -165,8 +166,6 @@ const beat = Math.min(1,beatLevel);
   /* ------------------------
      Logo beat light
   ------------------------ */
-  const logo = document.getElementById('logo');
-
   if(logo){
     const scale = 1+beat*0.08;
 
@@ -196,11 +195,6 @@ const beat = Math.min(1,beatLevel);
       '--logo-opacity',
       opacity.toFixed(3)
     );
-
-    logo.style.boxShadow =
-      `0 0 ${glow}px rgba(110,240,255,${opacity}),
-       0 0 ${glow*0.65}px rgba(138,79,255,${opacity*0.9}),
-       0 0 ${glow*0.3}px rgba(255,255,255,${beat*0.5})`;
   }
 
   /* ------------------------
@@ -222,29 +216,20 @@ const beat = Math.min(1,beatLevel);
   /* ------------------------
      Visualizer bars
   ------------------------ */
-  const bars =
-    document.querySelectorAll('#visualizer span');
-
-  if(analyser && bars.length){
-    for(let i=0;i<bars.length;i++){
+if(analyser && visualizerBars.length){
+for(let i=0;i<visualizerBars.length;i++){
       const index =
         Math.min(dataArray.length-1,i*2);
 
       const v = dataArray[index]/255;
 
-      bars[i].style.height =
+   visualizerBars[i].style.height =
         `${8+v*32+beat*8}px`;
-
-      bars[i].style.opacity =
+   visualizerBars[i].style.opacity =
         `${0.4+v*0.6}`;
-
-      bars[i].style.boxShadow =
-        `0 0 ${4+v*12+beat*10}px
-         rgba(110,240,255,${0.35+v*0.6})`;
     }
   }
 }
-draw();
 
 /* ------------------------
    Player logic
@@ -1095,3 +1080,4 @@ audio.addEventListener('ended',()=>{
    INIT
 ------------------------ */
 loadPlaylist();
+draw();
