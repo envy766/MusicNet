@@ -51,8 +51,17 @@ let beatLevel = 0;
 let targetBeat = 0;
 let overallLevel = 0;
 
-function draw(){
+let lastFrameTime = performance.now();
+
+function draw(now){
   requestAnimationFrame(draw);
+
+  const dt = Math.min(
+    0.05,
+    (now-lastFrameTime)/1000
+  );
+
+  lastFrameTime = now;
   ctx.clearRect(0,0,W,H);
 
   if(analyser){
@@ -75,8 +84,9 @@ function draw(){
     }
     overallLevel = total/dataArray.length/255;
 
-    beatLevel += (targetBeat-beatLevel)*0.22;
-
+const smooth = 1-Math.exp(-12*dt);
+beatLevel +=
+  (targetBeat-beatLevel)*smooth;
     window.__music_overall = overallLevel;
     window.__music_beat = beatLevel;
 
