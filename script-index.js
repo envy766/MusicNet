@@ -244,6 +244,7 @@ const beat = Math.min(1,beatLevel);
     }
   }
 }
+draw();
 
 /* ------------------------
    Player logic
@@ -1094,4 +1095,3 @@ audio.addEventListener('ended',()=>{
    INIT
 ------------------------ */
 loadPlaylist();
-draw();
