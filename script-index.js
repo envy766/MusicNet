@@ -454,12 +454,8 @@ function applyFilters(){
       !favorites.includes(t.file)
     ) return;
 
-    const cleanTags =
-      (t.tags||[])
-        .map(tag=>tag
-          .replace(/[]/g,'')
-          .toLowerCase()
-        );
+  const cleanTags =
+  (t.tags||[]).map(tag=>tag.toLowerCase());
 
     if(
       selectedGenres.length &&
