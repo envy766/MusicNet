@@ -73,9 +73,8 @@ html::before{
     0 0 10px
       rgba(110,240,255,calc(.25 + var(--music-beat)*.45));
 
-  transition:
-    box-shadow .04s linear,
-    border-color .04s linear;
+transition:none;
+will-change:box-shadow,border-color;
 }
 
 html::after{
@@ -104,7 +103,8 @@ html::after{
   opacity:
     calc(.55 + var(--music-beat)*.45);
 
-  transition:opacity .04s linear;
+transition:none;
+will-change:opacity;
 }
 
 /* ------------------------
@@ -319,10 +319,9 @@ canvas#bg{
   box-shadow:
     0 0 30px rgba(110,240,255,.18),
     0 0 55px rgba(138,79,255,.1);
-  transition:
-    transform .08s linear,
-    box-shadow .08s linear,
-    filter .08s linear;
+
+transition:none;
+will-change:transform,filter;
   will-change:transform,box-shadow,filter;
 }
 
@@ -474,10 +473,9 @@ canvas#bg{
   box-shadow:
     0 0 8px rgba(110,240,255,.25),
     0 0 14px rgba(138,79,255,.12);
-  transition:
-    height .08s linear,
-    opacity .12s linear,
-    box-shadow .08s linear;
+
+transition:none;
+will-change:height,opacity,box-shadow;
 }
 
 /* ------------------------
