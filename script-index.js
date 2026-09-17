@@ -214,20 +214,20 @@ const logo = document.getElementById('logo');
   /* ------------------------
      Visualizer bars
   ------------------------ */
-const bars =
+const visualizerBars =
   document.querySelectorAll('#visualizer span');
-if(analyser && bars.length){
-for(let i=0;i<bars.length;i++){
+if(analyser && visualizerBars.length){
+for(let i=0;i<visualizerBars.length;i++){
       const index =
         Math.min(dataArray.length-1,i*2);
 
       const v = dataArray[index]/255;
 
-    bars[i].style.height =
+    visualizerBars[i].style.height =
         `${8+v*32+beat*8}px`;
-    bars[i].style.opacity =
+   visualizerBars[i].style.opacity =
         `${0.4+v*0.6}`;
-bars[i].style.boxShadow =
+visualizerBars[i].style.boxShadow =
   `0 0 ${4+v*12+beat*10}px
    rgba(110,240,255,${0.35+v*0.6})`;
     }
