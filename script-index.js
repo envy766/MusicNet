@@ -379,6 +379,7 @@ async function loadPlaylist(){
 
   }catch(err){
     console.error(err);
+alert('MusicNet Error: ' + err.message);
 
     if(titleEl){
       titleEl.textContent =
