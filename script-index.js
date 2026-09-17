@@ -6,6 +6,9 @@
 ------------------------ */
 const canvas = document.getElementById('bg');
 const ctx = canvas.getContext('2d');
+const logo = document.getElementById('logo');
+const visualizerBars =
+  document.querySelectorAll('#visualizer span');
 let W = canvas.width = innerWidth;
 let H = canvas.height = innerHeight;
 
@@ -164,7 +167,6 @@ ctx.shadowColor =
   /* ------------------------
      Logo beat light
   ------------------------ */
-const logo = document.getElementById('logo');
   if(logo){
     const scale = 1+beat*0.08;
 
@@ -214,8 +216,6 @@ const logo = document.getElementById('logo');
   /* ------------------------
      Visualizer bars
   ------------------------ */
-const visualizerBars =
-  document.querySelectorAll('#visualizer span');
 if(analyser && visualizerBars.length){
 for(let i=0;i<visualizerBars.length;i++){
       const index =
