@@ -1,45 +1,55 @@
 
 
+/* =========================================
+   BACKGROUND CANVAS & AUDIO VISUALIZER
+========================================= */
 
-/* ------------------------
-   Background canvas & audio visualizer
------------------------- */
 const canvas = document.getElementById('bg');
 const ctx = canvas.getContext('2d');
-const logo = document.getElementById('logo');
-const visualizerBars =
-  document.querySelectorAll('#visualizer span');
+
 let W = canvas.width = innerWidth;
 let H = canvas.height = innerHeight;
 
-addEventListener('resize',()=>{
+addEventListener('resize', () => {
   W = canvas.width = innerWidth;
   H = canvas.height = innerHeight;
 });
 
+
+/* ------------------------
+   PARTICLES
+------------------------ */
+
 const particles = [];
-for(let i=0;i<120;i++){
+
+for (let i = 0; i < 120; i++) {
   particles.push({
-    x:Math.random()*W,
-    y:Math.random()*H,
-    r:Math.random()*1.6+0.6,
-    dx:(Math.random()-0.5)*0.6,
-    dy:(Math.random()-0.5)*0.6,
-    hue:Math.random()*70+175
+    x: Math.random() * W,
+    y: Math.random() * H,
+    r: Math.random() * 1.6 + 0.6,
+    dx: (Math.random() - 0.5) * 0.6,
+    dy: (Math.random() - 0.5) * 0.6
   });
 }
 
-let audioCtx, analyser, dataArray;
 
-function setupAudioAnalyzer(audioEl){
-  if(audioCtx) return;
+/* ------------------------
+   AUDIO ANALYZER
+------------------------ */
+
+let audioCtx;
+let analyser;
+let dataArray;
+
+function setupAudioAnalyzer(audioEl) {
+  if (audioCtx) return;
 
   audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
   const src = audioCtx.createMediaElementSource(audioEl);
 
   analyser = audioCtx.createAnalyser();
   analyser.fftSize = 256;
-  analyser.smoothingTimeConstant = 0.72;
 
   dataArray = new Uint8Array(analyser.frequencyBinCount);
 
@@ -47,399 +57,334 @@ function setupAudioAnalyzer(audioEl){
   analyser.connect(audioCtx.destination);
 }
 
+
+/* ------------------------
+   VISUALIZER DRAW
+------------------------ */
+
 let beatLevel = 0;
-let targetBeat = 0;
-let overallLevel = 0;
 
-let lastFrameTime = performance.now();
-
-function draw(now){
+function draw() {
   requestAnimationFrame(draw);
 
-  const dt = Math.min(
-    0.05,
-    (now-lastFrameTime)/1000
-  );
+  ctx.clearRect(0, 0, W, H);
 
-  lastFrameTime = now;
-  ctx.clearRect(0,0,W,H);
-
-  if(analyser){
+  if (analyser) {
     analyser.getByteFrequencyData(dataArray);
 
     const lowCount = Math.max(
       4,
-      Math.floor(dataArray.length*0.08)
+      Math.floor(dataArray.length * 0.08)
     );
 
-    let lowSum = 0;
-    for(let i=0;i<lowCount;i++){
-      lowSum += dataArray[i];
+    let sum = 0;
+
+    for (let i = 0; i < lowCount; i++) {
+      sum += dataArray[i];
     }
-    targetBeat = lowSum/lowCount/255;
+
+    const avg = sum / lowCount / 255;
 
     let total = 0;
-    for(let i=0;i<dataArray.length;i++){
+
+    for (let i = 0; i < dataArray.length; i++) {
       total += dataArray[i];
     }
-    overallLevel = total/dataArray.length/255;
 
-const attack =
-  1-Math.exp(-32*dt);
+    const overall = total / dataArray.length / 255;
 
-const release =
-  1-Math.exp(-14*dt);
+    beatLevel = Math.max(beatLevel * 0.85, avg);
 
-const smooth =
-  targetBeat > beatLevel
-    ? attack
-    : release;
-
-beatLevel +=
-  (targetBeat-beatLevel)*smooth;
-beatLevel +=
-  (targetBeat-beatLevel)*smooth;
-    window.__music_overall = overallLevel;
-    window.__music_beat = beatLevel;
-
-  }else{
+    window.__music_overall = overall;
+  } else {
     beatLevel *= 0.92;
-    overallLevel *= 0.96;
 
-    window.__music_overall = overallLevel;
-    window.__music_beat = beatLevel;
+    window.__music_overall = Math.max(
+      0,
+      (window.__music_overall || 0) * 0.98
+    );
   }
 
-  /* ------------------------
-     Global beat effects
-  ------------------------ */
-const beat = Math.min(1,beatLevel);
-  const overall = Math.min(1,overallLevel);
-
-  document.documentElement.style.setProperty(
-    '--music-beat',
-    beat
-  );
-
-  document.documentElement.style.setProperty(
-    '--music-overall',
-    overall
-  );
 
   /* ------------------------
-     Wave
+     WAVE
   ------------------------ */
-  const t = Date.now()*0.001;
 
-  for(let x=0;x<W;x+=7){
-    const amp = 18+60*beat;
+  const t = Date.now() * 0.001;
+
+  for (let x = 0; x < W; x += 7) {
+    const amp = 18 + 60 * beatLevel;
 
     const y =
-      H/2+
-      Math.sin(x*0.012+t)*amp+
-      Math.sin(x*0.006+t*2)*(amp*0.6);
-
-    const alpha = 0.08+beat*0.5;
+      H / 2 +
+      Math.sin(x * 0.012 + t) * amp +
+      Math.sin(x * 0.006 + t * 2) * (amp * 0.6);
 
     ctx.fillStyle =
-      `rgba(110,240,255,${alpha})`;
+      `rgba(110,240,255,${0.08 + beatLevel * 0.5})`;
 
-    ctx.fillRect(x,y,2,2);
+    ctx.fillRect(x, y, 2, 2);
   }
 
+
   /* ------------------------
-     Living particles
+     PARTICLE MOVEMENT
   ------------------------ */
 
-ctx.shadowBlur =
-  6+
-  overall*8+
-  beat*12;
+  const overall = window.__music_overall || 0;
 
-ctx.shadowColor =
-  'rgba(110,240,255,.65)';
+  particles.forEach(p => {
+    p.x += p.dx * (1 + overall * 2);
+    p.y += p.dy * (1 + overall * 2);
 
-  particles.forEach(p=>{
-    p.x += p.dx*(1+overall*2);
-    p.y += p.dy*(1+overall*2);
-
-    if(p.x < -10) p.x = W+10;
-    if(p.x > W+10) p.x = -10;
-    if(p.y < -10) p.y = H+10;
-    if(p.y > H+10) p.y = -10;
-
-    const hue = p.hue+beat*35;
-
-    const alpha =
-      0.28+
-      overall*0.55+
-      beat*0.25;
-
-    const size =
-      p.r*(1+overall*1.5+beat*0.65);
+    if (p.x < -10) p.x = W + 10;
+    if (p.x > W + 10) p.x = -10;
+    if (p.y < -10) p.y = H + 10;
+    if (p.y > H + 10) p.y = -10;
 
     ctx.beginPath();
-    ctx.arc(p.x,p.y,size,0,Math.PI*2);
+
+    ctx.arc(
+      p.x,
+      p.y,
+      p.r * (1 + overall * 1.5),
+      0,
+      Math.PI * 2
+    );
 
     ctx.fillStyle =
-      `hsla(${hue},100%,78%,${Math.min(1,alpha)})`;
+      `rgba(138,79,255,${0.25 + overall * 0.75})`;
+
+    ctx.shadowBlur = 8;
+    ctx.shadowColor = 'rgba(138,79,255,0.9)';
+
     ctx.fill();
   });
 
+
   /* ------------------------
-     Logo beat light
+     LOGO
   ------------------------ */
-  if(logo){
-    const scale = 1+beat*0.08;
 
-    const glow =
-      24+
-      beat*78+
-      overall*18;
+  const logo = document.getElementById('logo');
 
-    const opacity =
-      0.42+
-      beat*0.58;
+  if (logo) {
+    const scale = 1 + beatLevel * 0.25;
+    const shadow = 20 + beatLevel * 40;
 
-    logo.style.transform =
-      `scale(${scale})`;
+    logo.style.transform = `scale(${scale})`;
 
-    logo.style.setProperty(
-      '--logo-beat',
-      beat.toFixed(3)
-    );
-
-    logo.style.setProperty(
-      '--logo-glow',
-      `${glow}px`
-    );
-
-    logo.style.setProperty(
-      '--logo-opacity',
-      opacity.toFixed(3)
-    );
+    logo.style.boxShadow =
+      `0 0 ${shadow}px rgba(110,240,255,0.35),
+       0 0 ${shadow / 2}px rgba(138,79,255,0.25)`;
   }
 
-  /* ------------------------
-     Progress bar beat light
-  ------------------------ */
-  if(bar){
-    const progressGlow = 8+beat*28;
-
-    bar.style.setProperty(
-      '--progress-beat',
-      beat.toFixed(3)
-    );
-
-    bar.style.boxShadow =
-      `0 0 ${progressGlow}px rgba(110,240,255,${0.35+beat*0.6})`;
-  }
 
   /* ------------------------
-     Visualizer bars
+     VISUALIZER BARS
   ------------------------ */
-if(analyser && visualizerBars.length){
-for(let i=0;i<visualizerBars.length;i++){
-      const index =
-        Math.min(dataArray.length-1,i*2);
 
-      const v = dataArray[index]/255;
+  const bars = document.querySelectorAll('#visualizer span');
 
-    visualizerBars[i].style.height =
-        `${8+v*32+beat*8}px`;
-   visualizerBars[i].style.opacity =
-        `${0.4+v*0.6}`;
-visualizerBars[i].style.boxShadow =
-  `0 0 ${4+v*12+beat*10}px
-   rgba(110,240,255,${0.35+v*0.6})`;
+  if (analyser && bars.length) {
+    for (let i = 0; i < bars.length; i++) {
+      const v = dataArray[i * 2] / 255;
+
+      bars[i].style.height = `${8 + v * 28}px`;
+      bars[i].style.opacity = `${0.4 + v * 0.6}`;
     }
   }
 }
 
-/* ------------------------
-   Player logic
------------------------- */
+draw();
+
+
+/* =========================================
+   PLAYER ELEMENTS
+========================================= */
+
 const playlistURL = 'playlist.json';
+
 const audio = document.getElementById('audio');
 const playBtn = document.getElementById('play');
 const prevBtn = document.getElementById('prev');
 const nextBtn = document.getElementById('next');
 const shuffleBtn = document.getElementById('shuffle');
 const repeatBtn = document.getElementById('repeat');
+
 const titleEl = document.getElementById('title');
 const artistEl = document.getElementById('artist');
+
 const bar = document.getElementById('bar');
 const progress = document.getElementById('progress');
+
 const curTimeEl = document.getElementById('curTime');
 const durTimeEl = document.getElementById('durTime');
+
 const playlistEl = document.getElementById('playlist');
 const searchInput = document.getElementById('search');
+
 const genreBtn = document.getElementById('genreBtn');
 const genrePanel = document.getElementById('genrePanel');
+
 const favOnlyBtn = document.getElementById('favOnly');
 const toggleListBtn = document.getElementById('toggleList');
+
 const logoEl = document.getElementById('logo');
+const visualBars = document.querySelectorAll('#visualizer span');
+
 const volumeSlider = document.getElementById('volume');
 const muteBtn = document.getElementById('mute');
 const rateDisplay = document.getElementById('rateDisplay');
 
+
+/* =========================================
+   PLAYER STATE
+========================================= */
+
 let playlist = [];
 let filteredIndexes = [];
-let favorites = JSON.parse(
-  localStorage.getItem('musicnet_favorites') || '[]'
-);
-let savedState = JSON.parse(
-  localStorage.getItem('musicnet_last') || '{}'
-);
+
+let favorites =
+  JSON.parse(localStorage.getItem('musicnet_favorites') || '[]');
+
+let savedState =
+  JSON.parse(localStorage.getItem('musicnet_last') || '{}');
+
 let currentIndex = 0;
 let isPlaying = false;
 let isShuffle = false;
 let isRepeat = false;
 let showFavOnly = false;
+
 let visInterval = null;
 
 const ALLOWED_GENRES =
-  ['pop','poprock','slow','breakbeat','cover'];
+  ['pop', 'poprock', 'slow', 'breakbeat', 'cover'];
 
 let selectedGenres = [];
 
 
-/* ------------------------
-   Fungsi Update Judul Lagu
------------------------- */
-function updateSongTitle(title){
-  const songTitle =
-    document.getElementById('songTitle');
+/* =========================================
+   SONG TITLE
+========================================= */
 
-  if(songTitle){
+function updateSongTitle(title) {
+  const songTitle = document.getElementById('songTitle');
+
+  if (songTitle) {
     songTitle.textContent = title;
   }
 }
 
-function tagsToLower(arr){
-  return (arr||[]).map(
-    x=>String(x).toLowerCase().trim()
-  );
+function tagsToLower(arr) {
+  return (arr || [])
+    .map(x => String(x).toLowerCase().trim());
 }
 
 
-/* ------------------------
+/* =========================================
    LOAD PLAYLIST
------------------------- */
-async function loadPlaylist(){
-  try{
-    const res =
-      await fetch(playlistURL,{cache:'no-store'});
+========================================= */
 
-    if(!res.ok){
+async function loadPlaylist() {
+  try {
+    const res = await fetch(
+      playlistURL,
+      { cache: 'no-store' }
+    );
+
+    if (!res.ok) {
       throw new Error('playlist.json not found');
     }
 
     playlist = await res.json();
 
-    playlist = playlist.map(p=>({
-      file:p.url||p.file||p.src||'',
-      title:p.title||p.name||'',
-      artist:p.artist||'',
-      tags:Array.isArray(p.tags)
-        ? tagsToLower(p.tags)
-        : (
-          p.tags
-            ? tagsToLower(
-                String(p.tags)
-                  .split(',')
-                  .map(s=>s.trim())
-              )
-            : []
-        )
-    }));
+    playlist = playlist.map(p => {
+      return {
+        file: p.url || p.file || p.src || '',
+        title: p.title || p.name || '',
+        artist: p.artist || '',
+        tags: Array.isArray(p.tags)
+          ? tagsToLower(p.tags)
+          : (
+              p.tags
+                ? tagsToLower(
+                    String(p.tags)
+                      .split(',')
+                      .map(s => s.trim())
+                  )
+                : []
+            )
+      };
+    });
 
     buildGenrePanel();
     applyFilters();
 
-    if(
+    if (
       savedState &&
       typeof savedState.index === 'number' &&
       playlist[savedState.index]
-    ){
-      const filteredPosition =
-        filteredIndexes.indexOf(savedState.index);
+    ) {
+      currentIndex = savedState.index;
 
-      currentIndex =
-        filteredPosition >= 0
-          ? filteredPosition
-          : 0;
+      loadTrack(currentIndex);
 
-      loadTrack(
-        filteredIndexes.length
-          ? filteredIndexes[currentIndex]
-          : savedState.index
-      );
-
-      if(savedState.time){
+      if (savedState.time) {
         audio.currentTime = savedState.time;
       }
-
-    }else if(playlist.length){
-      currentIndex = 0;
+    } else if (playlist.length) {
       loadTrack(0);
     }
 
-  }catch(err){
+  } catch (err) {
     console.error(err);
-alert('MusicNet Error: ' + err.message);
-
-    if(titleEl){
-      titleEl.textContent =
-        'Gagal memuat playlist.json';
-    }
+    titleEl.textContent = 'Gagal memuat playlist.json';
   }
 }
 
 
-/* ------------------------
+/* =========================================
    GENRE PANEL
------------------------- */
-function buildGenrePanel(){
+========================================= */
+
+function buildGenrePanel() {
   genrePanel.innerHTML = '';
 
-  ALLOWED_GENRES.forEach(g=>{
-    const label =
-      document.createElement('label');
+  ALLOWED_GENRES.forEach(g => {
+    const label = document.createElement('label');
 
     label.className = 'genre-chip';
 
-    const cb =
-      document.createElement('input');
+    const cb = document.createElement('input');
 
     cb.type = 'checkbox';
     cb.value = g;
-    cb.checked =
-      selectedGenres.includes(g);
+    cb.checked = selectedGenres.includes(g);
 
-    cb.addEventListener('change',()=>{
-      toggleGenre(g,cb.checked);
-    });
+    cb.addEventListener(
+      'change',
+      () => toggleGenre(g, cb.checked)
+    );
 
     label.appendChild(cb);
     label.appendChild(
-      document.createTextNode(' '+g)
+      document.createTextNode(' ' + g)
     );
 
     genrePanel.appendChild(label);
   });
-
-  highlightActiveGenres();
 }
 
-function toggleGenre(g,checked){
-  if(checked){
-    if(!selectedGenres.includes(g)){
+function toggleGenre(g, checked) {
+  if (checked) {
+    if (!selectedGenres.includes(g)) {
       selectedGenres.push(g);
     }
-  }else{
+  } else {
     selectedGenres =
-      selectedGenres.filter(x=>x!==g);
+      selectedGenres.filter(x => x !== g);
   }
 
   applyFilters();
@@ -447,159 +392,169 @@ function toggleGenre(g,checked){
 }
 
 
-/* ------------------------
-   FILTER & PLAYLIST RULE
------------------------- */
-function applyFilters(){
+/* =========================================
+   FILTER & PLAYLIST
+========================================= */
+
+function applyFilters() {
   const q =
-    (searchInput.value||'')
+    (searchInput.value || '')
       .trim()
       .toLowerCase();
 
   playlistEl.innerHTML = '';
   filteredIndexes = [];
 
-  playlist.forEach((t,i)=>{
-    if(
+  playlist.forEach((t, i) => {
+    if (
       showFavOnly &&
       !favorites.includes(t.file)
-    ) return;
+    ) {
+      return;
+    }
 
-  const cleanTags =
-  (t.tags||[]).map(tag=>tag.toLowerCase());
+    const cleanTags =
+      (t.tags || [])
+        .map(tag => tag.toLowerCase());
 
-    if(
+    if (
       selectedGenres.length &&
       !cleanTags.some(
-        tag=>selectedGenres.includes(tag)
+        tag => selectedGenres.includes(tag)
       )
-    ) return;
+    ) {
+      return;
+    }
 
     const searchable =
-      ((t.title||'')+' '+(t.artist||''))
+      ((t.title || '') + ' ' + (t.artist || ''))
         .toLowerCase();
 
-    if(q && !searchable.includes(q)) return;
+    if (
+      q &&
+      !searchable.includes(q)
+    ) {
+      return;
+    }
 
     filteredIndexes.push(i);
   });
 
-  filteredIndexes.forEach(i=>{
+  filteredIndexes.forEach(i => {
     createListItem(i);
   });
 
+
+  /* ------------------------
+     ACTIVE GENRE INDICATOR
+  ------------------------ */
+
   const genreIndicator =
-    document.getElementById(
-      'activeGenreIndicator'
-    );
+    document.getElementById('activeGenreIndicator');
 
-  if(genreIndicator){
-    genreIndicator.textContent =
-      selectedGenres.length === 0
-        ? 'Genre: All Music'
-        : 'Genre: '+
-          selectedGenres.join(', ')
-            .toUpperCase();
+  if (genreIndicator) {
+    if (selectedGenres.length === 0) {
+      genreIndicator.textContent =
+        'Genre: All Music';
+    } else {
+      genreIndicator.textContent =
+        'Genre: ' +
+        selectedGenres.join(', ').toUpperCase();
+    }
   }
-
-  highlightActiveGenres();
 }
 
-
-/* ------------------------
-   HIGHLIGHT GENRE
------------------------- */
-function highlightActiveGenres(){
+function highlightActiveGenres() {
   document
     .querySelectorAll('#genrePanel label')
-    .forEach(label=>{
-      const input =
-        label.querySelector('input');
+    .forEach(label => {
+      const input = label.querySelector('input');
 
-      if(
+      if (
         input &&
         selectedGenres.includes(input.value)
-      ){
+      ) {
         label.classList.add('active');
-      }else{
+      } else {
         label.classList.remove('active');
       }
     });
 }
 
 
-/* ------------------------
-   ITEM
------------------------- */
-function createListItem(i){
+/* =========================================
+   PLAYLIST ITEM
+========================================= */
+
+function createListItem(i) {
   const t = playlist[i];
 
-  const row =
-    document.createElement('div');
+  const row = document.createElement('div');
 
   row.className = 'item';
   row.dataset.i = i;
 
-  /* Perbaikan active item */
-  if(i === filteredIndexes[currentIndex]){
+  if (i === currentIndex) {
     row.classList.add('active');
   }
 
-  const meta =
-    document.createElement('div');
-
+  const meta = document.createElement('div');
   meta.className = 'meta';
 
-  const tt =
-    document.createElement('div');
-
+  const tt = document.createElement('div');
   tt.className = 't';
-  tt.textContent =
-    t.title || 'Tanpa Judul';
+  tt.textContent = t.title || 'Tanpa Judul';
 
-  const aa =
-    document.createElement('div');
-
+  const aa = document.createElement('div');
   aa.className = 'a';
   aa.textContent = t.artist || '';
 
   meta.appendChild(tt);
   meta.appendChild(aa);
 
-  const fav =
-    document.createElement('div');
+
+  /* ------------------------
+     FAVORITE
+  ------------------------ */
+
+  const fav = document.createElement('div');
 
   fav.className = 'fav';
+
   fav.textContent =
     favorites.includes(t.file)
       ? '★'
       : '☆';
 
-  if(favorites.includes(t.file)){
+  if (favorites.includes(t.file)) {
     fav.classList.add('active');
   }
 
   row.appendChild(meta);
   row.appendChild(fav);
 
-  row.addEventListener('click',ev=>{
-    if(
+
+  /* ------------------------
+     CLICK ITEM
+  ------------------------ */
+
+  row.addEventListener('click', ev => {
+    if (
       ev.target === fav ||
       ev.target.classList.contains('fav')
-    ){
-      toggleFavorite(t.file,fav);
+    ) {
+      toggleFavorite(t.file, fav);
       ev.stopPropagation();
       return;
     }
 
-    const position =
+    currentIndex =
       filteredIndexes.indexOf(i);
 
-    if(position >= 0){
-      currentIndex = position;
-    }
+    loadTrack(
+      filteredIndexes[currentIndex]
+    );
 
-    loadTrack(i);
     playAudio();
   });
 
@@ -607,18 +562,19 @@ function createListItem(i){
 }
 
 
-/* ------------------------
+/* =========================================
    FAVORITE
------------------------- */
-function toggleFavorite(file,dom){
-  if(favorites.includes(file)){
+========================================= */
+
+function toggleFavorite(file, dom) {
+  if (favorites.includes(file)) {
     favorites =
-      favorites.filter(f=>f!==file);
+      favorites.filter(f => f !== file);
 
     dom.textContent = '☆';
     dom.classList.remove('active');
 
-  }else{
+  } else {
     favorites.push(file);
 
     dom.textContent = '★';
@@ -632,16 +588,16 @@ function toggleFavorite(file,dom){
 }
 
 
-/* ------------------------
+/* =========================================
    LOAD TRACK
------------------------- */
-function loadTrack(i){
-  if(!playlist[i]) return;
+========================================= */
+
+function loadTrack(i) {
+  if (!playlist[i]) return;
 
   const t = playlist[i];
 
   audio.src = t.file;
-  audio.load();
 
   titleEl.textContent =
     t.title || 'Tanpa Judul';
@@ -655,9 +611,8 @@ function loadTrack(i){
 
   document
     .querySelectorAll('.item')
-    .forEach(el=>{
-      const idx =
-        Number(el.dataset.i);
+    .forEach(el => {
+      const idx = Number(el.dataset.i);
 
       el.classList.toggle(
         'active',
@@ -669,121 +624,65 @@ function loadTrack(i){
 }
 
 
-/* ------------------------
+/* =========================================
    PLAY / PAUSE
------------------------- */
-function startVisualizer(){
-  document.documentElement
-    .classList.add('music-playing');
+========================================= */
+
+function startVisualizer() {
+  console.log('Visualizer started');
 }
 
-function stopVisualizer(){
-  document.documentElement
-    .classList.remove('music-playing');
-
-  document.documentElement
-    .style.setProperty(
-      '--music-beat',
-      '0'
-    );
-
-  document.documentElement
-    .style.setProperty(
-      '--edge-glow',
-      '8px'
-    );
-
-  document.documentElement
-    .style.setProperty(
-      '--edge-opacity',
-      '0.08'
-    );
+function stopVisualizer() {
+  console.log('Visualizer stopped');
 }
 
-function playAudio(){
-  try{
-    if(!audioCtx){
+function playAudio() {
+  try {
+    if (!audioCtx) {
       setupAudioAnalyzer(audio);
     }
-
-    if(
-      audioCtx &&
-      audioCtx.state === 'suspended'
-    ){
-      audioCtx.resume();
-    }
-
-  }catch(e){
+  } catch (e) {
     console.warn(e);
   }
 
-  audio.play()
-    .then(()=>{
-      isPlaying = true;
-      playBtn.textContent = '⏸️';
+  audio.play().catch(() => {});
 
-      if(logoEl){
-        logoEl.style.animationPlayState =
-          'running';
-      }
+  isPlaying = true;
+  playBtn.textContent = '⏸️';
 
-      startVisualizer();
-    })
-    .catch(err=>{
-      console.warn(
-        'Audio play failed:',
-        err
-      );
+  logoEl.style.animationPlayState = 'running';
 
-      isPlaying = false;
-      playBtn.textContent = '▶️';
-    });
+  startVisualizer();
 }
 
-function pauseAudio(){
+function pauseAudio() {
   audio.pause();
 
   isPlaying = false;
   playBtn.textContent = '▶️';
 
-  if(logoEl){
-    logoEl.style.animationPlayState =
-      'paused';
-  }
+  logoEl.style.animationPlayState = 'paused';
 
   stopVisualizer();
 }
 
-playBtn.addEventListener('click',()=>{
-  isPlaying
+playBtn.addEventListener(
+  'click',
+  () => isPlaying
     ? pauseAudio()
-    : playAudio();
-});
-
-audio.addEventListener('play',()=>{
-  isPlaying = true;
-  playBtn.textContent = '⏸️';
-  startVisualizer();
-});
-
-audio.addEventListener('pause',()=>{
-  if(!audio.ended){
-    isPlaying = false;
-    playBtn.textContent = '▶️';
-    stopVisualizer();
-  }
-});
+    : playAudio()
+);
 
 
-/* ------------------------
+/* =========================================
    VOLUME
------------------------- */
+========================================= */
+
 let lastVolume = 1;
 
-audio.volume =
-  volumeSlider.value || 1;
+audio.volume = volumeSlider.value || 1;
 
-volumeSlider.addEventListener('input',e=>{
+volumeSlider.addEventListener('input', e => {
   audio.volume = e.target.value;
 
   muteBtn.textContent =
@@ -791,47 +690,43 @@ volumeSlider.addEventListener('input',e=>{
       ? '🔇'
       : '🔊';
 
-  if(audio.volume > 0){
+  if (audio.volume > 0) {
     lastVolume = audio.volume;
   }
 });
 
-muteBtn.addEventListener('click',()=>{
-  if(audio.volume > 0){
+muteBtn.addEventListener('click', () => {
+  if (audio.volume > 0) {
     lastVolume = audio.volume;
 
     audio.volume = 0;
     volumeSlider.value = 0;
+
     muteBtn.textContent = '🔇';
 
-  }else{
-    audio.volume =
-      lastVolume || 0.8;
-
-    volumeSlider.value =
-      audio.volume;
+  } else {
+    audio.volume = lastVolume || 0.8;
+    volumeSlider.value = audio.volume;
 
     muteBtn.textContent = '🔊';
   }
 });
 
 
-/* ------------------------
+/* =========================================
    PREV / NEXT
------------------------- */
-prevBtn.addEventListener('click',()=>{
-  if(audio.currentTime > 3){
+========================================= */
+
+prevBtn.addEventListener('click', () => {
+  if (audio.currentTime > 3) {
     audio.currentTime = 0;
     return;
   }
 
-  if(filteredIndexes.length === 0){
-    return;
-  }
+  if (filteredIndexes.length === 0) return;
 
   currentIndex =
-    (currentIndex-1+
-      filteredIndexes.length) %
+    (currentIndex - 1 + filteredIndexes.length) %
     filteredIndexes.length;
 
   loadTrack(
@@ -841,30 +736,28 @@ prevBtn.addEventListener('click',()=>{
   playAudio();
 });
 
-nextBtn.addEventListener('click',()=>{
-  nextTrack();
-});
+nextBtn.addEventListener(
+  'click',
+  () => nextTrack()
+);
 
-function nextTrack(){
-  if(filteredIndexes.length === 0){
-    return;
-  }
+function nextTrack() {
+  if (filteredIndexes.length === 0) return;
 
-  if(isRepeat){
+  if (isRepeat) {
     audio.currentTime = 0;
     playAudio();
     return;
   }
 
-  if(isShuffle){
+  if (isShuffle) {
     currentIndex =
       Math.floor(
-        Math.random()*
-        filteredIndexes.length
+        Math.random() * filteredIndexes.length
       );
-  }else{
+  } else {
     currentIndex =
-      (currentIndex+1) %
+      (currentIndex + 1) %
       filteredIndexes.length;
   }
 
@@ -876,10 +769,11 @@ function nextTrack(){
 }
 
 
-/* ------------------------
+/* =========================================
    SHUFFLE / REPEAT
------------------------- */
-shuffleBtn.addEventListener('click',()=>{
+========================================= */
+
+shuffleBtn.addEventListener('click', () => {
   isShuffle = !isShuffle;
 
   shuffleBtn.classList.toggle(
@@ -888,7 +782,7 @@ shuffleBtn.addEventListener('click',()=>{
   );
 });
 
-repeatBtn.addEventListener('click',()=>{
+repeatBtn.addEventListener('click', () => {
   isRepeat = !isRepeat;
 
   repeatBtn.classList.toggle(
@@ -898,53 +792,35 @@ repeatBtn.addEventListener('click',()=>{
 });
 
 
-/* ------------------------
+/* =========================================
    SAVE STATE
------------------------- */
-function saveLast(){
-  try{
-    const absoluteIndex =
-      filteredIndexes.length &&
-      filteredIndexes[currentIndex] !== undefined
-        ? filteredIndexes[currentIndex]
-        : currentIndex;
+========================================= */
 
+function saveLast() {
+  try {
     localStorage.setItem(
       'musicnet_last',
       JSON.stringify({
-        index:absoluteIndex || 0,
-        time:audio.currentTime || 0
+        index:
+          filteredIndexes[currentIndex] || 0,
+        time:
+          audio.currentTime || 0
       })
     );
-
-  }catch(e){}
+  } catch (e) {}
 }
 
 
-/* ------------------------
+/* =========================================
    TOOLBAR
------------------------- */
-searchInput.addEventListener('input',()=>{
-  const currentFile =
-    playlist[
-      filteredIndexes[currentIndex]
-    ]?.file;
+========================================= */
 
-  applyFilters();
+searchInput.addEventListener(
+  'input',
+  applyFilters
+);
 
-  if(currentFile){
-    const newPosition =
-      filteredIndexes.findIndex(
-        i=>playlist[i]?.file === currentFile
-      );
-
-    if(newPosition >= 0){
-      currentIndex = newPosition;
-    }
-  }
-});
-
-favOnlyBtn.addEventListener('click',()=>{
+favOnlyBtn.addEventListener('click', () => {
   showFavOnly = !showFavOnly;
 
   favOnlyBtn.classList.toggle(
@@ -955,11 +831,11 @@ favOnlyBtn.addEventListener('click',()=>{
   applyFilters();
 });
 
-toggleListBtn.addEventListener('click',()=>{
+toggleListBtn.addEventListener('click', () => {
   const wrap =
     document.querySelector('.playlist-wrap');
 
-  if(wrap){
+  if (wrap) {
     const isHidden =
       wrap.classList.toggle('hidden');
 
@@ -968,7 +844,7 @@ toggleListBtn.addEventListener('click',()=>{
   }
 });
 
-genreBtn.addEventListener('click',ev=>{
+genreBtn.addEventListener('click', ev => {
   const open =
     genrePanel.style.display !== 'none';
 
@@ -983,11 +859,11 @@ genreBtn.addEventListener('click',ev=>{
   highlightActiveGenres();
 });
 
-document.addEventListener('click',ev=>{
-  if(
+document.addEventListener('click', ev => {
+  if (
     !genrePanel.contains(ev.target) &&
     ev.target !== genreBtn
-  ){
+  ) {
     genrePanel.style.display = 'none';
 
     genreBtn.setAttribute(
@@ -998,29 +874,30 @@ document.addEventListener('click',ev=>{
 });
 
 
-/* ------------------------
-   PROGRESS
------------------------- */
-function formatTime(sec){
-  const m = Math.floor(sec/60);
-  const s = Math.floor(sec%60);
+/* =========================================
+   PROGRESS BAR
+========================================= */
 
-  return `${m}:${s<10?'0'+s:s}`;
+function formatTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+
+  return `${m}:${s < 10 ? '0' + s : s}`;
 }
 
-function updateProgress(){
-  if(audio.duration){
-    const pct =
-      (audio.currentTime/audio.duration)*100;
+function updateProgress() {
+  if (!audio.duration) return;
 
-    bar.style.width = pct+'%';
+  const pct =
+    (audio.currentTime / audio.duration) * 100;
 
-    curTimeEl.textContent =
-      formatTime(audio.currentTime);
+  bar.style.width = pct + '%';
 
-    durTimeEl.textContent =
-      formatTime(audio.duration);
-  }
+  curTimeEl.textContent =
+    formatTime(audio.currentTime);
+
+  durTimeEl.textContent =
+    formatTime(audio.duration);
 }
 
 audio.addEventListener(
@@ -1028,81 +905,75 @@ audio.addEventListener(
   updateProgress
 );
 
-progress.addEventListener('click',e=>{
-  if(!audio.duration) return;
+progress.addEventListener('click', e => {
+  if (!audio.duration) return;
 
   const rect =
     progress.getBoundingClientRect();
 
   const clickX =
-    e.clientX-rect.left;
+    e.clientX - rect.left;
 
   const newTime =
-    (clickX/rect.width)*
+    (clickX / rect.width) *
     audio.duration;
 
   audio.currentTime = newTime;
+
   updateProgress();
-});
-
-let isDragging = false;
-
-progress.addEventListener('mousedown',()=>{
-  isDragging = true;
-});
-
-progress.addEventListener('mouseup',()=>{
-  isDragging = false;
-});
-
-progress.addEventListener('mousemove',e=>{
-  if(
-    !isDragging ||
-    !audio.duration
-  ) return;
-
-  const rect =
-    progress.getBoundingClientRect();
-
-  const moveX =
-    e.clientX-rect.left;
-
-  const newTime =
-    Math.max(
-      0,
-      Math.min(
-        1,
-        moveX/rect.width
-      )
-    )*audio.duration;
-
-  audio.currentTime = newTime;
-  updateProgress();
-});
-
-document.addEventListener('mouseup',()=>{
-  isDragging = false;
 });
 
 
 /* ------------------------
-   AUDIO EVENTS
+   PROGRESS DRAG
 ------------------------ */
-audio.addEventListener(
-  'loadedmetadata',
-  ()=>{
+
+let isDragging = false;
+
+progress.addEventListener(
+  'mousedown',
+  () => isDragging = true
+);
+
+progress.addEventListener(
+  'mouseup',
+  () => isDragging = false
+);
+
+progress.addEventListener(
+  'mousemove',
+  e => {
+    if (!isDragging || !audio.duration) return;
+
+    const rect =
+      progress.getBoundingClientRect();
+
+    const moveX =
+      e.clientX - rect.left;
+
+    const newTime =
+      Math.max(
+        0,
+        Math.min(
+          1,
+          moveX / rect.width
+        )
+      ) * audio.duration;
+
+    audio.currentTime = newTime;
+
     updateProgress();
   }
 );
 
-audio.addEventListener('ended',()=>{
-  isPlaying = false;
-  nextTrack();
-});
+audio.addEventListener(
+  'ended',
+  () => nextTrack()
+);
 
 
-/* ------------------------
+/* =========================================
    INIT
------------------------- */
+========================================= */
+
 loadPlaylist();
-draw();
