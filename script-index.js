@@ -88,9 +88,7 @@ function draw(){
   /* ------------------------
      Global beat effects
   ------------------------ */
-const beat = Math.min(1,
-  Math.max(beatLevel,beatFlash)
-);
+const beat = Math.min(1,beatLevel);
   const overall = Math.min(1,overallLevel);
 
   document.documentElement.style.setProperty(
