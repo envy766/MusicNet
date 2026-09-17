@@ -127,6 +127,15 @@ const beat = Math.min(1,beatLevel);
   /* ------------------------
      Living particles
   ------------------------ */
+
+ctx.shadowBlur =
+  6+
+  overall*8+
+  beat*12;
+
+ctx.shadowColor =
+  'rgba(110,240,255,.65)';
+
   particles.forEach(p=>{
     p.x += p.dx*(1+overall*2);
     p.y += p.dy*(1+overall*2);
@@ -151,15 +160,6 @@ const beat = Math.min(1,beatLevel);
 
     ctx.fillStyle =
       `hsla(${hue},100%,78%,${Math.min(1,alpha)})`;
-
-    ctx.shadowBlur =
-  6+
-  overall*8+
-  beat*12;
-
-ctx.shadowColor =
-  'rgba(110,240,255,.65)';
-
     ctx.fill();
   });
 
@@ -212,7 +212,6 @@ ctx.shadowColor =
       `0 0 ${progressGlow}px rgba(110,240,255,${0.35+beat*0.6})`;
   }
 
-
   /* ------------------------
      Visualizer bars
   ------------------------ */
@@ -230,7 +229,6 @@ for(let i=0;i<visualizerBars.length;i++){
     }
   }
 }
-draw();
 
 /* ------------------------
    Player logic
@@ -1081,3 +1079,4 @@ audio.addEventListener('ended',()=>{
    INIT
 ------------------------ */
 loadPlaylist();
+draw();
