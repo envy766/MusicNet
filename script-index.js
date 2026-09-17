@@ -194,10 +194,6 @@ const logo = document.getElementById('logo');
       '--logo-opacity',
       opacity.toFixed(3)
     );
-logo.style.boxShadow =
-  `0 0 ${glow}px rgba(110,240,255,${opacity}),
-   0 0 ${glow*0.65}px rgba(138,79,255,${opacity*0.9}),
-   0 0 ${glow*0.3}px rgba(255,255,255,${beat*0.5})`;
   }
 
   /* ------------------------
