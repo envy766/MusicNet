@@ -393,9 +393,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuShare =
     document.getElementById("menuShare") ||
     document.getElementById("share-btn");
-
+    document.getElementById("menuShare")?.
+             addEventListener("click", () => {
+    navigator.clipboard.writeText(window.location.href).
+             then(() => { alert("Link MusicNet disalin!");
+                
   if (!menuToggle || !sidebarMenu) return;
-
   sidebarMenu.classList.add("hidden");
 
   menuToggle.addEventListener("click", () => {
@@ -425,18 +428,18 @@ document.addEventListener("DOMContentLoaded", () => {
       "https://envy766.github.io/MusicNet/";
 
     const shareMessage = `
-🎧MusicNet — Tempat Musik Favoritmu !
+MusicNet — Tempat Musik Favoritmu !
 
-Nikmati lagu-lagu 🎶 dengan tampilan modern dan player elegan !
-🎵 Fitur unggulan MusicNet:
+Nikmati lagu-lagu dengan tampilan modern dan player elegan !
+Fitur unggulan MusicNet:
 • Cari lagu favoritmu dengan cepat
 • Filter berdasarkan genre: Pop, Rock, Slow, Breakbeat, Cover
 • Simpan lagu ke daftar “My Download”
 • Putar musik dengan Mini Player tanpa ganggu aktivitasmu!
-• Tanpa login, langsung dengarkan 🎶
+• Tanpa login, langsung dengarkan
 
 Klik dan mulai dengarkan sekarang :
-'https://envy766.github.io/MusicNet/'
+'"https://envy766.github.io/MusicNet/"
 
 #MusicNet #FreeMusic #Enjoyyourday
 `;
