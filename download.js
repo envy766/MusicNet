@@ -441,8 +441,7 @@ Klik dan mulai dengarkan sekarang:
 if (navigator.share) {
   navigator.share({
     title: "MusicNet",
-    text: shareMessage,
-    url: musicNetUrl
+    text: shareMessage
   }).catch(err => {
     if (err.name !== "AbortError") {
       console.warn("Share gagal:", err);
