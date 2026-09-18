@@ -460,7 +460,6 @@ ${musicNetUrl}
       });
   }
 });
-});
 
     const modal =
       document.createElement("div");
@@ -561,7 +560,6 @@ ${musicNetUrl}
       );
   });
 });
-
 
 // =========================================
 // SEARCH
