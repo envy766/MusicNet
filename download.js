@@ -393,11 +393,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuShare =
     document.getElementById("menuShare") ||
     document.getElementById("share-btn");
-    document.getElementById("menuShare")?.
-             addEventListener("click", () => {
-    navigator.clipboard.writeText(window.location.href).
-             then(() => { alert("Link MusicNet disalin!");
-                
+    
   if (!menuToggle || !sidebarMenu) return;
   sidebarMenu.classList.add("hidden");
 
@@ -417,20 +413,19 @@ document.addEventListener("DOMContentLoaded", () => {
       "_blank"
     );
   });
+  
+// =========================================
+// SHARE
+// =========================================
 
-  // =========================================
-  // SHARE
-  // =========================================
+menuShare?.addEventListener("click", async () => {
+  const musicNetUrl =
+    "https://envy766.github.io/MusicNet/";
 
-  menuShare?.addEventListener("click", () => {
-    const musicNetUrl =
-      window.location.href ||
-      "https://envy766.github.io/MusicNet/";
-
-    const shareMessage = `
-MusicNet — Tempat Musik Favoritmu !
+  const shareMessage = `MusicNet — Tempat Musik Favoritmu !
 
 Nikmati lagu-lagu dengan tampilan modern dan player elegan !
+
 Fitur unggulan MusicNet:
 • Cari lagu favoritmu dengan cepat
 • Filter berdasarkan genre: Pop, Rock, Slow, Breakbeat, Cover
@@ -438,11 +433,33 @@ Fitur unggulan MusicNet:
 • Putar musik dengan Mini Player tanpa ganggu aktivitasmu!
 • Tanpa login, langsung dengarkan
 
-Klik dan mulai dengarkan sekarang :
-'"https://envy766.github.io/MusicNet/"
+Klik dan mulai dengarkan sekarang:
+${musicNetUrl}
 
-#MusicNet #FreeMusic #Enjoyyourday
-`;
+#MusicNet #FreeMusic #Enjoyyourday`;
+
+  if (navigator.share) {
+    try {
+      await navigator.share({
+        title: "MusicNet",
+        text: shareMessage,
+        url: musicNetUrl
+      });
+    } catch (err) {
+      if (err.name !== "AbortError") {
+        console.warn("Share gagal:", err);
+      }
+    }
+  } else {
+    navigator.clipboard.writeText(shareMessage)
+      .then(() => {
+        alert("Link MusicNet disalin!");
+      })
+      .catch(() => {
+        alert("Gagal menyalin link.");
+      });
+  }
+});
 
     const modal =
       document.createElement("div");
