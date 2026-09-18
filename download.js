@@ -459,8 +459,6 @@ ${musicNetUrl}
         alert("Gagal menyalin link.");
       });
   }
-});
-
     const modal =
       document.createElement("div");
 
