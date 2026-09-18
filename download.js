@@ -434,31 +434,29 @@ Fitur unggulan MusicNet:
 • Tanpa login, langsung dengarkan
 
 Klik dan mulai dengarkan sekarang:
-${musicNetUrl}
+"https://envy766.github.io/MusicNet/"
 
 #MusicNet #FreeMusic #Enjoyyourday`;
-
-  if (navigator.share) {
-    try {
-      await navigator.share({
-        title: "MusicNet",
-        text: shareMessage,
-        url: musicNetUrl
-      });
-    } catch (err) {
-      if (err.name !== "AbortError") {
-        console.warn("Share gagal:", err);
-      }
+  
+if (navigator.share) {
+  navigator.share({
+    title: "MusicNet",
+    text: shareMessage,
+    url: musicNetUrl
+  }).catch(err => {
+    if (err.name !== "AbortError") {
+      console.warn("Share gagal:", err);
     }
-  } else {
-    navigator.clipboard.writeText(shareMessage)
-      .then(() => {
-        alert("Link MusicNet disalin!");
-      })
-      .catch(() => {
-        alert("Gagal menyalin link.");
-      });
-  }
+  });
+} else {
+  navigator.clipboard.writeText(shareMessage)
+    .then(() => {
+      alert("Link MusicNet disalin!");
+    })
+    .catch(() => {
+      alert("Gagal menyalin link.");
+    });
+}
     const modal =
       document.createElement("div");
 
