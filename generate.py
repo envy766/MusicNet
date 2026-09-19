@@ -76,9 +76,13 @@ for fn in sorted(os.listdir(internal_mylist)):
     existing_files.add(playlist_file)
     new_tracks += 1
 
+tracks.sort(key=lambda track: track.get("title", "").lower())
+
 # =========================================
 # SIMPAN PLAYLIST
 # =========================================
+print("TOTAL TRACKS:", len(tracks))
+print("LAST TRACK:", tracks[-1])
 
 with open(out, 'w', encoding='utf-8') as f:
     json.dump(

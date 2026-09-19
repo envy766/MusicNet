@@ -42,14 +42,6 @@
     ]
   },
   {
-    "file": "Mylist/Anggi Marito - Tak Segampang Itu (Original) [slow].mp3",
-    "title": "Anggi Marito - Tak Segampang Itu (Original)",
-    "artist": "",
-    "tags": [
-      "slow"
-    ]
-  },
-  {
     "file": "Mylist/Anggi Marito - Tak Segampang Itu [Cover][poprock][pop].mp3",
     "title": "Anggi Marito - Tak Segampang Itu",
     "artist": "",
@@ -57,6 +49,14 @@
       "cover",
       "poprock",
       "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Anggi Marito - Tak Segampang Itu (Original) [slow].mp3",
+    "title": "Anggi Marito - Tak Segampang Itu (Original)",
+    "artist": "",
+    "tags": [
+      "slow"
     ]
   },
   {
@@ -184,6 +184,15 @@
     ]
   },
   {
+    "file": "Mylist/Bebe Syabella - Sabar [cover][slow].mp3",
+    "title": "Bebe Syabella - Sabar",
+    "artist": "",
+    "tags": [
+      "cover",
+      "slow"
+    ]
+  },
+  {
     "file": "Mylist/Bian gindas - Ku Bisa Merindu [slow].mp3",
     "title": "Bian gindas - Ku Bisa Merindu",
     "artist": "",
@@ -248,16 +257,16 @@
     ]
   },
   {
-    "file": "Mylist/Christina Perri - A Thousand Years (Remake) [slow].mp3",
-    "title": "Christina Perri - A Thousand Years (Remake)",
+    "file": "Mylist/Christina Perri - A Thousand Years [slow].mp3",
+    "title": "Christina Perri - A Thousand Years",
     "artist": "",
     "tags": [
       "slow"
     ]
   },
   {
-    "file": "Mylist/Christina Perri - A Thousand Years [slow].mp3",
-    "title": "Christina Perri - A Thousand Years",
+    "file": "Mylist/Christina Perri - A Thousand Years (Remake) [slow].mp3",
+    "title": "Christina Perri - A Thousand Years (Remake)",
     "artist": "",
     "tags": [
       "slow"
@@ -276,6 +285,15 @@
     "title": "Cut Rani - Salahmu Sendiri",
     "artist": "",
     "tags": [
+      "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Destya Eka - Sewates Konco [cover][slow].mp3",
+    "title": "Destya Eka - Sewates Konco",
+    "artist": "",
+    "tags": [
+      "cover",
       "slow"
     ]
   },
@@ -785,38 +803,6 @@
     ]
   },
   {
-    "file": "Mylist/ST12 - Aku Masih Sayang [pop].mp3",
-    "title": "ST12 - Aku Masih Sayang",
-    "artist": "",
-    "tags": [
-      "pop"
-    ]
-  },
-  {
-    "file": "Mylist/ST12 - Dunia Pasti Berputar [pop].mp3",
-    "title": "ST12 - Dunia Pasti Berputar",
-    "artist": "",
-    "tags": [
-      "pop"
-    ]
-  },
-  {
-    "file": "Mylist/ST12 - Kebesaranmu [pop].mp3",
-    "title": "ST12 - Kebesaranmu",
-    "artist": "",
-    "tags": [
-      "pop"
-    ]
-  },
-  {
-    "file": "Mylist/ST12 - Putri Iklan [pop].mp3",
-    "title": "ST12 - Putri Iklan",
-    "artist": "",
-    "tags": [
-      "pop"
-    ]
-  },
-  {
     "file": "Mylist/Skillet - Awake & Alive [poprock].mp3",
     "title": "Skillet - Awake & Alive",
     "artist": "",
@@ -910,6 +896,38 @@
     "artist": "",
     "tags": [
       "poprock"
+    ]
+  },
+  {
+    "file": "Mylist/ST12 - Aku Masih Sayang [pop].mp3",
+    "title": "ST12 - Aku Masih Sayang",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/ST12 - Dunia Pasti Berputar [pop].mp3",
+    "title": "ST12 - Dunia Pasti Berputar",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/ST12 - Kebesaranmu [pop].mp3",
+    "title": "ST12 - Kebesaranmu",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/ST12 - Putri Iklan [pop].mp3",
+    "title": "ST12 - Putri Iklan",
+    "artist": "",
+    "tags": [
+      "pop"
     ]
   },
   {
@@ -1068,14 +1086,6 @@
     ]
   },
   {
-    "file": "Mylist/Ziell Ferdian - Bawalah Cintamu (Speed Up Reverb) [slow].mp3",
-    "title": "Ziell Ferdian - Bawalah Cintamu (Speed Up Reverb)",
-    "artist": "",
-    "tags": [
-      "slow"
-    ]
-  },
-  {
     "file": "Mylist/Ziell Ferdian - Bawalah Cintamu [slow].mp3",
     "title": "Ziell Ferdian - Bawalah Cintamu",
     "artist": "",
@@ -1084,8 +1094,8 @@
     ]
   },
   {
-    "file": "Mylist/Ziell Ferdian - Kenangan (Speed Up Reverb) [slow].mp3",
-    "title": "Ziell Ferdian - Kenangan (Speed Up Reverb)",
+    "file": "Mylist/Ziell Ferdian - Bawalah Cintamu (Speed Up Reverb) [slow].mp3",
+    "title": "Ziell Ferdian - Bawalah Cintamu (Speed Up Reverb)",
     "artist": "",
     "tags": [
       "slow"
@@ -1100,8 +1110,8 @@
     ]
   },
   {
-    "file": "Mylist/Ziell Ferdian - Merawat Luka (Speed Up Reverb) [slow].mp3",
-    "title": "Ziell Ferdian - Merawat Luka (Speed Up Reverb)",
+    "file": "Mylist/Ziell Ferdian - Kenangan (Speed Up Reverb) [slow].mp3",
+    "title": "Ziell Ferdian - Kenangan (Speed Up Reverb)",
     "artist": "",
     "tags": [
       "slow"
@@ -1116,20 +1126,10 @@
     ]
   },
   {
-    "file": "Mylist/Bebe Syabella - Sabar [cover][slow].mp3",
-    "title": "Bebe Syabella - Sabar",
+    "file": "Mylist/Ziell Ferdian - Merawat Luka (Speed Up Reverb) [slow].mp3",
+    "title": "Ziell Ferdian - Merawat Luka (Speed Up Reverb)",
     "artist": "",
     "tags": [
-      "cover",
-      "slow"
-    ]
-  },
-  {
-    "file": "Mylist/Destya Eka - Sewates Konco [cover][slow].mp3",
-    "title": "Destya Eka - Sewates Konco",
-    "artist": "",
-    "tags": [
-      "cover",
       "slow"
     ]
   }
