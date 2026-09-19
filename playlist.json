@@ -24,15 +24,6 @@
     ]
   },
   {
-    "file": "Mylist/Alfa - Perlahan Kau Pergi [slow][cover].mp3",
-    "title": "Alfa - Perlahan Kau Pergi",
-    "artist": "",
-    "tags": [
-      "slow",
-      "cover"
-    ]
-  },
-  {
     "file": "Mylist/Angga Ramadhan - Jiwa Yang Bersedih [pop][cover].mp3",
     "title": "Angga Ramadhan - Jiwa Yang Bersedih",
     "artist": "",
@@ -42,12 +33,11 @@
     ]
   },
   {
-    "file": "Mylist/Anggi Marito - Tak Segampang Itu [Cover][poprock][pop].mp3",
+    "file": "Mylist/Anggi Marito - Tak Segampang Itu [Cover][pop].mp3",
     "title": "Anggi Marito - Tak Segampang Itu",
     "artist": "",
     "tags": [
       "cover",
-      "poprock",
       "pop"
     ]
   },
@@ -286,6 +276,14 @@
     "artist": "",
     "tags": [
       "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Dash Uciha - Merindukanmu [pop].mp3",
+    "title": "Dash Uciha - Merindukanmu",
+    "artist": "",
+    "tags": [
+      "pop"
     ]
   },
   {
@@ -925,6 +923,14 @@
   {
     "file": "Mylist/ST12 - Putri Iklan [pop].mp3",
     "title": "ST12 - Putri Iklan",
+    "artist": "",
+    "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Taylor Swift - Blank Space [pop].mp3",
+    "title": "Taylor Swift - Blank Space",
     "artist": "",
     "tags": [
       "pop"
