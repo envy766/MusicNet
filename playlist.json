@@ -1,5 +1,13 @@
 [
   {
+    "file": "Mylist/Aku Jeje - Taman Bunga [slow].mp3",
+    "title": "Aku Jeje - Taman Bunga",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
     "file": "Mylist/Alan Walker - Alone [pop].mp3",
     "title": "Alan Walker - Alone",
     "artist": "",
@@ -797,6 +805,15 @@
     "title": "Rizky Febian Feat Adrian Khalif - Alamak",
     "artist": "",
     "tags": [
+      "pop"
+    ]
+  },
+  {
+    "file": "Mylist/Rony Parulian - Mengapa [slow][pop].mp3",
+    "title": "Rony Parulian - Mengapa",
+    "artist": "",
+    "tags": [
+      "slow",
       "pop"
     ]
   },
