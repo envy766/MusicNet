@@ -32,21 +32,23 @@
     ]
   },
   {
-    "file": "Mylist/Angga Ramadhan - Jiwa Yang Bersedih [pop][cover].mp3",
+    "file": "Mylist/Angga Ramadhan - Jiwa Yang Bersedih [pop][cover][slow].mp3",
     "title": "Angga Ramadhan - Jiwa Yang Bersedih",
     "artist": "",
     "tags": [
       "pop",
-      "cover"
+      "cover",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Anggi Marito - Tak Segampang Itu [Cover][pop].mp3",
+    "file": "Mylist/Anggi Marito - Tak Segampang Itu [Cover][pop][slow].mp3",
     "title": "Anggi Marito - Tak Segampang Itu",
     "artist": "",
     "tags": [
       "cover",
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
@@ -55,15 +57,6 @@
     "artist": "",
     "tags": [
       "slow"
-    ]
-  },
-  {
-    "file": "Mylist/Ardila Akbar - Cinta Terlarang [slow][cover].mp3",
-    "title": "Ardila Akbar - Cinta Terlarang",
-    "artist": "",
-    "tags": [
-      "slow",
-      "cover"
     ]
   },
   {
@@ -83,27 +76,30 @@
     ]
   },
   {
-    "file": "Mylist/Armada - Apa Kabar Sayang [pop].mp3",
+    "file": "Mylist/Armada - Apa Kabar Sayang [pop][slow].mp3",
     "title": "Armada - Apa Kabar Sayang",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Armada - Asal Kau Bahagia [pop].mp3",
+    "file": "Mylist/Armada - Asal Kau Bahagia [pop][slow].mp3",
     "title": "Armada - Asal Kau Bahagia",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Armada - Hargai Aku [pop].mp3",
+    "file": "Mylist/Armada - Hargai Aku [pop][slow].mp3",
     "title": "Armada - Hargai Aku",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
@@ -116,24 +112,34 @@
     ]
   },
   {
-    "file": "Mylist/Armada - Pemilik Hati [pop].mp3",
+    "file": "Mylist/Armada - Pemilik Hati [pop][slow].mp3",
     "title": "Armada - Pemilik Hati",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Armada - Pergi Pagi Pulang Pagi [pop].mp3",
+    "file": "Mylist/Armada - Pergi Pagi Pulang Pagi [pop][slow].mp3",
     "title": "Armada - Pergi Pagi Pulang Pagi",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
     "file": "Mylist/Arvian Dwi - Ajarkan Aku [slow].mp3",
     "title": "Arvian Dwi - Ajarkan Aku",
+    "artist": "",
+    "tags": [
+      "slow"
+    ]
+  },
+  {
+    "file": "Mylist/Arvian Dwi - Bintang yang Hilang[slow].mp3",
+    "title": "Arvian Dwi - Bintang yang Hilang",
     "artist": "",
     "tags": [
       "slow"
@@ -191,14 +197,6 @@
     ]
   },
   {
-    "file": "Mylist/Bian gindas - Ku Bisa Merindu [slow].mp3",
-    "title": "Bian gindas - Ku Bisa Merindu",
-    "artist": "",
-    "tags": [
-      "slow"
-    ]
-  },
-  {
     "file": "Mylist/Bondan Prakoso & Fade2Black - RIP (Rhyme_In_Peace) [pop].mp3",
     "title": "Bondan Prakoso & Fade2Black - RIP (Rhyme_In_Peace)",
     "artist": "",
@@ -239,11 +237,12 @@
     ]
   },
   {
-    "file": "Mylist/Celine Dion - My Heart Will Go On [slow].mp3",
+    "file": "Mylist/Celine Dion - My Heart Will Go On [slow][pop].mp3",
     "title": "Celine Dion - My Heart Will Go On",
     "artist": "",
     "tags": [
-      "slow"
+      "slow",
+      "pop"
     ]
   },
   {
@@ -255,19 +254,21 @@
     ]
   },
   {
-    "file": "Mylist/Christina Perri - A Thousand Years [slow].mp3",
+    "file": "Mylist/Christina Perri - A Thousand Years [slow][pop].mp3",
     "title": "Christina Perri - A Thousand Years",
     "artist": "",
     "tags": [
-      "slow"
+      "slow",
+      "pop"
     ]
   },
   {
-    "file": "Mylist/Christina Perri - A Thousand Years (Remake) [slow].mp3",
+    "file": "Mylist/Christina Perri - A Thousand Years (Remake) [slow][pop].mp3",
     "title": "Christina Perri - A Thousand Years (Remake)",
     "artist": "",
     "tags": [
-      "slow"
+      "slow",
+      "pop"
     ]
   },
   {
@@ -279,19 +280,12 @@
     ]
   },
   {
-    "file": "Mylist/Cut Rani - Salahmu Sendiri [slow].mp3",
-    "title": "Cut Rani - Salahmu Sendiri",
-    "artist": "",
-    "tags": [
-      "slow"
-    ]
-  },
-  {
-    "file": "Mylist/Dash Uciha - Merindukanmu [pop].mp3",
+    "file": "Mylist/Dash Uciha - Merindukanmu [pop][slow].mp3",
     "title": "Dash Uciha - Merindukanmu",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
@@ -435,15 +429,6 @@
     ]
   },
   {
-    "file": "Mylist/Indah Yastami - Harga Diriku [Cover][pop].mp3",
-    "title": "Indah Yastami - Harga Diriku",
-    "artist": "",
-    "tags": [
-      "cover",
-      "pop"
-    ]
-  },
-  {
     "file": "Mylist/Ipank - Harok Di Rantau Urang [slow].mp3",
     "title": "Ipank - Harok Di Rantau Urang",
     "artist": "",
@@ -485,60 +470,57 @@
     ]
   },
   {
-    "file": "Mylist/Last Child - Bernafas Tanpamu [pop].mp3",
+    "file": "Mylist/Last Child - Bernafas Tanpamu [pop][slow].mp3",
     "title": "Last Child - Bernafas Tanpamu",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Last Child - Diary Depresiku [pop].mp3",
+    "file": "Mylist/Last Child - Diary Depresiku [pop][slow].mp3",
     "title": "Last Child - Diary Depresiku",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Last Child - Surat Cinta Untuk Starla [pop].mp3",
+    "file": "Mylist/Last Child - Surat Cinta Untuk Starla [pop][slow].mp3",
     "title": "Last Child - Surat Cinta Untuk Starla",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Last Child - Tak Pernah Ternilai [pop].mp3",
+    "file": "Mylist/Last Child - Tak Pernah Ternilai [pop][slow].mp3",
     "title": "Last Child - Tak Pernah Ternilai",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Last Child Feat Audy - Selamat Tinggal [pop].mp3",
+    "file": "Mylist/Last Child Feat Audy - Selamat Tinggal [pop][slow].mp3",
     "title": "Last Child Feat Audy - Selamat Tinggal",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Last Child Feat Giselle - Seluruh Nafas Ini [pop].mp3",
+    "file": "Mylist/Last Child Feat Giselle - Seluruh Nafas Ini [pop][slow].mp3",
     "title": "Last Child Feat Giselle - Seluruh Nafas Ini",
     "artist": "",
     "tags": [
-      "pop"
-    ]
-  },
-  {
-    "file": "Mylist/Lavina - Pilihan Hatiku [slow][pop].mp3",
-    "title": "Lavina - Pilihan Hatiku",
-    "artist": "",
-    "tags": [
-      "slow",
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
@@ -639,11 +621,10 @@
     ]
   },
   {
-    "file": "Mylist/Nazia Marwiana - Antara Nyaman & Cinta [pop][slow].mp3",
+    "file": "Mylist/Nazia Marwiana - Antara Nyaman & Cinta [slow].mp3",
     "title": "Nazia Marwiana - Antara Nyaman & Cinta",
     "artist": "",
     "tags": [
-      "pop",
       "slow"
     ]
   },
@@ -712,59 +693,66 @@
     ]
   },
   {
-    "file": "Mylist/Peterpan - Bintang Di Surga [pop].mp3",
+    "file": "Mylist/Peterpan - Bintang Di Surga [pop][slow].mp3",
     "title": "Peterpan - Bintang Di Surga",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Peterpan - Cobalah Mengerti [pop].mp3",
+    "file": "Mylist/Peterpan - Cobalah Mengerti [pop][slow].mp3",
     "title": "Peterpan - Cobalah Mengerti",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Peterpan - Ku Katakan Dengan Indah [pop].mp3",
+    "file": "Mylist/Peterpan - Ku Katakan Dengan Indah [pop][slow].mp3",
     "title": "Peterpan - Ku Katakan Dengan Indah",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Peterpan - Menghapus Jejakmu [pop].mp3",
+    "file": "Mylist/Peterpan - Menghapus Jejakmu [pop][slow].mp3",
     "title": "Peterpan - Menghapus Jejakmu",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Peterpan - Mimpi Yang Sempurna [pop].mp3",
+    "file": "Mylist/Peterpan - Mimpi Yang Sempurna [pop][slow].mp3",
     "title": "Peterpan - Mimpi Yang Sempurna",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Peterpan - Semua Tentang Kita [pop].mp3",
+    "file": "Mylist/Peterpan - Semua Tentang Kita [pop][slow].mp3",
     "title": "Peterpan - Semua Tentang Kita",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Peterpan - Yang Terdalam [pop].mp3",
+    "file": "Mylist/Peterpan - Yang Terdalam [pop][slow].mp3",
     "title": "Peterpan - Yang Terdalam",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
@@ -792,29 +780,20 @@
     ]
   },
   {
-    "file": "Mylist/Regita Echa - Dear God [slow][cover].mp3",
-    "title": "Regita Echa - Dear God",
-    "artist": "",
-    "tags": [
-      "slow",
-      "cover"
-    ]
-  },
-  {
-    "file": "Mylist/Rizky Febian Feat Adrian Khalif - Alamak [pop].mp3",
+    "file": "Mylist/Rizky Febian Feat Adrian Khalif - Alamak [pop][slow].mp3",
     "title": "Rizky Febian Feat Adrian Khalif - Alamak",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/Rony Parulian - Mengapa [slow][pop].mp3",
+    "file": "Mylist/Rony Parulian - Mengapa [slow].mp3",
     "title": "Rony Parulian - Mengapa",
     "artist": "",
     "tags": [
-      "slow",
-      "pop"
+      "slow"
     ]
   },
   {
@@ -914,35 +893,39 @@
     ]
   },
   {
-    "file": "Mylist/ST12 - Aku Masih Sayang [pop].mp3",
+    "file": "Mylist/ST12 - Aku Masih Sayang [pop][slow].mp3",
     "title": "ST12 - Aku Masih Sayang",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/ST12 - Dunia Pasti Berputar [pop].mp3",
+    "file": "Mylist/ST12 - Dunia Pasti Berputar [pop][slow].mp3",
     "title": "ST12 - Dunia Pasti Berputar",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/ST12 - Kebesaranmu [pop].mp3",
+    "file": "Mylist/ST12 - Kebesaranmu [pop][slow].mp3",
     "title": "ST12 - Kebesaranmu",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
-    "file": "Mylist/ST12 - Putri Iklan [pop].mp3",
+    "file": "Mylist/ST12 - Putri Iklan [pop][slow].mp3",
     "title": "ST12 - Putri Iklan",
     "artist": "",
     "tags": [
-      "pop"
+      "pop",
+      "slow"
     ]
   },
   {
@@ -1034,14 +1017,6 @@
     ]
   },
   {
-    "file": "Mylist/Unknown - DJ Today Is The Day [breakbeat].mp3",
-    "title": "Unknown - DJ Today Is The Day",
-    "artist": "",
-    "tags": [
-      "breakbeat"
-    ]
-  },
-  {
     "file": "Mylist/Unknown - DJ Ya Odna x The Drump [breakbeat].mp3",
     "title": "Unknown - DJ Ya Odna x The Drump",
     "artist": "",
@@ -1074,30 +1049,27 @@
     ]
   },
   {
-    "file": "Mylist/Wali Band - Harga Diriku [pop][slow].mp3",
+    "file": "Mylist/Wali Band - Harga Diriku [slow].mp3",
     "title": "Wali Band - Harga Diriku",
     "artist": "",
     "tags": [
-      "pop",
       "slow"
     ]
   },
   {
-    "file": "Mylist/Wali Band - Sayang Lahir Batin [pop][slow].mp3",
+    "file": "Mylist/Wali Band - Sayang Lahir Batin [slow].mp3",
     "title": "Wali Band - Sayang Lahir Batin",
     "artist": "",
     "tags": [
-      "pop",
       "slow"
     ]
   },
   {
-    "file": "Mylist/Wali Band - Takkan Pisah [slow][pop].mp3",
+    "file": "Mylist/Wali Band - Takkan Pisah [slow].mp3",
     "title": "Wali Band - Takkan Pisah",
     "artist": "",
     "tags": [
-      "slow",
-      "pop"
+      "slow"
     ]
   },
   {
