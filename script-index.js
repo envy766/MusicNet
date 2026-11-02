@@ -260,7 +260,7 @@ let showFavOnly = false;
 let visInterval = null;
 
 const ALLOWED_GENRES =
-  ['pop', 'poprock', 'slow', 'breakbeat', 'cover'];
+  ['pop', 'poprock', 'slow', 'breakbeat', 'cover', 'vibes', 'local'];
 
 let selectedGenres = [];
 
